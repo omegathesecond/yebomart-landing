@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YeboMart — Shop Management for Eswatini</title>
+  <meta name="description" content="Know where your money goes. Track every sale, every product, every cent. Shop management built for Eswatini businesses.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-950 text-white antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🛒</span>
+        <span class="text-xl font-bold">YeboMart</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#problems" class="text-gray-400 hover:text-white transition">Why YeboMart</a>
+        <a href="#features" class="text-gray-400 hover:text-white transition">Features</a>
+        <a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a>
+      </div>
+      <a href="#contact" class="bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-lg font-medium transition">
+        Get Started
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-700 rounded-full px-4 py-2 mb-6">
+          <span class="text-lg">🤖</span>
+          <span class="text-sm text-purple-300">Powered by AI</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          AI-Powered<br>
+          <span class="text-brand-400">Shop Management</span>
+        </h1>
+        
+        <p class="text-xl text-gray-400 mb-10">
+          Your AI assistant tracks sales, predicts stock needs, catches theft, and sends you daily insights. 
+          Run your shop smarter — not harder.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#contact" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 px-8 py-4 rounded-xl font-semibold text-lg transition">
+            Start Free Trial
+          </a>
+          <a href="tel:+26878422613" class="w-full sm:w-auto border border-gray-700 hover:border-gray-600 px-8 py-4 rounded-xl font-semibold text-lg transition">
+            Call +268 7842 2613
+          </a>
+        </div>
+        
+        <p class="text-gray-500 text-sm mt-6">Works on phone, tablet, or computer • Works offline • 24/7 support</p>
+      </div>
+      
+      <!-- AI Chat Preview -->
+      <div class="mt-12 max-w-2xl mx-auto">
+        <div class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
+          <div class="bg-gray-800/50 px-4 py-3 flex items-center gap-3 border-b border-gray-700">
+            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">🤖</div>
+            <div>
+              <div class="font-medium text-sm">Your AI Assistant</div>
+              <div class="text-xs text-gray-400">Always watching your business</div>
+            </div>
+          </div>
+          <div class="p-4 space-y-3">
+            <div class="flex gap-3">
+              <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center shrink-0">🤖</div>
+              <div class="bg-gray-800 rounded-2xl rounded-tl-none p-3 max-w-md">
+                <p class="text-sm">Good morning! Here's your shop update:</p>
+                <p class="text-sm mt-2">📈 Yesterday you made <strong class="text-brand-400">E4,250</strong> — up 15% from last week</p>
+                <p class="text-sm mt-1">⚠️ <strong class="text-amber-400">Bread and Milk</strong> running low — I suggest ordering today</p>
+                <p class="text-sm mt-1">🔍 I noticed <strong class="text-red-400">3 cash discrepancies</strong> on Tuesday. Want me to show you the details?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section id="problems" class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Sound Familiar?</h2>
+        <p class="text-xl text-gray-400">Every shop owner in Eswatini knows these problems</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">😤</div>
+          <h3 class="text-lg font-bold mb-2">"End of day, cash doesn't match"</h3>
+          <p class="text-gray-400">Sales are happening but money is missing. You know something is wrong but can't prove it.</p>
+        </div>
+        
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">😩</div>
+          <h3 class="text-lg font-bold mb-2">"I can't leave my shop for one day"</h3>
+          <p class="text-gray-400">No visibility when you're away. Miss family events. Take a sick day and lose money.</p>
+        </div>
+        
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">🤦</div>
+          <h3 class="text-lg font-bold mb-2">"Always out of bread, stuck with rice"</h3>
+          <p class="text-gray-400">Run out of what sells fast. Slow products take up space and money for months.</p>
+        </div>
+        
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">📝</div>
+          <h3 class="text-lg font-bold mb-2">"Counting stock takes forever"</h3>
+          <p class="text-gray-400">Paper records get lost. Manual counting wastes entire weekends. Mistakes cost money.</p>
+        </div>
+        
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">🤷</div>
+          <h3 class="text-lg font-bold mb-2">"Am I even making profit?"</h3>
+          <p class="text-gray-400">Work 16 hours a day but don't know if you're making money or losing it.</p>
+        </div>
+        
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <div class="text-3xl mb-4">😰</div>
+          <h3 class="text-lg font-bold mb-2">"I think staff are stealing"</h3>
+          <p class="text-gray-400">Products disappear. No way to track who sold what. No accountability.</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-2xl font-bold text-brand-400">YeboMart AI fixes all of this.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-700 rounded-full px-4 py-2 mb-6">
+          <span class="text-lg">🤖</span>
+          <span class="text-sm text-purple-300">AI That Works For You 24/7</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Shop Gets Its Own Brain</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">While you sleep, our AI watches your business. It learns your patterns, catches problems, and tells you what to do next.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
+          <div class="text-3xl mb-4">🔮</div>
+          <h3 class="text-lg font-bold mb-2">Predicts Stock Needs</h3>
+          <p class="text-gray-400 text-sm">"Order 50 loaves of bread by Thursday — school holidays start Monday and you'll sell 40% more."</p>
+        </div>
+        
+        <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
+          <div class="text-3xl mb-4">🚨</div>
+          <h3 class="text-lg font-bold mb-2">Catches Theft</h3>
+          <p class="text-gray-400 text-sm">"Cash is E340 short today. 3 transactions had no receipt printed. Sipho was on shift."</p>
+        </div>
+        
+        <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
+          <div class="text-3xl mb-4">📊</div>
+          <h3 class="text-lg font-bold mb-2">Finds Hidden Profit</h3>
+          <p class="text-gray-400 text-sm">"Your margin on Simba Chips is only 5%. Competitors charge E2 more. You're leaving E3,000/month on the table."</p>
+        </div>
+        
+        <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
+          <div class="text-3xl mb-4">💬</div>
+          <h3 class="text-lg font-bold mb-2">Daily WhatsApp Briefing</h3>
+          <p class="text-gray-400 text-sm">"Every evening at 6pm, get a summary of your day. Sales, issues, what to do tomorrow."</p>
+        </div>
+      </div>
+      
+      <!-- Voice Feature Highlight -->
+      <div class="mt-8 bg-gradient-to-r from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+        <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center text-4xl shrink-0 animate-pulse">
+          🎤
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-2">Hands Busy? Just Talk.</h3>
+          <p class="text-gray-400">Stocking shelves? Helping a customer? Just tap the mic and speak: <em class="text-purple-300">"Hey, how many Cokes do I have left?"</em> — Your AI responds instantly. Works in English and siSwati.</p>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-gray-900 rounded-2xl border border-gray-800 p-8">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-bold mb-4">Ask Your AI Anything</h3>
+            <p class="text-gray-400 mb-6">Type or just speak — your AI understands both. Talk to it like you'd talk to your manager.</p>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="flex items-center gap-2 bg-gray-800 rounded-full px-4 py-2">
+                <span class="text-brand-400">⌨️</span>
+                <span class="text-sm">Type</span>
+              </div>
+              <div class="flex items-center gap-2 bg-purple-900/50 border border-purple-700 rounded-full px-4 py-2">
+                <span class="text-purple-400">🎤</span>
+                <span class="text-sm">Voice</span>
+              </div>
+              <div class="flex items-center gap-2 bg-gray-800 rounded-full px-4 py-2">
+                <span class="text-green-400">💬</span>
+                <span class="text-sm">WhatsApp</span>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-gray-800 rounded-lg p-3 text-sm">
+                <span class="text-gray-400">"What's my best selling product this month?"</span>
+              </div>
+              <div class="bg-gray-800 rounded-lg p-3 text-sm">
+                <span class="text-gray-400">"Why did sales drop last Tuesday?"</span>
+              </div>
+              <div class="bg-gray-800 rounded-lg p-3 text-sm">
+                <span class="text-gray-400">"Which staff member sells the most?"</span>
+              </div>
+              <div class="bg-gray-800 rounded-lg p-3 text-sm">
+                <span class="text-gray-400">"What should I order this week?"</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-800 rounded-xl p-4">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-sm">You</div>
+              <div class="bg-gray-700 rounded-2xl rounded-tl-none p-3 text-sm">
+                What should I order this week?
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">🤖</div>
+              <div class="bg-purple-900/50 border border-purple-800 rounded-2xl rounded-tl-none p-3 text-sm">
+                <p>Based on your sales patterns and current stock:</p>
+                <ul class="mt-2 space-y-1">
+                  <li>🍞 <strong>Bread:</strong> Order 100 (you sell ~20/day, only 15 left)</li>
+                  <li>🥛 <strong>Milk:</strong> Order 48 (selling fast, 3 days supply left)</li>
+                  <li>🥚 <strong>Eggs:</strong> Skip this week (overstocked by 30%)</li>
+                </ul>
+                <p class="mt-2 text-gray-400">Shall I create this as a purchase order?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="features" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Run Your Shop With Confidence</h2>
+        <p class="text-xl text-gray-400">Simple tools that solve real problems</p>
+      </div>
+      
+      <div class="space-y-20">
+        <!-- Solution 1 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="text-sm text-brand-400 font-semibold mb-2">EVERY CENT TRACKED</div>
+            <h3 class="text-3xl font-bold mb-4">Know Where Your Money Goes</h3>
+            <p class="text-xl text-gray-400 mb-6">
+              Every sale is recorded automatically. Cash matches the register. 
+              See exactly how much you made today, this week, this month.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Every transaction recorded with time and staff member</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Daily, weekly, monthly profit reports</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Know your real margins on every product</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+            <div class="text-sm text-gray-500 mb-4">Today's Summary</div>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-400">Total Sales</span>
+                <span class="text-2xl font-bold">E 4,250</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-400">Transactions</span>
+                <span class="text-2xl font-bold">47</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-400">Profit</span>
+                <span class="text-2xl font-bold text-brand-400">E 890</span>
+              </div>
+              <div class="border-t border-gray-700 pt-4">
+                <div class="text-sm text-gray-500">Cash in Register</div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xl font-bold">E 4,250</span>
+                  <span class="text-brand-400 text-sm">✓ Matches</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Solution 2 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 bg-gray-800 rounded-2xl p-6 border border-gray-700">
+            <div class="text-sm text-gray-500 mb-4">Live Shop View</div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>Thandi</span>
+                </div>
+                <span class="text-sm text-gray-400">Last sale: 2 min ago</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>Sipho</span>
+                </div>
+                <span class="text-sm text-gray-400">Last sale: 5 min ago</span>
+              </div>
+              <div class="border-t border-gray-700 pt-3 mt-3">
+                <div class="text-sm text-gray-400">📱 You're at home but you see everything</div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="text-sm text-brand-400 font-semibold mb-2">PEACE OF MIND</div>
+            <h3 class="text-3xl font-bold mb-4">Leave Your Shop Without Worry</h3>
+            <p class="text-xl text-gray-400 mb-6">
+              See what's happening from anywhere. Your phone shows you live sales, 
+              who's working, and alerts you if something looks wrong.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>See every sale as it happens, from anywhere</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Get alerts for unusual activity</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Daily WhatsApp summary every evening</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Solution 3 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="text-sm text-brand-400 font-semibold mb-2">SMART STOCK</div>
+            <h3 class="text-3xl font-bold mb-4">Never Run Out of What Sells</h3>
+            <p class="text-xl text-gray-400 mb-6">
+              Know exactly what's in stock. Get alerts before you run out. 
+              See what's selling fast and what's just sitting there.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Automatic stock updates with every sale</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Low stock alerts before you run out</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>See best sellers and slow movers</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+            <div class="text-sm text-gray-500 mb-4">Stock Alerts</div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-red-900/30 border border-red-800 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <span>🍞</span>
+                  <span>White Bread</span>
+                </div>
+                <span class="text-red-400 font-medium">Only 3 left!</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-amber-900/30 border border-amber-800 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <span>🥛</span>
+                  <span>Fresh Milk</span>
+                </div>
+                <span class="text-amber-400 font-medium">8 left</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <span>🍚</span>
+                  <span>Rice 10kg</span>
+                </div>
+                <span class="text-gray-400">45 in stock ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Solution 4 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 bg-gray-800 rounded-2xl p-6 border border-gray-700">
+            <div class="text-sm text-gray-500 mb-4">Staff Activity Log</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-3 p-2 bg-gray-900 rounded">
+                <span class="text-gray-500">14:32</span>
+                <span>Thandi</span>
+                <span class="text-gray-400">sold Bread, Milk, Eggs</span>
+                <span class="text-brand-400 ml-auto">E67.50</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 bg-gray-900 rounded">
+                <span class="text-gray-500">14:28</span>
+                <span>Sipho</span>
+                <span class="text-gray-400">sold Airtime</span>
+                <span class="text-brand-400 ml-auto">E50.00</span>
+              </div>
+              <div class="flex items-center gap-3 p-2 bg-gray-900 rounded">
+                <span class="text-gray-500">14:15</span>
+                <span>Thandi</span>
+                <span class="text-gray-400">sold Coca-Cola x3</span>
+                <span class="text-brand-400 ml-auto">E45.00</span>
+              </div>
+              <div class="border-t border-gray-700 pt-2 mt-2">
+                <span class="text-gray-400">Every sale tied to a person. Full accountability.</span>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="text-sm text-brand-400 font-semibold mb-2">ACCOUNTABILITY</div>
+            <h3 class="text-3xl font-bold mb-4">Know Who Sold What, When</h3>
+            <p class="text-xl text-gray-400 mb-6">
+              Every transaction is tied to a staff member. If something doesn't add up, 
+              you'll know exactly who was responsible.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Each staff has their own login</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Full activity log for every sale</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="text-brand-400">✓</span>
+                <span>Discrepancy alerts sent to your phone</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Easy Setup Section -->
+  <section class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Start in 5 Minutes</h2>
+        <p class="text-xl text-gray-400">No expensive hardware. No IT guy. Just download and go.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-brand-900/50 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">1</div>
+          <h3 class="font-bold mb-2">Download the App</h3>
+          <p class="text-gray-400">Works on any phone, tablet, or computer you already have.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-brand-900/50 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">2</div>
+          <h3 class="font-bold mb-2">Add Your Products</h3>
+          <p class="text-gray-400">Scan barcodes or type them in. We help with pricing suggestions.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-brand-900/50 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">3</div>
+          <h3 class="font-bold mb-2">Start Selling</h3>
+          <p class="text-gray-400">Make your first sale. Everything is tracked from day one.</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-gray-400 mb-4">Works even when the internet is down. 24/7 WhatsApp support.</p>
+        <a href="#contact" class="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 font-medium">
+          Talk to us on WhatsApp
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Pricing That Scales With You</h2>
+        <p class="text-xl text-gray-400">From tuck shops to supermarket chains. Pay for what you use.</p>
+      </div>
+      
+      <!-- Pricing Cards -->
+      <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+        <!-- Lite -->
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-1">Lite</h3>
+          <p class="text-sm text-gray-400 mb-4">Tuck shops</p>
+          <div class="mb-4">
+            <span class="text-3xl font-bold">E499</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="space-y-2 text-sm mb-6">
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 100 products
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 1 user
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 500 sales/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 100 stock moves/mo
+            </li>
+          </ul>
+          <a href="#contact" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+            Get Started
+          </a>
+        </div>
+        
+        <!-- Starter -->
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-1">Starter</h3>
+          <p class="text-sm text-gray-400 mb-4">Small shops</p>
+          <div class="mb-4">
+            <span class="text-3xl font-bold">E1,499</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="space-y-2 text-sm mb-6">
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 500 products
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 3 users
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 2,000 sales/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 500 stock moves/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> Barcode scanning
+            </li>
+          </ul>
+          <a href="#contact" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+            Get Started
+          </a>
+        </div>
+        
+        <!-- Business -->
+        <div class="bg-gradient-to-b from-brand-900/50 to-gray-800/50 border-2 border-brand-600 rounded-2xl p-6 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 px-3 py-0.5 rounded-full text-xs font-medium">
+            Popular
+          </div>
+          <h3 class="text-lg font-bold mb-1">Business</h3>
+          <p class="text-sm text-gray-400 mb-4">Superettes</p>
+          <div class="mb-4">
+            <span class="text-3xl font-bold">E3,999</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="space-y-2 text-sm mb-6">
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 2,500 products
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 10 users
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 10,000 sales/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 2,500 stock moves/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> WhatsApp reports
+            </li>
+          </ul>
+          <a href="#contact" class="block w-full text-center bg-brand-600 hover:bg-brand-500 py-2 rounded-lg text-sm font-medium transition">
+            Get Started
+          </a>
+        </div>
+        
+        <!-- Professional -->
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-1">Professional</h3>
+          <p class="text-sm text-gray-400 mb-4">Multi-store</p>
+          <div class="mb-4">
+            <span class="text-3xl font-bold">E7,999</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="space-y-2 text-sm mb-6">
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 10,000 products
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 25 users
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 3 locations
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 50,000 sales/mo
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> AI Assistant
+            </li>
+          </ul>
+          <a href="#contact" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+            Get Started
+          </a>
+        </div>
+        
+        <!-- Enterprise -->
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-1">Enterprise</h3>
+          <p class="text-sm text-gray-400 mb-4">Large chains</p>
+          <div class="mb-4">
+            <span class="text-3xl font-bold">E15,999</span>
+            <span class="text-gray-400 text-sm">/mo</span>
+          </div>
+          <ul class="space-y-2 text-sm mb-6">
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> Unlimited products
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> Unlimited users
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> 10+ locations
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> Unlimited sales
+            </li>
+            <li class="flex items-center gap-2 text-gray-300">
+              <span class="text-brand-400">•</span> Dedicated support
+            </li>
+          </ul>
+          <a href="#contact" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+      
+      <!-- Feature Comparison -->
+      <div class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden mb-12">
+        <div class="p-6 border-b border-gray-800">
+          <h3 class="text-xl font-bold">Compare Features</h3>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-800">
+                <th class="text-left p-4 text-gray-400 font-medium">Feature</th>
+                <th class="p-4 text-center">Lite</th>
+                <th class="p-4 text-center">Starter</th>
+                <th class="p-4 text-center bg-brand-900/20">Business</th>
+                <th class="p-4 text-center">Pro</th>
+                <th class="p-4 text-center">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-800">
+              <tr>
+                <td class="p-4 text-gray-300">Point of Sale</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Stock Management</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Basic Reports</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Barcode Scanning</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Low Stock Alerts</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Staff Accounts</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">WhatsApp Daily Reports</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Advanced Reports</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400 bg-brand-900/20">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">AI Assistant</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600 bg-brand-900/20">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Multi-Location</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600 bg-brand-900/20">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Accounting Module</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600 bg-brand-900/20">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">API Access</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600 bg-brand-900/20">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-gray-300">Dedicated Support</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-gray-600 bg-brand-900/20">—</td>
+                <td class="p-4 text-center text-gray-600">—</td>
+                <td class="p-4 text-center text-brand-400">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Need More? -->
+      <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 text-center">
+        <h3 class="text-xl font-bold mb-2">Need More?</h3>
+        <p class="text-gray-400 mb-6">Hit your limits? No problem. Buy extra capacity anytime.</p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <div class="bg-gray-900 rounded-lg px-4 py-3">
+            <span class="text-gray-400">Extra transaction:</span>
+            <span class="text-white font-medium ml-2">E0.10 each</span>
+          </div>
+          <div class="bg-gray-900 rounded-lg px-4 py-3">
+            <span class="text-gray-400">Extra stock movement:</span>
+            <span class="text-white font-medium ml-2">E0.50 each</span>
+          </div>
+          <div class="bg-gray-900 rounded-lg px-4 py-3">
+            <span class="text-gray-400">Extra 100 products:</span>
+            <span class="text-white font-medium ml-2">E99/month</span>
+          </div>
+          <div class="bg-gray-900 rounded-lg px-4 py-3">
+            <span class="text-gray-400">Extra user:</span>
+            <span class="text-white font-medium ml-2">E149/month</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-gray-400">All plans include: Free setup • Free training • 30-day money-back guarantee • 24/7 support</p>
+        <p class="text-gray-500 text-sm mt-2">Save 17% with annual billing. Prices in Eswatini Lilangeni (E).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-gray-900/50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Take Control?</h2>
+      <p class="text-xl text-gray-400 mb-10">Start your free trial today. We'll help you set everything up.</p>
+      
+      <div class="grid sm:grid-cols-2 gap-6 max-w-lg mx-auto">
+        <a href="https://wa.me/26878422613?text=Hi%2C%20I%27m%20interested%20in%20YeboMart%20for%20my%20shop" class="flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 px-8 py-4 rounded-xl font-semibold text-lg transition">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="tel:+26878422613" class="flex items-center justify-center gap-3 border border-gray-600 hover:border-gray-500 px-8 py-4 rounded-xl font-semibold text-lg transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          Call Now
+        </a>
+      </div>
+      
+      <p class="text-sm text-gray-500 mt-6">+268 7842 2613 • Available 24/7</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🛒</span>
+          <span class="text-xl font-bold">YeboMart</span>
+        </div>
+        
+        <p class="text-gray-400">Shop management made simple</p>
+        
+        <p class="text-gray-500 text-sm">© 2026 Omevision. Made in Eswatini 🇸🇿</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

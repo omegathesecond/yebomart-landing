@@ -32,6 +32,154 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Inter', sans-serif; }
+    
+    /* Country Picker Styles */
+    .country-picker-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      background: rgba(51, 65, 85, 0.5);
+      border: 1px solid rgb(71, 85, 105);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .country-picker-btn:hover {
+      background: rgba(71, 85, 105, 0.5);
+      border-color: rgb(100, 116, 139);
+    }
+    .country-picker-btn .flag {
+      font-size: 1.25rem;
+    }
+    .country-picker-btn .chevron {
+      width: 1rem;
+      height: 1rem;
+      color: rgb(148, 163, 184);
+      transition: transform 0.2s;
+    }
+    .country-picker-btn.open .chevron {
+      transform: rotate(180deg);
+    }
+    
+    /* Country Picker Modal */
+    .country-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .country-modal.open {
+      display: flex;
+      animation: fadeIn 0.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .country-modal-content {
+      width: 100%;
+      max-width: 28rem;
+      max-height: 85vh;
+      background: rgb(15, 23, 42);
+      border: 1px solid rgb(51, 65, 85);
+      border-radius: 1rem;
+      overflow: hidden;
+      animation: slideUp 0.2s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .country-modal-header {
+      padding: 1rem;
+      border-bottom: 1px solid rgb(51, 65, 85);
+      position: sticky;
+      top: 0;
+      background: rgb(15, 23, 42);
+      z-index: 10;
+    }
+    .country-search {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      background: rgb(30, 41, 59);
+      border: 1px solid rgb(51, 65, 85);
+      border-radius: 0.5rem;
+      color: white;
+      font-size: 0.875rem;
+    }
+    .country-search:focus {
+      outline: none;
+      border-color: rgb(245, 158, 11);
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+    }
+    .country-list {
+      max-height: calc(85vh - 120px);
+      overflow-y: auto;
+      padding: 0.5rem;
+    }
+    .region-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgb(148, 163, 184);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .country-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      border: 1px solid transparent;
+    }
+    .country-item:hover {
+      background: rgb(30, 41, 59);
+    }
+    .country-item.selected {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .country-item .flag {
+      font-size: 1.75rem;
+    }
+    .country-item .name {
+      font-weight: 500;
+      color: white;
+    }
+    .country-item.selected .name {
+      color: rgb(251, 191, 36);
+    }
+    .country-item .currency {
+      font-size: 0.75rem;
+      color: rgb(148, 163, 184);
+    }
+    .country-item .check {
+      margin-left: auto;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: rgb(245, 158, 11);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .country-item.selected .check {
+      display: flex;
+    }
+    
+    /* Price elements for dynamic update */
+    [data-price] {
+      transition: opacity 0.15s;
+    }
   </style>
 </head>
 <body class="bg-gray-950 text-white antialiased">
@@ -43,14 +191,24 @@
         <span class="text-xl font-bold">YeboMart</span>
       </div>
       <div class="hidden md:flex items-center gap-8">
-        <a href="#problems" class="text-gray-400 hover:text-white transition">Why YeboMart</a>
-        <a href="#features" class="text-gray-400 hover:text-white transition">Features</a>
-        <a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a>
-        <a href="#hardware" class="text-gray-400 hover:text-white transition">Hardware</a>
+        <a href="#problems" class="text-gray-400 hover:text-white transition" data-i18n="nav.why">Why YeboMart</a>
+        <a href="#features" class="text-gray-400 hover:text-white transition" data-i18n="nav.features">Features</a>
+        <a href="#pricing" class="text-gray-400 hover:text-white transition" data-i18n="nav.pricing">Pricing</a>
+        <a href="#hardware" class="text-gray-400 hover:text-white transition" data-i18n="nav.hardware">Hardware</a>
       </div>
-      <a href="https://app.yebomart.com" class="bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-lg font-medium transition">
-        Get Started
-      </a>
+      <div class="flex items-center gap-3">
+        <!-- Country Picker -->
+        <button id="country-picker-btn" class="country-picker-btn" aria-label="Select country">
+          <span class="flag" id="current-flag">🇸🇿</span>
+          <span class="hidden sm:inline text-sm text-gray-300" id="current-currency">SZL</span>
+          <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <a href="https://app.yebomart.com" class="bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-lg font-medium transition" data-i18n="nav.getStarted">
+          Get Started
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -538,7 +696,7 @@
           <h3 class="text-lg font-bold mb-1">Lite</h3>
           <p class="text-sm text-gray-400 mb-4">Tuck shops</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E499</span>
+            <span class="text-3xl font-bold" data-price="499">E499</span>
             <span class="text-gray-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
@@ -565,7 +723,7 @@
           <h3 class="text-lg font-bold mb-1">Starter</h3>
           <p class="text-sm text-gray-400 mb-4">Small shops</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E1,499</span>
+            <span class="text-3xl font-bold" data-price="1499">E1,499</span>
             <span class="text-gray-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
@@ -598,7 +756,7 @@
           <h3 class="text-lg font-bold mb-1">Business</h3>
           <p class="text-sm text-gray-400 mb-4">Superettes</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E3,999</span>
+            <span class="text-3xl font-bold" data-price="3999">E3,999</span>
             <span class="text-gray-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
@@ -628,7 +786,7 @@
           <h3 class="text-lg font-bold mb-1">Professional</h3>
           <p class="text-sm text-gray-400 mb-4">Multi-store</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E7,999</span>
+            <span class="text-3xl font-bold" data-price="7999">E7,999</span>
             <span class="text-gray-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
@@ -658,7 +816,7 @@
           <h3 class="text-lg font-bold mb-1">Enterprise</h3>
           <p class="text-sm text-gray-400 mb-4">Large chains</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E15,999</span>
+            <span class="text-3xl font-bold" data-price="15999">E15,999</span>
             <span class="text-gray-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
@@ -818,19 +976,19 @@
         <div class="flex flex-wrap justify-center gap-6 text-sm">
           <div class="bg-gray-900 rounded-lg px-4 py-3">
             <span class="text-gray-400">Extra transaction:</span>
-            <span class="text-white font-medium ml-2">E0.10 each</span>
+            <span class="text-white font-medium ml-2" data-price="0.10">E0.10</span> each
           </div>
           <div class="bg-gray-900 rounded-lg px-4 py-3">
             <span class="text-gray-400">Extra stock movement:</span>
-            <span class="text-white font-medium ml-2">E0.50 each</span>
+            <span class="text-white font-medium ml-2" data-price="0.50">E0.50</span> each
           </div>
           <div class="bg-gray-900 rounded-lg px-4 py-3">
             <span class="text-gray-400">Extra 100 products:</span>
-            <span class="text-white font-medium ml-2">E99/month</span>
+            <span class="text-white font-medium ml-2" data-price="99">E99</span>/month
           </div>
           <div class="bg-gray-900 rounded-lg px-4 py-3">
             <span class="text-gray-400">Extra user:</span>
-            <span class="text-white font-medium ml-2">E149/month</span>
+            <span class="text-white font-medium ml-2" data-price="149">E149</span>/month
           </div>
         </div>
       </div>
@@ -886,7 +1044,7 @@
           <h3 class="text-xl font-bold mb-1">Tuckshop Essential</h3>
           <p class="text-sm text-gray-400 mb-4">Small shops, 5-50 products</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold">E649</span>
+            <span class="text-3xl font-bold" data-price="649">E649</span>
             <span class="text-gray-500 text-sm"> once-off</span>
           </div>
           <ul class="space-y-2 text-sm mb-6 text-gray-300">
@@ -920,10 +1078,10 @@
           <h3 class="text-xl font-bold mb-1">Retail Pro</h3>
           <p class="text-sm text-gray-400 mb-4">Busy shops, 50-500 products</p>
           <div class="mb-1">
-            <span class="text-3xl font-bold">E3,499</span>
+            <span class="text-3xl font-bold" data-price="3499">E3,499</span>
             <span class="text-gray-500 text-sm"> once-off</span>
           </div>
-          <p class="text-xs text-amber-400 mb-4">or E349/month × 12</p>
+          <p class="text-xs text-amber-400 mb-4">or <span data-price="349">E349</span>/month × 12</p>
           <ul class="space-y-2 text-sm mb-6 text-gray-300">
             <li class="flex items-center gap-2">
               <span class="text-amber-400">✓</span> Premium Scanner
@@ -955,10 +1113,10 @@
           <h3 class="text-xl font-bold mb-1">Enterprise</h3>
           <p class="text-sm text-gray-400 mb-4">Supermarkets & chains</p>
           <div class="mb-1">
-            <span class="text-3xl font-bold">E10,999</span>
+            <span class="text-3xl font-bold" data-price="10999">E10,999</span>
             <span class="text-gray-500 text-sm"> once-off</span>
           </div>
-          <p class="text-xs text-gray-400 mb-4">or E999/month × 12</p>
+          <p class="text-xs text-gray-400 mb-4">or <span data-price="999">E999</span>/month × 12</p>
           <ul class="space-y-2 text-sm mb-6 text-gray-300">
             <li class="flex items-center gap-2">
               <span class="text-brand-400">✓</span> 2× Pro Scanners
@@ -1043,11 +1201,299 @@
           <span class="text-xl font-bold">YeboMart</span>
         </div>
         
-        <p class="text-gray-400">Shop management made simple</p>
+        <p class="text-gray-400" data-i18n="footer.tagline">Shop management made simple</p>
         
-        <p class="text-gray-500 text-sm">© 2026 Omevision. Made in Eswatini 🇸🇿</p>
+        <p class="text-gray-500 text-sm">© 2026 Omevision. <span data-i18n="footer.madeIn">Made in</span> <span id="footer-country">Eswatini 🇸🇿</span></p>
       </div>
     </div>
   </footer>
+
+  <!-- Country Picker Modal -->
+  <div id="country-modal" class="country-modal">
+    <div class="country-modal-content">
+      <div class="country-modal-header">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-bold text-white" data-i18n="countryPicker.title">Select Your Country</h3>
+          <button id="close-modal" class="p-2 hover:bg-slate-700 rounded-lg transition">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="relative">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" id="country-search" class="country-search" placeholder="Search countries..." data-i18n-placeholder="countryPicker.search">
+        </div>
+      </div>
+      <div id="country-list" class="country-list">
+        <!-- Countries will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Localization Script -->
+  <script>
+    // African Countries Data
+    const COUNTRIES = {
+      // Southern Africa
+      SZ: { name: 'Eswatini', nameFr: 'Eswatini', flag: '🇸🇿', currency: 'SZL', symbol: 'E', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
+      ZA: { name: 'South Africa', nameFr: 'Afrique du Sud', flag: '🇿🇦', currency: 'ZAR', symbol: 'R', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
+      BW: { name: 'Botswana', nameFr: 'Botswana', flag: '🇧🇼', currency: 'BWP', symbol: 'P', rate: 0.75, decimals: 2, region: 'southern', lang: 'en' },
+      ZM: { name: 'Zambia', nameFr: 'Zambie', flag: '🇿🇲', currency: 'ZMW', symbol: 'K', rate: 1.4, decimals: 2, region: 'southern', lang: 'en' },
+      ZW: { name: 'Zimbabwe', nameFr: 'Zimbabwe', flag: '🇿🇼', currency: 'USD', symbol: '$', rate: 0.055, decimals: 2, region: 'southern', lang: 'en' },
+      MZ: { name: 'Mozambique', nameFr: 'Mozambique', flag: '🇲🇿', currency: 'MZN', symbol: 'MT', rate: 3.5, decimals: 2, region: 'southern', lang: 'pt' },
+      MW: { name: 'Malawi', nameFr: 'Malawi', flag: '🇲🇼', currency: 'MWK', symbol: 'MK', rate: 95, decimals: 2, region: 'southern', lang: 'en' },
+      LS: { name: 'Lesotho', nameFr: 'Lesotho', flag: '🇱🇸', currency: 'LSL', symbol: 'L', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
+      NA: { name: 'Namibia', nameFr: 'Namibie', flag: '🇳🇦', currency: 'NAD', symbol: 'N$', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
+      // East Africa
+      KE: { name: 'Kenya', nameFr: 'Kenya', flag: '🇰🇪', currency: 'KES', symbol: 'KSh', rate: 7.2, decimals: 2, region: 'east', lang: 'en' },
+      TZ: { name: 'Tanzania', nameFr: 'Tanzanie', flag: '🇹🇿', currency: 'TZS', symbol: 'TSh', rate: 140, decimals: 0, region: 'east', lang: 'en' },
+      UG: { name: 'Uganda', nameFr: 'Ouganda', flag: '🇺🇬', currency: 'UGX', symbol: 'USh', rate: 210, decimals: 0, region: 'east', lang: 'en' },
+      RW: { name: 'Rwanda', nameFr: 'Rwanda', flag: '🇷🇼', currency: 'RWF', symbol: 'FRw', rate: 70, decimals: 0, region: 'east', lang: 'en' },
+      ET: { name: 'Ethiopia', nameFr: 'Éthiopie', flag: '🇪🇹', currency: 'ETB', symbol: 'Br', rate: 3.2, decimals: 2, region: 'east', lang: 'en' },
+      // West Africa
+      NG: { name: 'Nigeria', nameFr: 'Nigéria', flag: '🇳🇬', currency: 'NGN', symbol: '₦', rate: 85, decimals: 2, region: 'west', lang: 'en' },
+      GH: { name: 'Ghana', nameFr: 'Ghana', flag: '🇬🇭', currency: 'GHS', symbol: 'GH₵', rate: 0.7, decimals: 2, region: 'west', lang: 'en' },
+      SN: { name: 'Senegal', nameFr: 'Sénégal', flag: '🇸🇳', currency: 'XOF', symbol: 'CFA', rate: 34, decimals: 0, region: 'west', lang: 'fr' },
+      CI: { name: 'Ivory Coast', nameFr: "Côte d'Ivoire", flag: '🇨🇮', currency: 'XOF', symbol: 'CFA', rate: 34, decimals: 0, region: 'west', lang: 'fr' },
+      // Central Africa
+      CM: { name: 'Cameroon', nameFr: 'Cameroun', flag: '🇨🇲', currency: 'XAF', symbol: 'FCFA', rate: 34, decimals: 0, region: 'central', lang: 'fr' },
+      CD: { name: 'DR Congo', nameFr: 'RD Congo', flag: '🇨🇩', currency: 'CDF', symbol: 'FC', rate: 140, decimals: 2, region: 'central', lang: 'fr' },
+      // North Africa
+      MA: { name: 'Morocco', nameFr: 'Maroc', flag: '🇲🇦', currency: 'MAD', symbol: 'DH', rate: 0.55, decimals: 2, region: 'north', lang: 'fr' },
+      EG: { name: 'Egypt', nameFr: 'Égypte', flag: '🇪🇬', currency: 'EGP', symbol: 'E£', rate: 2.7, decimals: 2, region: 'north', lang: 'en' },
+    };
+
+    const REGIONS = {
+      southern: { en: 'Southern Africa', fr: 'Afrique Australe' },
+      east: { en: 'East Africa', fr: "Afrique de l'Est" },
+      west: { en: 'West Africa', fr: "Afrique de l'Ouest" },
+      central: { en: 'Central Africa', fr: 'Afrique Centrale' },
+      north: { en: 'North Africa', fr: 'Afrique du Nord' }
+    };
+
+    // Translations
+    const TRANSLATIONS = {
+      en: {
+        'nav.why': 'Why YeboMart',
+        'nav.features': 'Features',
+        'nav.pricing': 'Pricing',
+        'nav.hardware': 'Hardware',
+        'nav.getStarted': 'Get Started',
+        'hero.title1': 'AI-Powered',
+        'hero.title2': 'Shop Management',
+        'hero.subtitle': 'Your AI assistant tracks sales, predicts stock needs, catches theft, and sends you daily insights. Run your shop smarter — not harder.',
+        'hero.cta': 'Start Free Trial',
+        'countryPicker.title': 'Select Your Country',
+        'countryPicker.search': 'Search countries...',
+        'footer.tagline': 'Shop management made simple',
+        'footer.madeIn': 'Made in',
+        'pricing.title': 'Pricing That Scales With You',
+        'pricing.subtitle': 'Start free, upgrade when you grow. No contracts, cancel anytime.',
+        'pricing.perMonth': '/month'
+      },
+      fr: {
+        'nav.why': 'Pourquoi YeboMart',
+        'nav.features': 'Fonctionnalités',
+        'nav.pricing': 'Tarifs',
+        'nav.hardware': 'Matériel',
+        'nav.getStarted': 'Commencer',
+        'hero.title1': 'Gestion de Boutique',
+        'hero.title2': 'Alimentée par l\'IA',
+        'hero.subtitle': 'Votre assistant IA suit les ventes, prédit les besoins de stock, détecte les vols et vous envoie des informations quotidiennes. Gérez votre boutique plus intelligemment.',
+        'hero.cta': 'Essai Gratuit',
+        'countryPicker.title': 'Sélectionner votre pays',
+        'countryPicker.search': 'Rechercher des pays...',
+        'footer.tagline': 'La gestion de boutique simplifiée',
+        'footer.madeIn': 'Fait en',
+        'pricing.title': 'Des tarifs qui évoluent avec vous',
+        'pricing.subtitle': 'Commencez gratuitement, évoluez quand vous grandissez. Sans engagement.',
+        'pricing.perMonth': '/mois'
+      }
+    };
+
+    // Base prices in SZL (Eswatini Lilangeni)
+    const BASE_PRICES = {
+      lite: 499,
+      starter: 1499,
+      business: 3999,
+      pro: 7999,
+      enterprise: 15999,
+      labels: 0.10,
+      receipt: 0.50,
+      sms: 99,
+      whatsapp: 149,
+      scannerBasic: 649,
+      scannerPro: 3499,
+      fullSetup: 10999
+    };
+
+    // State
+    let currentCountry = localStorage.getItem('yebomart-country') || 'SZ';
+    let currentLang = COUNTRIES[currentCountry]?.lang || 'en';
+
+    // DOM Elements
+    const pickerBtn = document.getElementById('country-picker-btn');
+    const modal = document.getElementById('country-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const searchInput = document.getElementById('country-search');
+    const countryList = document.getElementById('country-list');
+    const currentFlag = document.getElementById('current-flag');
+    const currentCurrencyEl = document.getElementById('current-currency');
+
+    // Initialize
+    function init() {
+      renderCountryList();
+      updateUI();
+      
+      // Event listeners
+      pickerBtn.addEventListener('click', () => {
+        modal.classList.add('open');
+        pickerBtn.classList.add('open');
+        searchInput.focus();
+      });
+      
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      
+      searchInput.addEventListener('input', (e) => {
+        renderCountryList(e.target.value);
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      pickerBtn.classList.remove('open');
+      searchInput.value = '';
+      renderCountryList();
+    }
+
+    function renderCountryList(filter = '') {
+      const filterLower = filter.toLowerCase();
+      const lang = currentLang;
+      
+      let html = '';
+      const regionOrder = ['southern', 'east', 'west', 'central', 'north'];
+      
+      regionOrder.forEach(region => {
+        const regionCountries = Object.entries(COUNTRIES)
+          .filter(([code, c]) => c.region === region)
+          .filter(([code, c]) => {
+            if (!filter) return true;
+            const name = lang === 'fr' ? c.nameFr : c.name;
+            return name.toLowerCase().includes(filterLower) || 
+                   code.toLowerCase().includes(filterLower) ||
+                   c.currency.toLowerCase().includes(filterLower);
+          });
+        
+        if (regionCountries.length === 0) return;
+        
+        html += `<div class="region-header">${REGIONS[region][lang]}</div>`;
+        
+        regionCountries.forEach(([code, c]) => {
+          const name = lang === 'fr' ? c.nameFr : c.name;
+          const isSelected = code === currentCountry;
+          html += `
+            <div class="country-item ${isSelected ? 'selected' : ''}" data-code="${code}">
+              <span class="flag">${c.flag}</span>
+              <div>
+                <div class="name">${name}</div>
+                <div class="currency">${c.symbol} ${c.currency}</div>
+              </div>
+              <div class="check">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+            </div>
+          `;
+        });
+      });
+      
+      countryList.innerHTML = html || '<div class="p-4 text-center text-gray-400">No countries found</div>';
+      
+      // Add click listeners
+      countryList.querySelectorAll('.country-item').forEach(item => {
+        item.addEventListener('click', () => {
+          selectCountry(item.dataset.code);
+        });
+      });
+    }
+
+    function selectCountry(code) {
+      currentCountry = code;
+      currentLang = COUNTRIES[code].lang;
+      localStorage.setItem('yebomart-country', code);
+      localStorage.setItem('yebomart-language', currentLang);
+      updateUI();
+      closeModal();
+    }
+
+    function updateUI() {
+      const country = COUNTRIES[currentCountry];
+      
+      // Update picker button
+      currentFlag.textContent = country.flag;
+      currentCurrencyEl.textContent = country.currency;
+      
+      // Update footer
+      const footerCountry = document.getElementById('footer-country');
+      if (footerCountry) {
+        footerCountry.textContent = `${country.name} ${country.flag}`;
+      }
+      
+      // Update all prices
+      updatePrices();
+      
+      // Update translations
+      updateTranslations();
+      
+      // Re-render country list to update selection
+      renderCountryList();
+    }
+
+    function updatePrices() {
+      const country = COUNTRIES[currentCountry];
+      
+      document.querySelectorAll('[data-price]').forEach(el => {
+        const basePrice = parseFloat(el.dataset.price);
+        const convertedPrice = Math.round(basePrice * country.rate);
+        const formatted = formatPrice(convertedPrice, country);
+        el.textContent = formatted;
+      });
+    }
+
+    function formatPrice(amount, country) {
+      const formatted = country.decimals === 0 
+        ? Math.round(amount).toLocaleString()
+        : amount.toLocaleString(undefined, { minimumFractionDigits: country.decimals, maximumFractionDigits: country.decimals });
+      return `${country.symbol}${formatted}`;
+    }
+
+    function updateTranslations() {
+      const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+      });
+      
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (t[key]) el.placeholder = t[key];
+      });
+    }
+
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
 </body>
 </html>

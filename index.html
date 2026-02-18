@@ -258,7 +258,7 @@
               <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center shrink-0">🤖</div>
               <div class="bg-gray-800 rounded-2xl rounded-tl-none p-3 max-w-md">
                 <p class="text-sm">Good morning! Here's your shop update:</p>
-                <p class="text-sm mt-2">📈 Yesterday you made <strong class="text-brand-400">E4,250</strong> — up 15% from last week</p>
+                <p class="text-sm mt-2">📈 Yesterday you made <strong class="text-brand-400" data-price="4250">E4,250</strong> — up 15% from last week</p>
                 <p class="text-sm mt-1">⚠️ <strong class="text-amber-400">Bread and Milk</strong> running low — I suggest ordering today</p>
                 <p class="text-sm mt-1">🔍 I noticed <strong class="text-red-400">3 cash discrepancies</strong> on Tuesday. Want me to show you the details?</p>
               </div>
@@ -343,13 +343,13 @@
         <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
           <div class="text-3xl mb-4">🚨</div>
           <h3 class="text-lg font-bold mb-2">Catches Theft</h3>
-          <p class="text-gray-400 text-sm">"Cash is E340 short today. 3 transactions had no receipt printed. Sipho was on shift."</p>
+          <p class="text-gray-400 text-sm">"Cash is <span data-price="340">E340</span> short today. 3 transactions had no receipt printed. Sipho was on shift."</p>
         </div>
         
         <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
           <div class="text-3xl mb-4">📊</div>
           <h3 class="text-lg font-bold mb-2">Finds Hidden Profit</h3>
-          <p class="text-gray-400 text-sm">"Your margin on Simba Chips is only 5%. Competitors charge E2 more. You're leaving E3,000/month on the table."</p>
+          <p class="text-gray-400 text-sm">"Your margin on Simba Chips is only 5%. Competitors charge <span data-price="2">E2</span> more. You're leaving <span data-price="3000">E3,000</span>/month on the table."</p>
         </div>
         
         <div class="bg-gradient-to-b from-purple-900/30 to-gray-900 border border-purple-800/50 rounded-2xl p-6">
@@ -467,7 +467,7 @@
             <div class="space-y-4">
               <div class="flex justify-between items-center">
                 <span class="text-gray-400">Total Sales</span>
-                <span class="text-2xl font-bold">E 4,250</span>
+                <span class="text-2xl font-bold" data-price="4250">E 4,250</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-gray-400">Transactions</span>
@@ -475,12 +475,12 @@
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-gray-400">Profit</span>
-                <span class="text-2xl font-bold text-brand-400">E 890</span>
+                <span class="text-2xl font-bold text-brand-400" data-price="890">E 890</span>
               </div>
               <div class="border-t border-gray-700 pt-4">
                 <div class="text-sm text-gray-500">Cash in Register</div>
                 <div class="flex items-center gap-2">
-                  <span class="text-xl font-bold">E 4,250</span>
+                  <span class="text-xl font-bold" data-price="4250">E 4,250</span>
                   <span class="text-brand-400 text-sm">✓ Matches</span>
                 </div>
               </div>
@@ -597,19 +597,19 @@
                 <span class="text-gray-500">14:32</span>
                 <span>Thandi</span>
                 <span class="text-gray-400">sold Bread, Milk, Eggs</span>
-                <span class="text-brand-400 ml-auto">E67.50</span>
+                <span class="text-brand-400 ml-auto" data-price="67.50">E67.50</span>
               </div>
               <div class="flex items-center gap-3 p-2 bg-gray-900 rounded">
                 <span class="text-gray-500">14:28</span>
                 <span>Sipho</span>
                 <span class="text-gray-400">sold Airtime</span>
-                <span class="text-brand-400 ml-auto">E50.00</span>
+                <span class="text-brand-400 ml-auto" data-price="50">E50.00</span>
               </div>
               <div class="flex items-center gap-3 p-2 bg-gray-900 rounded">
                 <span class="text-gray-500">14:15</span>
                 <span>Thandi</span>
                 <span class="text-gray-400">sold Coca-Cola x3</span>
-                <span class="text-brand-400 ml-auto">E45.00</span>
+                <span class="text-brand-400 ml-auto" data-price="45">E45.00</span>
               </div>
               <div class="border-t border-gray-700 pt-2 mt-2">
                 <span class="text-gray-400">Every sale tied to a person. Full accountability.</span>
@@ -1333,6 +1333,33 @@
     // State
     let currentCountry = localStorage.getItem('yebomart-country') || 'SZ';
     let currentLang = COUNTRIES[currentCountry]?.lang || 'en';
+    let isAutoDetected = false;
+
+    // Auto-detect country via IP geolocation
+    async function autoDetectCountry() {
+      // Skip if user has manually selected a country before
+      if (localStorage.getItem('yebomart-country-manual')) return;
+      
+      try {
+        const response = await fetch('https://ipapi.co/json/', { timeout: 5000 });
+        if (!response.ok) return;
+        
+        const data = await response.json();
+        const detectedCode = data.country_code;
+        
+        // Only set if we support this country
+        if (detectedCode && COUNTRIES[detectedCode]) {
+          isAutoDetected = true;
+          currentCountry = detectedCode;
+          currentLang = COUNTRIES[detectedCode].lang;
+          localStorage.setItem('yebomart-country', detectedCode);
+          updateUI();
+          console.log('Auto-detected country:', detectedCode);
+        }
+      } catch (e) {
+        console.log('Could not auto-detect country:', e);
+      }
+    }
 
     // DOM Elements
     const pickerBtn = document.getElementById('country-picker-btn');
@@ -1347,6 +1374,9 @@
     function init() {
       renderCountryList();
       updateUI();
+      
+      // Try to auto-detect country on first visit
+      autoDetectCountry();
       
       // Event listeners
       pickerBtn.addEventListener('click', () => {
@@ -1432,6 +1462,7 @@
       currentCountry = code;
       currentLang = COUNTRIES[code].lang;
       localStorage.setItem('yebomart-country', code);
+      localStorage.setItem('yebomart-country-manual', 'true'); // Mark as manually selected
       localStorage.setItem('yebomart-language', currentLang);
       updateUI();
       closeModal();

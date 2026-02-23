@@ -689,15 +689,29 @@
         <p class="text-xl text-gray-400">From tuck shops to supermarket chains. Pay for what you use.</p>
       </div>
       
+      <!-- Launch Special Banner -->
+      <div class="mb-8 bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-600/50 rounded-2xl p-4 text-center">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+          <span class="text-2xl">🚀</span>
+          <span class="text-lg font-bold text-green-400">Launch Special — <span id="discount-percent">40</span>% OFF All Plans</span>
+          <span class="text-2xl">🚀</span>
+        </div>
+        <p class="text-sm text-green-300/80 mt-1">First 1,000 shops only. Lock in this price forever.</p>
+      </div>
+
       <!-- Pricing Cards -->
       <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
         <!-- Lite -->
-        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE <span class="tier-discount-pct">40</span>%</span>
+          </div>
           <h3 class="text-lg font-bold mb-1">Lite</h3>
-          <p class="text-sm text-gray-400 mb-4">Tuck shops</p>
+          <p class="text-sm text-gray-400 mb-3">Tuck shops</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold" data-price="299" data-tier="LITE">E299</span>
-            <span class="text-gray-400 text-sm">/mo</span>
+            <div class="text-sm text-gray-500 line-through" data-price="499" data-tier-original="LITE">E499</div>
+            <span class="text-3xl font-bold text-white" data-price="299" data-tier="LITE">E299</span>
+            <span class="text-green-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
             <li class="flex items-center gap-2 text-gray-300">
@@ -713,18 +727,22 @@
               <span class="text-brand-400">•</span> 100 stock moves/mo
             </li>
           </ul>
-          <a href="https://app.yebomart.com" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+          <a href="https://app.yebomart.com" class="block w-full text-center border border-green-600 text-green-400 hover:bg-green-600 hover:text-white py-2 rounded-lg text-sm font-medium transition">
             Get Started
           </a>
         </div>
         
         <!-- Starter -->
-        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE <span class="tier-discount-pct">40</span>%</span>
+          </div>
           <h3 class="text-lg font-bold mb-1">Starter</h3>
-          <p class="text-sm text-gray-400 mb-4">Small shops</p>
+          <p class="text-sm text-gray-400 mb-3">Small shops</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold" data-price="899" data-tier="STARTER">E899</span>
-            <span class="text-gray-400 text-sm">/mo</span>
+            <div class="text-sm text-gray-500 line-through" data-price="1499" data-tier-original="STARTER">E1,499</div>
+            <span class="text-3xl font-bold text-white" data-price="899" data-tier="STARTER">E899</span>
+            <span class="text-green-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
             <li class="flex items-center gap-2 text-gray-300">
@@ -743,21 +761,25 @@
               <span class="text-brand-400">•</span> Barcode scanning
             </li>
           </ul>
-          <a href="https://app.yebomart.com" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+          <a href="https://app.yebomart.com" class="block w-full text-center border border-green-600 text-green-400 hover:bg-green-600 hover:text-white py-2 rounded-lg text-sm font-medium transition">
             Get Started
           </a>
         </div>
         
         <!-- Business -->
-        <div class="bg-gradient-to-b from-brand-900/50 to-gray-800/50 border-2 border-brand-600 rounded-2xl p-6 relative">
+        <div class="bg-gradient-to-b from-brand-900/50 to-gray-800/50 border-2 border-brand-600 rounded-2xl p-6 relative overflow-hidden">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 px-3 py-0.5 rounded-full text-xs font-medium">
             Popular
           </div>
+          <div class="absolute top-3 right-3">
+            <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE <span class="tier-discount-pct">40</span>%</span>
+          </div>
           <h3 class="text-lg font-bold mb-1">Business</h3>
-          <p class="text-sm text-gray-400 mb-4">Superettes</p>
+          <p class="text-sm text-gray-400 mb-3">Superettes</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold" data-price="2499" data-tier="BUSINESS">E2,499</span>
-            <span class="text-gray-400 text-sm">/mo</span>
+            <div class="text-sm text-gray-500 line-through" data-price="3999" data-tier-original="BUSINESS">E3,999</div>
+            <span class="text-3xl font-bold text-white" data-price="2499" data-tier="BUSINESS">E2,499</span>
+            <span class="text-green-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
             <li class="flex items-center gap-2 text-gray-300">
@@ -782,12 +804,16 @@
         </div>
         
         <!-- Professional -->
-        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE <span class="tier-discount-pct">40</span>%</span>
+          </div>
           <h3 class="text-lg font-bold mb-1">Professional</h3>
-          <p class="text-sm text-gray-400 mb-4">Multi-store</p>
+          <p class="text-sm text-gray-400 mb-3">Multi-store</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold" data-price="4999" data-tier="PRO">E4,999</span>
-            <span class="text-gray-400 text-sm">/mo</span>
+            <div class="text-sm text-gray-500 line-through" data-price="7999" data-tier-original="PRO">E7,999</div>
+            <span class="text-3xl font-bold text-white" data-price="4999" data-tier="PRO">E4,999</span>
+            <span class="text-green-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
             <li class="flex items-center gap-2 text-gray-300">
@@ -806,18 +832,22 @@
               <span class="text-brand-400">•</span> AI Assistant
             </li>
           </ul>
-          <a href="https://app.yebomart.com" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+          <a href="https://app.yebomart.com" class="block w-full text-center border border-green-600 text-green-400 hover:bg-green-600 hover:text-white py-2 rounded-lg text-sm font-medium transition">
             Get Started
           </a>
         </div>
         
         <!-- Enterprise -->
-        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
+        <div class="bg-gray-800/50 border border-gray-700 rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">SAVE <span class="tier-discount-pct">40</span>%</span>
+          </div>
           <h3 class="text-lg font-bold mb-1">Enterprise</h3>
-          <p class="text-sm text-gray-400 mb-4">Large chains</p>
+          <p class="text-sm text-gray-400 mb-3">Large chains</p>
           <div class="mb-4">
-            <span class="text-3xl font-bold" data-price="9999" data-tier="ENTERPRISE">E9,999</span>
-            <span class="text-gray-400 text-sm">/mo</span>
+            <div class="text-sm text-gray-500 line-through" data-price="15999" data-tier-original="ENTERPRISE">E15,999</div>
+            <span class="text-3xl font-bold text-white" data-price="9999" data-tier="ENTERPRISE">E9,999</span>
+            <span class="text-green-400 text-sm">/mo</span>
           </div>
           <ul class="space-y-2 text-sm mb-6">
             <li class="flex items-center gap-2 text-gray-300">
@@ -836,7 +866,7 @@
               <span class="text-brand-400">•</span> Dedicated support
             </li>
           </ul>
-          <a href="#contact" class="block w-full text-center border border-gray-600 hover:border-gray-500 py-2 rounded-lg text-sm font-medium transition">
+          <a href="#contact" class="block w-full text-center border border-green-600 text-green-400 hover:bg-green-600 hover:text-white py-2 rounded-lg text-sm font-medium transition">
             Contact Sales
           </a>
         </div>
@@ -1238,26 +1268,56 @@
     // African Countries Data
     const COUNTRIES = {
       // Southern Africa
-      SZ: { name: 'Eswatini', nameFr: 'Eswatini', flag: '🇸🇿', currency: 'SZL', symbol: 'E', rate: 1, decimals: 2, region: 'southern', lang: 'en', tiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 } },
-      ZA: { name: 'South Africa', nameFr: 'Afrique du Sud', flag: '🇿🇦', currency: 'ZAR', symbol: 'R', rate: 1.3, decimals: 2, region: 'southern', lang: 'en', tiers: { LITE: 399, STARTER: 1299, BUSINESS: 3499, PRO: 6999, ENTERPRISE: 13999 } },
-      BW: { name: 'Botswana', nameFr: 'Botswana', flag: '🇧🇼', currency: 'BWP', symbol: 'P', rate: 1.8, decimals: 2, region: 'southern', lang: 'en', tiers: { LITE: 549, STARTER: 1699, BUSINESS: 4499, PRO: 8999, ENTERPRISE: 17999 } },
-      ZM: { name: 'Zambia', nameFr: 'Zambie', flag: '🇿🇲', currency: 'ZMW', symbol: 'K', rate: 1, decimals: 2, region: 'southern', lang: 'en', tiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 } },
-      ZW: { name: 'Zimbabwe', nameFr: 'Zimbabwe', flag: '🇿🇼', currency: 'USD', symbol: '$', rate: 0.03, decimals: 2, region: 'southern', lang: 'en', tiers: { LITE: 9, STARTER: 29, BUSINESS: 79, PRO: 149, ENTERPRISE: 299 } },
-      MZ: { name: 'Mozambique', nameFr: 'Mozambique', flag: '🇲🇿', currency: 'MZN', symbol: 'MT', rate: 1, decimals: 2, region: 'southern', lang: 'pt', tiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 } },
+      SZ: { name: 'Eswatini', nameFr: 'Eswatini', flag: '🇸🇿', currency: 'SZL', symbol: 'E', rate: 1, decimals: 2, region: 'southern', lang: 'en',
+        tiers: { LITE: 499, STARTER: 1499, BUSINESS: 3999, PRO: 7999, ENTERPRISE: 15999 },
+        discountTiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 }, discountPercent: 40 },
+      ZA: { name: 'South Africa', nameFr: 'Afrique du Sud', flag: '🇿🇦', currency: 'ZAR', symbol: 'R', rate: 1.3, decimals: 2, region: 'southern', lang: 'en',
+        tiers: { LITE: 699, STARTER: 2099, BUSINESS: 5599, PRO: 11199, ENTERPRISE: 22399 },
+        discountTiers: { LITE: 399, STARTER: 1299, BUSINESS: 3499, PRO: 6999, ENTERPRISE: 13999 }, discountPercent: 40 },
+      BW: { name: 'Botswana', nameFr: 'Botswana', flag: '🇧🇼', currency: 'BWP', symbol: 'P', rate: 1.8, decimals: 2, region: 'southern', lang: 'en',
+        tiers: { LITE: 899, STARTER: 2699, BUSINESS: 7199, PRO: 14399, ENTERPRISE: 28799 },
+        discountTiers: { LITE: 549, STARTER: 1699, BUSINESS: 4499, PRO: 8999, ENTERPRISE: 17999 }, discountPercent: 39 },
+      ZM: { name: 'Zambia', nameFr: 'Zambie', flag: '🇿🇲', currency: 'ZMW', symbol: 'K', rate: 1, decimals: 2, region: 'southern', lang: 'en',
+        tiers: { LITE: 499, STARTER: 1499, BUSINESS: 3999, PRO: 7999, ENTERPRISE: 15999 },
+        discountTiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 }, discountPercent: 40 },
+      ZW: { name: 'Zimbabwe', nameFr: 'Zimbabwe', flag: '🇿🇼', currency: 'USD', symbol: '$', rate: 0.03, decimals: 2, region: 'southern', lang: 'en',
+        tiers: { LITE: 15, STARTER: 45, BUSINESS: 120, PRO: 240, ENTERPRISE: 480 },
+        discountTiers: { LITE: 9, STARTER: 29, BUSINESS: 79, PRO: 149, ENTERPRISE: 299 }, discountPercent: 40 },
+      MZ: { name: 'Mozambique', nameFr: 'Mozambique', flag: '🇲🇿', currency: 'MZN', symbol: 'MT', rate: 1, decimals: 2, region: 'southern', lang: 'pt',
+        tiers: { LITE: 499, STARTER: 1499, BUSINESS: 3999, PRO: 7999, ENTERPRISE: 15999 },
+        discountTiers: { LITE: 299, STARTER: 899, BUSINESS: 2499, PRO: 4999, ENTERPRISE: 9999 }, discountPercent: 40 },
       MW: { name: 'Malawi', nameFr: 'Malawi', flag: '🇲🇼', currency: 'MWK', symbol: 'MK', rate: 95, decimals: 2, region: 'southern', lang: 'en' },
       LS: { name: 'Lesotho', nameFr: 'Lesotho', flag: '🇱🇸', currency: 'LSL', symbol: 'L', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
       NA: { name: 'Namibia', nameFr: 'Namibie', flag: '🇳🇦', currency: 'NAD', symbol: 'N$', rate: 1, decimals: 2, region: 'southern', lang: 'en' },
       // East Africa
-      KE: { name: 'Kenya', nameFr: 'Kenya', flag: '🇰🇪', currency: 'KES', symbol: 'KSh', rate: 5, decimals: 2, region: 'east', lang: 'en', tiers: { LITE: 2499, STARTER: 7499, BUSINESS: 19999, PRO: 39999, ENTERPRISE: 79999 } },
-      TZ: { name: 'Tanzania', nameFr: 'Tanzanie', flag: '🇹🇿', currency: 'TZS', symbol: 'TSh', rate: 100, decimals: 0, region: 'east', lang: 'en', tiers: { LITE: 29999, STARTER: 89999, BUSINESS: 249999, PRO: 499999, ENTERPRISE: 999999 } },
-      UG: { name: 'Uganda', nameFr: 'Ouganda', flag: '🇺🇬', currency: 'UGX', symbol: 'USh', rate: 200, decimals: 0, region: 'east', lang: 'en', tiers: { LITE: 59999, STARTER: 179999, BUSINESS: 499999, PRO: 999999, ENTERPRISE: 1999999 } },
-      RW: { name: 'Rwanda', nameFr: 'Rwanda', flag: '🇷🇼', currency: 'RWF', symbol: 'FRw', rate: 50, decimals: 0, region: 'east', lang: 'en', tiers: { LITE: 14999, STARTER: 44999, BUSINESS: 124999, PRO: 249999, ENTERPRISE: 499999 } },
-      ET: { name: 'Ethiopia', nameFr: 'Éthiopie', flag: '🇪🇹', currency: 'ETB', symbol: 'Br', rate: 5, decimals: 2, region: 'east', lang: 'en', tiers: { LITE: 1499, STARTER: 4499, BUSINESS: 12499, PRO: 24999, ENTERPRISE: 49999 } },
+      KE: { name: 'Kenya', nameFr: 'Kenya', flag: '🇰🇪', currency: 'KES', symbol: 'KSh', rate: 5, decimals: 2, region: 'east', lang: 'en',
+        tiers: { LITE: 3999, STARTER: 11999, BUSINESS: 31999, PRO: 63999, ENTERPRISE: 127999 },
+        discountTiers: { LITE: 2499, STARTER: 7499, BUSINESS: 19999, PRO: 39999, ENTERPRISE: 79999 }, discountPercent: 38 },
+      TZ: { name: 'Tanzania', nameFr: 'Tanzanie', flag: '🇹🇿', currency: 'TZS', symbol: 'TSh', rate: 100, decimals: 0, region: 'east', lang: 'en',
+        tiers: { LITE: 49999, STARTER: 149999, BUSINESS: 399999, PRO: 799999, ENTERPRISE: 1599999 },
+        discountTiers: { LITE: 29999, STARTER: 89999, BUSINESS: 249999, PRO: 499999, ENTERPRISE: 999999 }, discountPercent: 40 },
+      UG: { name: 'Uganda', nameFr: 'Ouganda', flag: '🇺🇬', currency: 'UGX', symbol: 'USh', rate: 200, decimals: 0, region: 'east', lang: 'en',
+        tiers: { LITE: 99999, STARTER: 299999, BUSINESS: 799999, PRO: 1599999, ENTERPRISE: 3199999 },
+        discountTiers: { LITE: 59999, STARTER: 179999, BUSINESS: 499999, PRO: 999999, ENTERPRISE: 1999999 }, discountPercent: 40 },
+      RW: { name: 'Rwanda', nameFr: 'Rwanda', flag: '🇷🇼', currency: 'RWF', symbol: 'FRw', rate: 50, decimals: 0, region: 'east', lang: 'en',
+        tiers: { LITE: 24999, STARTER: 74999, BUSINESS: 199999, PRO: 399999, ENTERPRISE: 799999 },
+        discountTiers: { LITE: 14999, STARTER: 44999, BUSINESS: 124999, PRO: 249999, ENTERPRISE: 499999 }, discountPercent: 40 },
+      ET: { name: 'Ethiopia', nameFr: 'Éthiopie', flag: '🇪🇹', currency: 'ETB', symbol: 'Br', rate: 5, decimals: 2, region: 'east', lang: 'en',
+        tiers: { LITE: 2499, STARTER: 7499, BUSINESS: 19999, PRO: 39999, ENTERPRISE: 79999 },
+        discountTiers: { LITE: 1499, STARTER: 4499, BUSINESS: 12499, PRO: 24999, ENTERPRISE: 49999 }, discountPercent: 40 },
       // West Africa
-      NG: { name: 'Nigeria', nameFr: 'Nigéria', flag: '🇳🇬', currency: 'NGN', symbol: '₦', rate: 84, decimals: 2, region: 'west', lang: 'en', tiers: { LITE: 24999, STARTER: 74999, BUSINESS: 199999, PRO: 399999, ENTERPRISE: 799999 } },
-      GH: { name: 'Ghana', nameFr: 'Ghana', flag: '🇬🇭', currency: 'GHS', symbol: 'GH₵', rate: 1.2, decimals: 2, region: 'west', lang: 'en', tiers: { LITE: 349, STARTER: 999, BUSINESS: 2699, PRO: 5499, ENTERPRISE: 10999 } },
-      SN: { name: 'Senegal', nameFr: 'Sénégal', flag: '🇸🇳', currency: 'XOF', symbol: 'CFA', rate: 27, decimals: 0, region: 'west', lang: 'fr', tiers: { LITE: 7999, STARTER: 24999, BUSINESS: 64999, PRO: 129999, ENTERPRISE: 259999 } },
-      CI: { name: 'Ivory Coast', nameFr: "Côte d'Ivoire", flag: '🇨🇮', currency: 'XOF', symbol: 'CFA', rate: 34, decimals: 0, region: 'west', lang: 'fr', tiers: { LITE: 9999, STARTER: 29999, BUSINESS: 84999, PRO: 169999, ENTERPRISE: 339999 } },
+      NG: { name: 'Nigeria', nameFr: 'Nigéria', flag: '🇳🇬', currency: 'NGN', symbol: '₦', rate: 84, decimals: 2, region: 'west', lang: 'en',
+        tiers: { LITE: 42999, STARTER: 128999, BUSINESS: 343999, PRO: 687999, ENTERPRISE: 1375999 },
+        discountTiers: { LITE: 24999, STARTER: 74999, BUSINESS: 199999, PRO: 399999, ENTERPRISE: 799999 }, discountPercent: 42 },
+      GH: { name: 'Ghana', nameFr: 'Ghana', flag: '🇬🇭', currency: 'GHS', symbol: 'GH₵', rate: 1.2, decimals: 2, region: 'west', lang: 'en',
+        tiers: { LITE: 549, STARTER: 1649, BUSINESS: 4399, PRO: 8799, ENTERPRISE: 17599 },
+        discountTiers: { LITE: 349, STARTER: 999, BUSINESS: 2699, PRO: 5499, ENTERPRISE: 10999 }, discountPercent: 37 },
+      SN: { name: 'Senegal', nameFr: 'Sénégal', flag: '🇸🇳', currency: 'XOF', symbol: 'CFA', rate: 27, decimals: 0, region: 'west', lang: 'fr',
+        tiers: { LITE: 12999, STARTER: 38999, BUSINESS: 103999, PRO: 207999, ENTERPRISE: 415999 },
+        discountTiers: { LITE: 7999, STARTER: 24999, BUSINESS: 64999, PRO: 129999, ENTERPRISE: 259999 }, discountPercent: 38 },
+      CI: { name: 'Ivory Coast', nameFr: "Côte d'Ivoire", flag: '🇨🇮', currency: 'XOF', symbol: 'CFA', rate: 34, decimals: 0, region: 'west', lang: 'fr',
+        tiers: { LITE: 16999, STARTER: 50999, BUSINESS: 135999, PRO: 271999, ENTERPRISE: 543999 },
+        discountTiers: { LITE: 9999, STARTER: 29999, BUSINESS: 84999, PRO: 169999, ENTERPRISE: 339999 }, discountPercent: 41 },
       // Central Africa
       CM: { name: 'Cameroon', nameFr: 'Cameroun', flag: '🇨🇲', currency: 'XAF', symbol: 'FCFA', rate: 34, decimals: 0, region: 'central', lang: 'fr' },
       CD: { name: 'DR Congo', nameFr: 'RD Congo', flag: '🇨🇩', currency: 'CDF', symbol: 'FC', rate: 140, decimals: 2, region: 'central', lang: 'fr' },
@@ -1316,11 +1376,11 @@
 
     // Base prices in SZL (Eswatini Lilangeni)
     const BASE_PRICES = {
-      lite: 299,
-      starter: 899,
-      business: 2499,
-      pro: 4999,
-      enterprise: 9999,
+      lite: 499,
+      starter: 1499,
+      business: 3999,
+      pro: 7999,
+      enterprise: 15999,
       labels: 0.10,
       receipt: 0.50,
       sms: 99,
@@ -1496,19 +1556,30 @@
       
       document.querySelectorAll('[data-price]').forEach(el => {
         const tier = el.dataset.tier;
+        const tierOriginal = el.dataset.tierOriginal;
         let convertedPrice;
         
-        if (tier && country.tiers && country.tiers[tier] !== undefined) {
-          // Use exact tier pricing for pricing cards
-          convertedPrice = country.tiers[tier];
+        if (tier && country.discountTiers && country.discountTiers[tier] !== undefined) {
+          // Discount tier price (the main displayed price)
+          convertedPrice = country.discountTiers[tier];
+        } else if (tierOriginal && country.tiers && country.tiers[tierOriginal] !== undefined) {
+          // Original tier price (strikethrough)
+          convertedPrice = country.tiers[tierOriginal];
         } else {
-          // Use rate multiplier for other prices (demo values, hardware, etc.)
+          // Rate multiplier for other prices (demo values, hardware, etc.)
           const basePrice = parseFloat(el.dataset.price);
           convertedPrice = Math.round(basePrice * country.rate);
         }
         
         const formatted = formatPrice(convertedPrice, country);
         el.textContent = formatted;
+      });
+      
+      // Update discount percentage badges
+      const pct = country.discountPercent || 40;
+      document.getElementById('discount-percent').textContent = pct;
+      document.querySelectorAll('.tier-discount-pct').forEach(el => {
+        el.textContent = pct;
       });
     }
 

@@ -1430,6 +1430,29 @@
     const currentFlag = document.getElementById('current-flag');
     const currentCurrencyEl = document.getElementById('current-currency');
 
+    // Fetch live pricing from API and override hardcoded values
+    async function fetchLivePricing() {
+      try {
+        const resp = await fetch('https://yebomart-api-717538265700.europe-west1.run.app/api/pricing/countries');
+        if (!resp.ok) return;
+        const { data } = await resp.json();
+        if (!data?.countries) return;
+        for (const c of data.countries) {
+          const code = c.countryCode;
+          if (COUNTRIES[code]) {
+            if (c.tiers) COUNTRIES[code].tiers = c.tiers;
+            if (c.discountTiers) COUNTRIES[code].discountTiers = c.discountTiers;
+            if (c.discountPercent) COUNTRIES[code].discountPercent = c.discountPercent;
+          }
+        }
+        // Re-render with live prices
+        updatePrices();
+        console.log('Live pricing loaded from API');
+      } catch (e) {
+        console.log('Using hardcoded pricing (API unavailable):', e.message);
+      }
+    }
+
     // Initialize
     function init() {
       renderCountryList();
@@ -1437,6 +1460,9 @@
       
       // Try to auto-detect country on first visit
       autoDetectCountry();
+      
+      // Fetch live pricing (non-blocking, falls back to hardcoded)
+      fetchLivePricing();
       
       // Event listeners
       pickerBtn.addEventListener('click', () => {

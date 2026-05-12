@@ -5,3 +5,14 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Dependencies + build
+node_modules
+dist
+dist-ssr
+*.log
+
+# Env
+.env.local
+.env.*.local
+*.tsbuildinfo

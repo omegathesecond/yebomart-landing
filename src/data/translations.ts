@@ -18,7 +18,9 @@ export type TranslationKey =
   | 'countryPicker.title'
   | 'countryPicker.search'
   | 'footer.tagline'
-  | 'footer.madeIn';
+  | 'footer.madeIn'
+  | 'footer.privacy'
+  | 'footer.terms';
 
 type Bundle = Record<TranslationKey, string>;
 
@@ -43,6 +45,8 @@ export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
     'countryPicker.search': 'Search countries...',
     'footer.tagline': 'Shop management made simple',
     'footer.madeIn': 'Made in',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
   },
   fr: {
     'nav.why': 'Pourquoi YeboMart',
@@ -64,6 +68,8 @@ export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
     'countryPicker.search': 'Rechercher des pays...',
     'footer.tagline': 'La gestion de boutique simplifiée',
     'footer.madeIn': 'Fait en',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.terms': "Conditions d'utilisation",
   },
 };
 

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { LocaleContext, useLocaleState } from '@/hooks/useLocale';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/sections/Hero';
@@ -9,12 +11,12 @@ import { Pricing } from '@/components/sections/Pricing';
 import { Hardware } from '@/components/sections/Hardware';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
+import { PrivacyPolicy } from '@/components/legal/PrivacyPolicy';
+import { Terms } from '@/components/legal/Terms';
 
-export function App() {
-  const locale = useLocaleState();
-
+function Home() {
   return (
-    <LocaleContext.Provider value={locale}>
+    <>
       <Nav />
       <main>
         <Hero />
@@ -27,6 +29,33 @@ export function App() {
         <Contact />
       </main>
       <Footer />
+    </>
+  );
+}
+
+/** Reset scroll position when navigating between routes (the home page uses
+ *  `scroll-behavior: smooth`, which otherwise leaves legal pages scrolled). */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+export function App() {
+  const locale = useLocaleState();
+
+  return (
+    <LocaleContext.Provider value={locale}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+      </BrowserRouter>
     </LocaleContext.Provider>
   );
 }

@@ -60,7 +60,7 @@ export function Nav() {
               </span>
               <Icon name="chevron" className="chevron h-3.5 w-3.5 text-mute" />
             </button>
-            <Button href={APP_URL} variant="ink" className="hidden sm:inline-flex">
+            <Button href={APP_URL} variant="ink" className="max-sm:hidden">
               {t('nav.openApp')}
             </Button>
             <button

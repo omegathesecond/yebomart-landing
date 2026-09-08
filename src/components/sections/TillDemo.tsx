@@ -99,8 +99,8 @@ export function TillDemo() {
             </span>
           </div>
           <div
-            className={`mt-1 flex justify-between font-mono text-[11px] text-mute transition-opacity duration-500 ${
-              p >= 7 ? 'opacity-100' : 'opacity-0'
+            className={`mt-1 flex justify-between font-mono text-[11px] text-mute ${
+              p >= 7 ? 'opacity-100 transition-opacity duration-500' : 'opacity-0'
             }`}
           >
             <span>Cash {money(CASH)}</span>

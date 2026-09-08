@@ -128,9 +128,9 @@ function HardwarePack({
       <Icon name={icon} className="h-7 w-7 text-brick" />
       <h3 className="mt-5 font-display text-[20px] font-semibold">{name}</h3>
       <p className="mt-1 text-[14px] text-mute">{audience}</p>
-      <div className="mt-5 flex items-baseline gap-2">
+      <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
         <Price szl={priceSzl} className="font-display text-[34px] font-bold leading-none tracking-tightest" />
-        <span className="font-mono text-[11px] uppercase tracking-eyebrow text-mute">once-off</span>
+        <span className="whitespace-nowrap font-mono text-[11px] uppercase tracking-eyebrow text-mute">once-off</span>
       </div>
       {financeSzl !== undefined ? (
         <p className="mt-1.5 font-mono text-[11px] uppercase tracking-eyebrow text-brick">

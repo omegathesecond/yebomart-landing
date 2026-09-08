@@ -53,13 +53,10 @@ export function DiagramLoop() {
               fill="none"
               style={v({ '--d': '2500ms' })}
             />
-            <g className="fade-step" style={v({ '--d': '2300ms' })}>
-              <rect x="430" y="236" width="280" height="28" fill="var(--color-ink)" />
-              <text className="m" x="570" y="255" textAnchor="middle" fill="var(--fig-accent)" fontSize="11" letterSpacing="1.6">
-                RESTOCK ADVICE → NEXT ORDER
-              </text>
-            </g>
-            <circle className="fig-runner" r="4.5" fill="var(--fig-hot)" style={v({ 'offset-path': `path('${RETURN}')`, '--d': '2600ms' })} />
+            <text className="m fade-step" x="570" y="276" textAnchor="middle" fill="var(--fig-accent)" fontSize="11" letterSpacing="1.6" style={v({ '--d': '2300ms' })}>
+              RESTOCK ADVICE → NEXT ORDER
+            </text>
+            <circle className="fig-runner" r="4.5" fill="var(--fig-hot)" style={v({ offsetPath: `path('${RETURN}')`, '--d': '2600ms' })} />
 
             {/* stations */}
             {LOOP.map((s, i) => {
@@ -91,7 +88,7 @@ export function DiagramLoop() {
                 </g>
               );
             })}
-            <line x1="0" y1="290" x2="1140" y2="290" stroke="var(--fig-soft)" strokeWidth="1" />
+            <line x1="0" y1="296" x2="1140" y2="296" stroke="var(--fig-soft)" strokeWidth="1" />
           </svg>
         </div>
       </Reveal>

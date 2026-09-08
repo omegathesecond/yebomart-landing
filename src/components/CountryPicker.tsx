@@ -58,28 +58,28 @@ export function CountryPicker({
 
   return (
     <div
-      className="fixed inset-0 z-100 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-[100] bg-ink/60 backdrop-blur-sm flex items-center justify-center p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="w-full max-w-md max-h-[85vh] bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden flex flex-col">
-        <div className="p-4 border-b border-slate-700">
+      <div className="w-full max-w-md max-h-[85vh] bg-cream border border-line-strong rounded-sharp shadow-card overflow-hidden flex flex-col">
+        <div className="p-4 border-b border-line">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-white">{t('countryPicker.title')}</h3>
+            <h3 className="font-display text-lg font-semibold text-ink">{t('countryPicker.title')}</h3>
             <button
               onClick={onClose}
               aria-label="Close"
-              className="p-2 hover:bg-slate-700 rounded-lg transition"
+              className="p-2 hover:bg-sand rounded-sharp transition"
             >
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           <div className="relative">
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-mute"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -91,7 +91,7 @@ export function CountryPicker({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t('countryPicker.search')}
-              className="w-full py-3 pl-9 pr-4 bg-slate-800 border border-slate-700 rounded-lg text-white text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
+              className="w-full py-3 pl-9 pr-4 bg-white border border-line rounded-sharp text-ink text-sm placeholder:text-mute focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20"
               autoFocus
             />
           </div>
@@ -99,11 +99,11 @@ export function CountryPicker({
 
         <div className="overflow-y-auto flex-1">
           {grouped.length === 0 ? (
-            <div className="p-4 text-center text-gray-400">No countries found</div>
+            <div className="p-4 text-center text-mute">No countries found</div>
           ) : (
             grouped.map(({ region, codes }) => (
               <div key={region}>
-                <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-slate-900/80">
+                <div className="px-4 py-2 font-mono text-[11px] text-mute uppercase tracking-eyebrow bg-sand">
                   {REGION_LABELS[region][country.lang === 'fr' ? 'fr' : 'en']}
                 </div>
                 {codes.map((code) => {
@@ -119,20 +119,20 @@ export function CountryPicker({
                       }}
                       className={`w-full flex items-center gap-3 px-4 py-3 transition text-left ${
                         isSelected
-                          ? 'bg-amber-500/10 text-amber-100'
-                          : 'hover:bg-slate-800 text-gray-200'
+                          ? 'bg-wash text-brick'
+                          : 'hover:bg-sand text-ink'
                       }`}
                     >
                       <span className="text-2xl">{c.flag}</span>
                       <div className="flex-1">
                         <div className="text-sm font-medium">{displayName}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="font-mono text-[11px] text-mute">
                           {c.symbol} {c.currency}
                         </div>
                       </div>
                       {isSelected && (
-                        <div className="w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-5 h-5 rounded-full bg-brand flex items-center justify-center">
+                          <svg className="w-3 h-3 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>

@@ -73,7 +73,7 @@ DELETE: src/components/sections/Problems.tsx, Solutions.tsx, Setup.tsx, AIFeatur
 
 **Produces:** Tailwind utilities `bg-cream bg-sand bg-wash bg-ink text-ink text-cream text-mute text-brand text-brand-hot text-brick border-line rounded-sharp font-display font-mono tracking-eyebrow tracking-tightest max-w-page`; CSS classes `.eyebrow .h-display .h-section .h-card .btn .btn-primary .btn-ink .btn-ghost .btn-on-dark .on-ink`; motion classes `.rv .rv-up .fig .fig-ink .fig-wire .fig-node .fig-hold .fig-fill .fade-step .is-in`.
 
-- [ ] **Step 1: Write `src/index.css`**
+- [x] **Step 1: Write `src/index.css`**
 
 ```css
 @import 'tailwindcss';
@@ -148,15 +148,15 @@ Motion system (verbatim contract used by every later task):
 }
 ```
 
-- [ ] **Step 2: Write `index.html` head** — title `YeboMart — Free POS & shop management for African shops`, description `Free point-of-sale for African shops. Ring up sales, track stock, count the till, and get the day's numbers on WhatsApp. Works offline on any phone. Pay only for AI and messages.`, `theme-color #FF6B00`, favicon.svg + apple-touch-icon, OG/Twitter (`summary_large_image`, `https://yebomart.com/og-image.png`), canonical `https://yebomart.com/`, fonts preconnect + `Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500`, JSON-LD `SoftwareApplication` (name, url, applicationCategory BusinessApplication, offers price 0, operatingSystem Web).
+- [x] **Step 2: Write `index.html` head** — title `YeboMart — Free POS & shop management for African shops`, description `Free point-of-sale for African shops. Ring up sales, track stock, count the till, and get the day's numbers on WhatsApp. Works offline on any phone. Pay only for AI and messages.`, `theme-color #FF6B00`, favicon.svg + apple-touch-icon, OG/Twitter (`summary_large_image`, `https://yebomart.com/og-image.png`), canonical `https://yebomart.com/`, fonts preconnect + `Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500`, JSON-LD `SoftwareApplication` (name, url, applicationCategory BusinessApplication, offers price 0, operatingSystem Web).
 
-- [ ] **Step 3: Write `public/favicon.svg`** — the canonical SVG from the yebo-logo skill (orange rx=8 square, cream bold Y).
+- [x] **Step 3: Write `public/favicon.svg`** — the canonical SVG from the yebo-logo skill (orange rx=8 square, cream bold Y).
 
-- [ ] **Step 4: Generate `apple-touch-icon.png` (180) and `og-image.png` (1200×630)** with a Python + Pillow script in the scratchpad: orange rounded square with cream "Y" for the icon; cream card with the badge, "YeboMart" two-tone wordmark and "Free POS & shop management for African shops" for OG. Use Space Grotesk if present on the system, else Helvetica Bold. Verify with `sips -g pixelWidth -g pixelHeight`.
+- [x] **Step 4: Generate `apple-touch-icon.png` (180) and `og-image.png` (1200×630)** with a Python + Pillow script in the scratchpad: orange rounded square with cream "Y" for the icon; cream card with the badge, "YeboMart" two-tone wordmark and "Free POS & shop management for African shops" for OG. Use Space Grotesk if present on the system, else Helvetica Bold. Verify with `sips -g pixelWidth -g pixelHeight`.
 
-- [ ] **Step 5: Verify** — `npm run build` passes; open preview, confirm favicon shows the Y badge and fonts load (Space Grotesk in computed style of `h1`).
+- [x] **Step 5: Verify** — `npm run build` passes; open preview, confirm favicon shows the Y badge and fonts load (Space Grotesk in computed style of `h1`).
 
-- [ ] **Step 6: Commit** — `git add index.html public src/index.css && git commit -m "feat: yebo brand tokens, fonts, head, favicon, og image"`
+- [x] **Step 6: Commit** — `git add index.html public src/index.css && git commit -m "feat: yebo brand tokens, fonts, head, favicon, og image"`
 
 ---
 
@@ -177,14 +177,14 @@ Reveal({ className?: string, delay?: number /* ms → style --d */, as?: 'div'|'
 Icon({ name: IconName, className?: string })  // IconName union listed in file structure; 24px viewBox, stroke currentColor 1.75, no fill
 ```
 
-- [ ] **Step 1: Write `YeboLogo.tsx`** — port from `~/Documents/omevision/companies/yebolink/landing/src/components/YeboLogo.tsx`, default suffix `'Mart'`, classes use `bg-brand text-cream font-display`.
-- [ ] **Step 2: Write `Section.tsx` + `Page`** — tone map: `cream: 'bg-cream text-ink'`, `sand: 'bg-sand text-ink'`, `ink: 'on-ink fig-ink bg-ink text-cream'`, `brand: 'bg-brand text-ink'`.
-- [ ] **Step 3: Write `Eyebrow.tsx`, `SectionHead.tsx`** — SectionHead h2 class `font-display text-[clamp(30px,4.6vw,52px)] font-bold leading-[1.06] tracking-tightest text-pretty max-w-[22ch]`; lede `text-[17px] leading-[1.62] max-w-[58ch]` with `text-mute` (light) / `text-cream/70` (dark).
-- [ ] **Step 4: Write `Button.tsx`** — base `inline-flex items-center justify-center gap-2 rounded-sharp font-display font-medium transition-colors duration-200`; variants: primary `bg-brand text-ink hover:bg-ink hover:text-cream`, ink `bg-ink text-cream hover:bg-brand hover:text-ink`, ghost `border border-line-strong text-ink hover:border-ink`, onDark `bg-cream text-ink hover:bg-brand`; sizes md `px-5 py-3 text-[15px]`, lg `px-7 py-4 text-[16px]`.
-- [ ] **Step 5: Write `Reveal.tsx`** — port yeboverify `useInView` (threshold .15, rootMargin `0px 0px -8% 0px`, adds `js-motion` once, no-IO fallback = in view) and `Reveal` adding `is-in`; `delay` sets `style={{'--d': `${delay}ms`}}`.
-- [ ] **Step 6: Write `Icon.tsx`** — a `Record<IconName, ReactNode>` of path elements, rendered inside one `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">`.
-- [ ] **Step 7: Verify** — `npx tsc -p tsconfig.app.json --noEmit` clean.
-- [ ] **Step 8: Commit** — `git add src/components/ui && git commit -m "feat: ui primitives (YeboLogo, Section, Eyebrow, Button, Reveal, Icon)"`
+- [x] **Step 1: Write `YeboLogo.tsx`** — port from `~/Documents/omevision/companies/yebolink/landing/src/components/YeboLogo.tsx`, default suffix `'Mart'`, classes use `bg-brand text-cream font-display`.
+- [x] **Step 2: Write `Section.tsx` + `Page`** — tone map: `cream: 'bg-cream text-ink'`, `sand: 'bg-sand text-ink'`, `ink: 'on-ink fig-ink bg-ink text-cream'`, `brand: 'bg-brand text-ink'`.
+- [x] **Step 3: Write `Eyebrow.tsx`, `SectionHead.tsx`** — SectionHead h2 class `font-display text-[clamp(30px,4.6vw,52px)] font-bold leading-[1.06] tracking-tightest text-pretty max-w-[22ch]`; lede `text-[17px] leading-[1.62] max-w-[58ch]` with `text-mute` (light) / `text-cream/70` (dark).
+- [x] **Step 4: Write `Button.tsx`** — base `inline-flex items-center justify-center gap-2 rounded-sharp font-display font-medium transition-colors duration-200`; variants: primary `bg-brand text-ink hover:bg-ink hover:text-cream`, ink `bg-ink text-cream hover:bg-brand hover:text-ink`, ghost `border border-line-strong text-ink hover:border-ink`, onDark `bg-cream text-ink hover:bg-brand`; sizes md `px-5 py-3 text-[15px]`, lg `px-7 py-4 text-[16px]`.
+- [x] **Step 5: Write `Reveal.tsx`** — port yeboverify `useInView` (threshold .15, rootMargin `0px 0px -8% 0px`, adds `js-motion` once, no-IO fallback = in view) and `Reveal` adding `is-in`; `delay` sets `style={{'--d': `${delay}ms`}}`.
+- [x] **Step 6: Write `Icon.tsx`** — a `Record<IconName, ReactNode>` of path elements, rendered inside one `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">`.
+- [x] **Step 7: Verify** — `npx tsc -p tsconfig.app.json --noEmit` clean.
+- [x] **Step 8: Commit** — `git add src/components/ui && git commit -m "feat: ui primitives (YeboLogo, Section, Eyebrow, Button, Reveal, Icon)"`
 
 ---
 
@@ -192,9 +192,9 @@ Icon({ name: IconName, className?: string })  // IconName union listed in file s
 
 **Files:** Create `src/data/copy.ts`; modify `src/data/translations.ts`.
 
-- [ ] **Step 1: Add translation keys** (en + fr) — `nav.how` "How it works"/"Comment ça marche"; `nav.openApp` "Open the app"/"Ouvrir l'app"; `hero.eyebrow` "Free POS & shop management"/"Caisse et gestion de boutique gratuites"; `hero.line1` "Run your whole shop"/"Gérez toute votre boutique"; `hero.line2` "from your phone."/"depuis votre téléphone."; `hero.lede` "YeboMart is a free point-of-sale for African shops. Ring up sales, watch stock move, count the till, and get the day's numbers on WhatsApp. Works offline. No computer needed." / FR equivalent; `hero.whatsapp` "WhatsApp us"/"Écrivez-nous sur WhatsApp"; `hero.facts` "Free core · Works offline · 22 countries · English & French" / FR; `cta.title` "Ready when your next customer is."/"Prêt dès votre prochain client."; `cta.body` "Sign in with your phone number and ring your first sale in five minutes. We'll help you set up on WhatsApp." / FR. Update existing `hero.cta` → "Open the app"/"Ouvrir l'app". Remove keys `hero.badge`, `hero.title1`, `hero.title2`, `hero.subtitle`, `hero.callCta`, `hero.tagline` only if no component still uses them after Task 11.
+- [x] **Step 1: Add translation keys** (en + fr) — `nav.how` "How it works"/"Comment ça marche"; `nav.openApp` "Open the app"/"Ouvrir l'app"; `hero.eyebrow` "Free POS & shop management"/"Caisse et gestion de boutique gratuites"; `hero.line1` "Run your whole shop"/"Gérez toute votre boutique"; `hero.line2` "from your phone."/"depuis votre téléphone."; `hero.lede` "YeboMart is a free point-of-sale for African shops. Ring up sales, watch stock move, count the till, and get the day's numbers on WhatsApp. Works offline. No computer needed." / FR equivalent; `hero.whatsapp` "WhatsApp us"/"Écrivez-nous sur WhatsApp"; `hero.facts` "Free core · Works offline · 22 countries · English & French" / FR; `cta.title` "Ready when your next customer is."/"Prêt dès votre prochain client."; `cta.body` "Sign in with your phone number and ring your first sale in five minutes. We'll help you set up on WhatsApp." / FR. Update existing `hero.cta` → "Open the app"/"Ouvrir l'app". Remove keys `hero.badge`, `hero.title1`, `hero.title2`, `hero.subtitle`, `hero.callCta`, `hero.tagline` only if no component still uses them after Task 11.
 
-- [ ] **Step 2: Write `src/data/copy.ts`** with typed exports:
+- [x] **Step 2: Write `src/data/copy.ts`** with typed exports:
   - `PROOF: {value:string; label:string; body:string}[]` — `E0 / month` "Free core" "POS, stock, staff and reports are free. Forever."; `Offline` "Keeps selling" "Sales save on the phone and sync when the signal returns. Never counted twice."; `22` "Countries" "Prices in your currency, from Eswatini to Kenya to Nigeria."; `0` "Extra hardware" "Your phone camera is the barcode scanner."
   - `LOOP: {n:string; title:string; body:string}[]` — 01 Till "Cashier rings up the sale"; 02 Stock "Every item's count drops"; 03 Cash-up "Counted cash vs. till total"; 04 Report "Day summary lands on WhatsApp"; 05 Assistant "Reads it all, tells you what to do".
   - `STEPS: {n:string; title:string; body:string}[]` — 01 "Sign in with YeboID" "Your phone number, a one-time code and a PIN. No password, no email."; 02 "Name your shop, scan your stock in" "Pick your country and shop type, then point the camera at each barcode. Cost and selling price go in once."; 03 "Ring your first sale" "Tap items or scan, take cash or card, print or SMS a receipt. Staff PINs and suppliers can come later."
@@ -205,7 +205,7 @@ Icon({ name: IconName, className?: string })  // IconName union listed in file s
   - `FAQ: {q:string; a:string}[]` — 6 rows: offline (yes, sales save locally and sync, never duplicated); cost (free core; 1 credit = E1; AI 0.5–1, SMS 1, WhatsApp 2; credits never expire); computer or till (no; any phone or tablet with a browser; add a scanner or Bluetooth printer if you want); more than one shop ("Today each YeboID owner runs one shop. Multi-shop is being built; ask us on WhatsApp if you need it."); staff login (PINs on the shop's device; owner signs in with YeboID); languages (English and French in the app).
   Prices inside copy strings stay literal "E" (SZL) in demos and messages; the Pricing section keeps using `<Price>` for conversion.
 
-- [ ] **Step 3: Verify** `npx tsc -p tsconfig.app.json --noEmit`. **Commit** `feat: page copy + translation keys`.
+- [x] **Step 3: Verify** `npx tsc -p tsconfig.app.json --noEmit`. **Commit** `feat: page copy + translation keys`.
 
 ---
 
@@ -213,10 +213,10 @@ Icon({ name: IconName, className?: string })  // IconName union listed in file s
 
 **Files:** Modify `src/components/Nav.tsx`, `src/components/sections/Footer.tsx`, `src/components/CountryPicker.tsx`.
 
-- [ ] Nav: `fixed inset-x-0 top-0 z-50 border-b border-line bg-cream/85 backdrop-blur`; `<YeboLogo />`; links `#how`, `#features`, `#pricing`, `#hardware` (`text-[14px] text-mute hover:text-ink`); country button `rounded-sharp border border-line-strong bg-cream px-3 py-2`; CTA `<Button href="https://app.yebomart.com" variant="ink">{t('nav.openApp')}</Button>`. Mobile: a hamburger toggling a `md:hidden` panel listing the links.
-- [ ] Footer: `<Section tone="ink">` with `<YeboLogo onDark />`, tagline, columns (Product: Open the app, Pricing, Hardware; Company: Omevision, Blog `https://blog.yebomart.com`; Contact: WhatsApp, Call), bottom line `© 2026 Omevision · {t('footer.madeIn')} {country.name} {country.flag}`.
-- [ ] CountryPicker: swap slate/amber classes for `bg-cream text-ink border-line`, selected row `bg-wash text-brick`, check dot `bg-brand`, focus ring `focus:border-brand focus:ring-brand/20`, overlay `bg-ink/60`.
-- [ ] Verify tsc + build; commit `feat: nav, footer, country picker on house system`.
+- [x] Nav: `fixed inset-x-0 top-0 z-50 border-b border-line bg-cream/85 backdrop-blur`; `<YeboLogo />`; links `#how`, `#features`, `#pricing`, `#hardware` (`text-[14px] text-mute hover:text-ink`); country button `rounded-sharp border border-line-strong bg-cream px-3 py-2`; CTA `<Button href="https://app.yebomart.com" variant="ink">{t('nav.openApp')}</Button>`. Mobile: a hamburger toggling a `md:hidden` panel listing the links.
+- [x] Footer: `<Section tone="ink">` with `<YeboLogo onDark />`, tagline, columns (Product: Open the app, Pricing, Hardware; Company: Omevision, Blog `https://blog.yebomart.com`; Contact: WhatsApp, Call), bottom line `© 2026 Omevision · {t('footer.madeIn')} {country.name} {country.flag}`.
+- [x] CountryPicker: swap slate/amber classes for `bg-cream text-ink border-line`, selected row `bg-wash text-brick`, check dot `bg-brand`, focus ring `focus:border-brand focus:ring-brand/20`, overlay `bg-ink/60`.
+- [x] Verify tsc + build; commit `feat: nav, footer, country picker on house system`.
 
 ---
 
@@ -226,14 +226,14 @@ Icon({ name: IconName, className?: string })  // IconName union listed in file s
 
 **TillDemo contract:** `export function TillDemo()`; uses `useInView` to run only while visible; respects `matchMedia('(prefers-reduced-motion: reduce)')` → renders final frame statically. State machine on `setTimeout` chain: phase 0 blank (400ms) → item 1 (900ms) → item 2 (900ms) → item 3 (900ms) → total counts up over 700ms → stock chip flips "Bread 14 → 12 left" (600ms) → status "Saved offline" (1200ms) → "Synced ✓" (2200ms) → reset. Items: `[['White bread 700g', 2, 28.0], ['Fresh milk 1L', 1, 18.5], ['Airtime E20', 1, 20.0]]`, total `66.50`. Card: `rounded-sharp border border-line bg-white shadow-[0_1px_2px_rgba(26,24,20,.05),0_24px_48px_-24px_rgba(26,24,20,.25)]`, header row `Thandi's Tuckshop · Till 1` + mono time, cashier row `Cashier Sipho · PIN`, items list with `font-mono` amounts, dashed rule, total, chips row. Each new line uses class `rv is-in` with `--d` for the rise-in.
 
-- [ ] Hero layout: `<Section tone="cream"><Page className="grid gap-12 pt-32 pb-20 lg:grid-cols-12 lg:items-center lg:pt-40">` left `lg:col-span-6`: `<Eyebrow>{t('hero.eyebrow')}</Eyebrow>`, `<h1 className="mt-6 font-display text-[clamp(40px,6.4vw,76px)] font-bold leading-[1.02] tracking-tightest">{t('hero.line1')}<br/><span className="text-brand">{t('hero.line2')}</span></h1>`, lede `mt-6 max-w-[54ch] text-[18px] leading-[1.6] text-mute`, buttons row (`primary` Open the app · `ghost` WhatsApp us → `https://wa.me/26878422613?text=...`), facts line `mt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute`. Right `lg:col-span-6`: `<TillDemo />` inside a `relative` box with a soft `bg-wash` blob behind (`absolute -inset-6 -z-10 rounded-full blur-3xl opacity-70`). Wrap left column in `<Reveal>` with staggered `--d` on children.
-- [ ] Verify at 1280 and 375; the demo loops and pauses when scrolled away; commit `feat: hero with live till demo`.
+- [x] Hero layout: `<Section tone="cream"><Page className="grid gap-12 pt-32 pb-20 lg:grid-cols-12 lg:items-center lg:pt-40">` left `lg:col-span-6`: `<Eyebrow>{t('hero.eyebrow')}</Eyebrow>`, `<h1 className="mt-6 font-display text-[clamp(40px,6.4vw,76px)] font-bold leading-[1.02] tracking-tightest">{t('hero.line1')}<br/><span className="text-brand">{t('hero.line2')}</span></h1>`, lede `mt-6 max-w-[54ch] text-[18px] leading-[1.6] text-mute`, buttons row (`primary` Open the app · `ghost` WhatsApp us → `https://wa.me/26878422613?text=...`), facts line `mt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute`. Right `lg:col-span-6`: `<TillDemo />` inside a `relative` box with a soft `bg-wash` blob behind (`absolute -inset-6 -z-10 rounded-full blur-3xl opacity-70`). Wrap left column in `<Reveal>` with staggered `--d` on children.
+- [x] Verify at 1280 and 375; the demo loops and pauses when scrolled away; commit `feat: hero with live till demo`.
 
 ---
 
 ### Task 6: ProofStrip
 
-- [ ] `src/components/sections/ProofStrip.tsx`: `<Section tone="sand">` → `<Page className="py-10">` → `<ul className="grid gap-px overflow-hidden rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">` each `<Reveal as="li" delay={i*90} className="bg-sand p-6">` with `value` in `font-display text-[34px] font-bold tracking-tightest`, label `font-mono text-[11px] uppercase tracking-eyebrow text-brick`, body `mt-2 text-[14.5px] text-mute`. Commit `feat: proof strip`.
+- [x] `src/components/sections/ProofStrip.tsx`: `<Section tone="sand">` → `<Page className="py-10">` → `<ul className="grid gap-px overflow-hidden rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">` each `<Reveal as="li" delay={i*90} className="bg-sand p-6">` with `value` in `font-display text-[34px] font-bold tracking-tightest`, label `font-mono text-[11px] uppercase tracking-eyebrow text-brick`, body `mt-2 text-[14.5px] text-mute`. Commit `feat: proof strip`.
 
 ---
 
@@ -243,58 +243,58 @@ Icon({ name: IconName, className?: string })  // IconName union listed in file s
 
 **DiagramLoop:** `<svg viewBox="0 0 1140 320">` five 200×110 `rect.fig-node` at x = 0,235,470,705,940 (y 40), four `path.fig-wire` hops (`--len 35`, delays 280+i*170), the fifth node `fig-hold` (assistant lights OK green). A return wire from node 5 bottom back under to node 1 (`M1040 150 V250 H100 V150`, `--len 1300`, delay 1100ms) with a mid label `restock advice` (`.m fade-step`). Node text: `.m` index (11px, letterSpacing 1.4), title 18px 500, body 13px muted. Wrapped in `<div className="fig fig-ink overflow-x-auto"><div className="min-w-[900px]">…` with a `lg:hidden` "Swipe to see the whole drawing →" mono note. Outer `<Reveal>` supplies `.is-in`.
 
-- [ ] HowItWorks: `<Section id="how" tone="ink">` → `<Page className="py-24">` → `<SectionHead index="01" label="How it works" heading="One sale sets everything else in motion." lede="You ring up a sale. YeboMart does the rest: stock drops, the till total updates, the day's report writes itself, and your assistant reads it all." tone="dark" />` → `<DiagramLoop />` → h3 "Start in three steps" + `<ol className="grid gap-px bg-cream/15 md:grid-cols-3">` each `<Reveal as="li" delay={i*120} className="bg-ink p-8">` giant numeral `font-display text-[56px] font-bold text-brand leading-none`, title `mt-4 font-display text-[22px] font-semibold`, body `mt-2 text-cream/70` → "Under the hood" row: 3 cards `border border-cream/20 p-6` with `<Icon>` in brand-hot, title, body. Commit `feat: how it works with self-drawing loop diagram`.
+- [x] HowItWorks: `<Section id="how" tone="ink">` → `<Page className="py-24">` → `<SectionHead index="01" label="How it works" heading="One sale sets everything else in motion." lede="You ring up a sale. YeboMart does the rest: stock drops, the till total updates, the day's report writes itself, and your assistant reads it all." tone="dark" />` → `<DiagramLoop />` → h3 "Start in three steps" + `<ol className="grid gap-px bg-cream/15 md:grid-cols-3">` each `<Reveal as="li" delay={i*120} className="bg-ink p-8">` giant numeral `font-display text-[56px] font-bold text-brand leading-none`, title `mt-4 font-display text-[22px] font-semibold`, body `mt-2 text-cream/70` → "Under the hood" row: 3 cards `border border-cream/20 p-6` with `<Icon>` in brand-hot, title, body. Commit `feat: how it works with self-drawing loop diagram`.
 
 ---
 
 ### Task 8: Features grid
 
-- [ ] `Features.tsx`: `<Section id="features" tone="cream">`, `SectionHead index="02" label="Everything a shop needs" heading="The whole back office, in the same app as the till." lede="Every screen below is free. They share one database, so a sale on the till is already in stock, reports, and the audit log."`; `<ul className="grid gap-px rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">`; each `<Reveal as="li" delay={i*60} className="bg-cream p-6 hover:bg-wash transition-colors">` with `<Icon name className="h-6 w-6 text-brick" />`, title `mt-4 font-display text-[17px] font-semibold`, body `mt-1.5 text-[14px] leading-[1.55] text-mute`. Commit `feat: features grid`.
+- [x] `Features.tsx`: `<Section id="features" tone="cream">`, `SectionHead index="02" label="Everything a shop needs" heading="The whole back office, in the same app as the till." lede="Every screen below is free. They share one database, so a sale on the till is already in stock, reports, and the audit log."`; `<ul className="grid gap-px rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">`; each `<Reveal as="li" delay={i*60} className="bg-cream p-6 hover:bg-wash transition-colors">` with `<Icon name className="h-6 w-6 text-brick" />`, title `mt-4 font-display text-[17px] font-semibold`, body `mt-1.5 text-[14px] leading-[1.55] text-mute`. Commit `feat: features grid`.
 
 ---
 
 ### Task 9: Assistant + AssistantDemo
 
-- [ ] `AssistantDemo.tsx`: cycles `ASSISTANT_QA` every 5000ms while in view (`useInView`), reduced-motion → static first pair. Renders a chat card: question bubble right-aligned `bg-ink text-cream`, answer bubble `bg-wash border border-line` with a typing dot row for 600ms before the answer appears; tab strip above listing the 4 questions, active one `text-ink border-b-2 border-brand`, clickable to jump.
-- [ ] `Assistant.tsx`: `<Section tone="sand">` split `lg:grid-cols-12`: copy col-5 (`SectionHead index="03" label="Your assistant" heading="Ask your shop a question." lede="Your assistant reads your sales, stock and margins every time you ask, and answers in plain language. It advises. You decide."`, three facts with check icons: "Speak or type", "Name it yourself", "Half a credit per question"), demo col-7. Commit `feat: assistant demo`.
+- [x] `AssistantDemo.tsx`: cycles `ASSISTANT_QA` every 5000ms while in view (`useInView`), reduced-motion → static first pair. Renders a chat card: question bubble right-aligned `bg-ink text-cream`, answer bubble `bg-wash border border-line` with a typing dot row for 600ms before the answer appears; tab strip above listing the 4 questions, active one `text-ink border-b-2 border-brand`, clickable to jump.
+- [x] `Assistant.tsx`: `<Section tone="sand">` split `lg:grid-cols-12`: copy col-5 (`SectionHead index="03" label="Your assistant" heading="Ask your shop a question." lede="Your assistant reads your sales, stock and margins every time you ask, and answers in plain language. It advises. You decide."`, three facts with check icons: "Speak or type", "Name it yourself", "Half a credit per question"), demo col-7. Commit `feat: assistant demo`.
 
 ---
 
 ### Task 10: Messages
 
-- [ ] `Messages.tsx`: `<Section tone="cream">` split: phone mockup left (`mx-auto w-[300px] rounded-[28px] border-[6px] border-ink bg-white p-4`) with `MESSAGES` as bubbles (`<Reveal delay={i*220} className="rounded-sharp rounded-tl-none bg-[#e7f8ee] p-3 text-[13px]">`, kind label mono, time right). Copy right: `SectionHead index="04" label="Messages" heading="The numbers come to you." lede="Every evening the day's report lands on your WhatsApp. Low stock, receipts and customer statements go out the same way. WhatsApp first, SMS if WhatsApp can't deliver."`. Commit `feat: messages section`.
+- [x] `Messages.tsx`: `<Section tone="cream">` split: phone mockup left (`mx-auto w-[300px] rounded-[28px] border-[6px] border-ink bg-white p-4`) with `MESSAGES` as bubbles (`<Reveal delay={i*220} className="rounded-sharp rounded-tl-none bg-[#e7f8ee] p-3 text-[13px]">`, kind label mono, time right). Copy right: `SectionHead index="04" label="Messages" heading="The numbers come to you." lede="Every evening the day's report lands on your WhatsApp. Low stock, receipts and customer statements go out the same way. WhatsApp first, SMS if WhatsApp can't deliver."`. Commit `feat: messages section`.
 
 ---
 
 ### Task 11: Pricing + Hardware restyle
 
-- [ ] `Pricing.tsx`: keep all data and `<Price>` usage. Remove `'Multi-shop & multi-location'` from `FREE_FEATURES`. Replace dark classes: section `tone="sand"`, callout `rounded-sharp border border-line bg-cream p-8`, usage cards `bg-cream border border-line`, cost figure `text-brick font-display`, packs `bg-cream border border-line`, highlighted `border-brand ring-1 ring-brand`, pack CTA `<Button variant={highlighted?'primary':'ghost'} size="md">`. Emoji → `<Icon>` (assistant, sms, email icons: reuse `chat`, `sms`, `mail` names, add to Icon).
-- [ ] `Hardware.tsx`: same treatment (`tone="cream"`, cards `border-line`, highlighted `border-brand`), emoji → icons (`scan`, `printer`, `store`), add a 4th benefit "Print from the browser" body "Bluetooth 58mm/80mm receipt printers pair straight from the app. No driver, no print dialog."
-- [ ] Verify prices still convert when switching country. Commit `feat: pricing and hardware on house system`.
+- [x] `Pricing.tsx`: keep all data and `<Price>` usage. Remove `'Multi-shop & multi-location'` from `FREE_FEATURES`. Replace dark classes: section `tone="sand"`, callout `rounded-sharp border border-line bg-cream p-8`, usage cards `bg-cream border border-line`, cost figure `text-brick font-display`, packs `bg-cream border border-line`, highlighted `border-brand ring-1 ring-brand`, pack CTA `<Button variant={highlighted?'primary':'ghost'} size="md">`. Emoji → `<Icon>` (assistant, sms, email icons: reuse `chat`, `sms`, `mail` names, add to Icon).
+- [x] `Hardware.tsx`: same treatment (`tone="cream"`, cards `border-line`, highlighted `border-brand`), emoji → icons (`scan`, `printer`, `store`), add a 4th benefit "Print from the browser" body "Bluetooth 58mm/80mm receipt printers pair straight from the app. No driver, no print dialog."
+- [x] Verify prices still convert when switching country. Commit `feat: pricing and hardware on house system`.
 
 ---
 
 ### Task 12: FAQ, FinalCta, App wiring, cleanup
 
-- [ ] `Faq.tsx`: `<Section tone="sand">`, `SectionHead index="05" label="Questions" heading="Straight answers."`; `<dl className="divide-y divide-line border-y border-line">` each a native `<details>` with `<summary className="cursor-pointer py-5 font-display text-[18px] font-medium flex justify-between">` + plus/minus icon rotating via `group-open:`; answer `pb-5 text-mute max-w-[70ch]`.
-- [ ] `FinalCta.tsx`: `<Section tone="brand">` → `<Page className="py-20 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">` h2 `font-display text-[clamp(34px,5vw,60px)] font-bold tracking-tightest` `{t('cta.title')}`, body, buttons (`ink` Open the app, `ghost` WhatsApp, `ghost` Call +268 7842 2613), mono line "+268 7842 2613 · WhatsApp support".
-- [ ] `App.tsx` order: Nav, Hero, ProofStrip, HowItWorks, Features, Assistant, Messages, Pricing, Hardware, Faq, FinalCta, Footer. Delete `Problems.tsx`, `Solutions.tsx`, `Setup.tsx`, `AIFeatures.tsx`, `Contact.tsx`. Remove unused translation keys. `grep -rn "purple\|gray-9\|slate-\|🛒\|🤖" src` must return nothing.
-- [ ] Verify tsc + build; commit `feat: faq, final cta, wire sections, remove legacy sections`.
+- [x] `Faq.tsx`: `<Section tone="sand">`, `SectionHead index="05" label="Questions" heading="Straight answers."`; `<dl className="divide-y divide-line border-y border-line">` each a native `<details>` with `<summary className="cursor-pointer py-5 font-display text-[18px] font-medium flex justify-between">` + plus/minus icon rotating via `group-open:`; answer `pb-5 text-mute max-w-[70ch]`.
+- [x] `FinalCta.tsx`: `<Section tone="brand">` → `<Page className="py-20 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">` h2 `font-display text-[clamp(34px,5vw,60px)] font-bold tracking-tightest` `{t('cta.title')}`, body, buttons (`ink` Open the app, `ghost` WhatsApp, `ghost` Call +268 7842 2613), mono line "+268 7842 2613 · WhatsApp support".
+- [x] `App.tsx` order: Nav, Hero, ProofStrip, HowItWorks, Features, Assistant, Messages, Pricing, Hardware, Faq, FinalCta, Footer. Delete `Problems.tsx`, `Solutions.tsx`, `Setup.tsx`, `AIFeatures.tsx`, `Contact.tsx`. Remove unused translation keys. `grep -rn "purple\|gray-9\|slate-\|🛒\|🤖" src` must return nothing.
+- [x] Verify tsc + build; commit `feat: faq, final cta, wire sections, remove legacy sections`.
 
 ---
 
 ### Task 13: Visual verification
 
-- [ ] Start preview (`.claude/launch.json` → `npm run dev`, port 5173). Screenshot every section at 1280 and at 375 (mobile preset). Check: no horizontal scroll (`document.documentElement.scrollWidth === window.innerWidth` at 375), diagram scrolls in its own box, till demo loops, assistant cycles, reveals fire once, hover states, focus rings visible.
-- [ ] Emulate reduced motion (`javascript_tool`: add `js-motion` and check `.rv` computed opacity is 1 under `matchMedia` override is not possible → instead temporarily toggle the media in DevTools is unavailable, so verify via CSS review + a test render with `html.js-motion` removed shows finished state).
-- [ ] Fix anything found; commit `fix: visual polish from review`.
+- [x] Start preview (`.claude/launch.json` → `npm run dev`, port 5173). Screenshot every section at 1280 and at 375 (mobile preset). Check: no horizontal scroll (`document.documentElement.scrollWidth === window.innerWidth` at 375), diagram scrolls in its own box, till demo loops, assistant cycles, reveals fire once, hover states, focus rings visible.
+- [x] Emulate reduced motion (`javascript_tool`: add `js-motion` and check `.rv` computed opacity is 1 under `matchMedia` override is not possible → instead temporarily toggle the media in DevTools is unavailable, so verify via CSS review + a test render with `html.js-motion` removed shows finished state).
+- [x] Fix anything found; commit `fix: visual polish from review`.
 
 ---
 
 ### Task 14: Deploy
 
-- [ ] Push `main` to `origin` (`git push origin main`).
-- [ ] Create Cloudflare Pages project `yebomart-landing` via the `create-deploy-trigger` skill: GitHub `omegathesecond/yebomart-landing`, prod branch `main`, build `npm run build`, out `dist`. If the API refuses a GitHub-sourced create, fall back to direct upload: `npm run build && CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=… npx wrangler pages deploy dist --project-name=yebomart-landing --branch=main`.
-- [ ] Add custom domains `yebomart.com` and `www.yebomart.com` (`POST /accounts/{acct}/pages/projects/yebomart-landing/domains`), confirm CNAME records appear in zone `5f06de238a6ec9f0e2297e40babe3487`.
-- [ ] Verify `curl -sI https://yebomart.com/` → 200 and `<title>` matches; `https://www.yebomart.com/` → 200 or 301 to apex.
-- [ ] Update `public/llms.txt` "Last generated" date only if content changed (it didn't). Done.
+- [x] Push `main` to `origin` (`git push origin main`).
+- [x] Create Cloudflare Pages project `yebomart-landing` via the `create-deploy-trigger` skill: GitHub `omegathesecond/yebomart-landing`, prod branch `main`, build `npm run build`, out `dist`. If the API refuses a GitHub-sourced create, fall back to direct upload: `npm run build && CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=… npx wrangler pages deploy dist --project-name=yebomart-landing --branch=main`.
+- [x] Add custom domains `yebomart.com` and `www.yebomart.com` (`POST /accounts/{acct}/pages/projects/yebomart-landing/domains`), confirm CNAME records appear in zone `5f06de238a6ec9f0e2297e40babe3487`.
+- [x] Verify `curl -sI https://yebomart.com/` → 200 and `<title>` matches; `https://www.yebomart.com/` → 200 or 301 to apex.
+- [x] Update `public/llms.txt` "Last generated" date only if content changed (it didn't). Done.

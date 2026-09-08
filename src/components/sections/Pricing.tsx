@@ -1,5 +1,12 @@
 import { Price } from '@/components/Price';
 import { useLocale } from '@/hooks/useLocale';
+import { APP_URL } from '@/data/copy';
+import { Page, Section } from '@/components/ui/Section';
+import { SectionHead } from '@/components/ui/SectionHead';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Reveal } from '@/components/ui/Reveal';
+import { Button } from '@/components/ui/Button';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 const FREE_FEATURES = [
   'Unlimited products & categories',
@@ -9,79 +16,81 @@ const FREE_FEATURES = [
   'Daily, weekly, monthly reports',
   'Barcode scanning (phone camera)',
   'Returns, refunds & suppliers',
-  'Multi-shop & multi-location',
-  'Offline-first PWA',
+  'Customer credit book',
+  'Offline-first, installable app',
+];
+
+const USAGE: { icon: IconName; title: string; cost: string; body: string }[] = [
+  { icon: 'spark', title: 'Assistant (Flash)', cost: '0.5 credits', body: "Per question to your shop's assistant." },
+  { icon: 'chat', title: 'Assistant (Pro)', cost: '1 credit', body: 'Heavier reasoning for harder questions.' },
+  { icon: 'sms', title: 'SMS / WhatsApp', cost: '1–2 credits', body: '1 per SMS, 2 per WhatsApp. Reports, receipts, alerts.' },
+  { icon: 'mail', title: 'Email', cost: '1 credit', body: 'Per emailed report.' },
 ];
 
 export function Pricing() {
   const { t } = useLocale();
 
   return (
-    <section id="pricing" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('pricing.title')}</h2>
-          <p className="text-xl text-gray-400">{t('pricing.subtitle')}</p>
-        </div>
+    <Section id="pricing" tone="sand">
+      <Page className="py-24 lg:py-32">
+        <SectionHead index="05" label="Pricing" heading={t('pricing.title')} lede={t('pricing.subtitle')} />
 
-        {/* Free-everything callout */}
-        <div className="mb-12 bg-gradient-to-r from-brand-900/40 to-emerald-900/40 border border-brand-600/50 rounded-2xl p-6">
-          <h3 className="text-2xl font-bold text-brand-300 mb-4 text-center">Everything below is free — forever.</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm text-gray-300">
+        <Reveal className="mt-14 grid gap-8 rounded-sharp border border-line bg-cream p-7 lg:grid-cols-[minmax(0,300px)_1fr] lg:p-10">
+          <div>
+            <Eyebrow>Free, forever</Eyebrow>
+            <h3 className="mt-3 font-display text-[26px] font-bold leading-tight tracking-tightest">Everything a shop runs on.</h3>
+            <p className="lede mt-3 text-[15px] leading-[1.6]">No subscription, no tiers, no trial that ends.</p>
+          </div>
+          <ul className="grid gap-x-6 gap-y-2.5 text-[14.5px] sm:grid-cols-2 lg:grid-cols-3">
             {FREE_FEATURES.map((f) => (
-              <div key={f} className="flex items-center gap-2">
-                <span className="text-brand-400">✓</span> {f}
-              </div>
+              <li key={f} className="flex items-start gap-2.5">
+                <Icon name="check" className="mt-1 h-4 w-4 shrink-0 text-brand" />
+                {f}
+              </li>
             ))}
-          </div>
+          </ul>
+        </Reveal>
+
+        <div className="mt-16">
+          <Reveal>
+            <Eyebrow>You only pay for these</Eyebrow>
+            <p className="lede mt-3 max-w-[60ch] text-[15px] leading-[1.6]">
+              These are the only actions that cost YeboMart real money, so we pass the cost through as credits. 1 credit ={' '}
+              <Price szl={1} className="text-ink" />.
+            </p>
+          </Reveal>
+          <ul className="mt-6 grid gap-px overflow-hidden rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {USAGE.map((u, i) => (
+              <Reveal as="li" key={u.title} delay={i * 70} className="bg-cream p-6">
+                <Icon name={u.icon} className="h-6 w-6 text-brick" />
+                <h4 className="mt-4 font-display text-[16px] font-semibold">{u.title}</h4>
+                <div className="mt-2 font-mono text-[22px] font-medium tabular-nums">{u.cost}</div>
+                <p className="mt-1.5 text-[13px] leading-[1.5] text-mute">{u.body}</p>
+              </Reveal>
+            ))}
+          </ul>
         </div>
 
-        {/* What costs credits */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-2 text-center">You only pay when you use these</h3>
-          <p className="text-gray-400 text-center mb-8">
-            These are the only actions that cost YeboMart real money on the back end, so we pass the cost through as
-            credits.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <UsageCard emoji="✨" title="AI Assistant (Flash)" cost="0.5 credits" body="Per question to your shop's AI assistant." />
-            <UsageCard emoji="🧠" title="AI Assistant (Pro)" cost="1 credit" body="Heavier reasoning for harder questions." />
-            <UsageCard
-              emoji="📱"
-              title="SMS / WhatsApp"
-              cost="1–2 credits"
-              body="1 per SMS, 2 per WhatsApp. Daily reports, receipts, alerts."
-            />
-            <UsageCard emoji="📧" title="Email" cost="1 credit" body="Per email receipt or report." />
-          </div>
-        </div>
-
-        {/* Top-up packs */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-2 text-center">Top up when you need credits</h3>
-          <p className="text-gray-400 text-center mb-8">
-            1 credit = <Price szl={1} />. Buy any amount. Bigger packs come with a discount.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <Pack
-              name="Starter"
-              audience="For occasional AI use"
-              priceSzl={100}
-              perks={[
-                '100 credits',
-                '~200 AI questions (Flash)',
-                'Or ~100 SMS messages',
-              ]}
-            />
+        <div className="mt-16">
+          <Reveal>
+            <Eyebrow>Top up when you need credits</Eyebrow>
+            <p className="lede mt-3 max-w-[60ch] text-[15px] leading-[1.6]">
+              Buy any amount. Bigger packs come with a discount. Credits never expire.
+            </p>
+          </Reveal>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <Pack name="Starter" audience="For occasional assistant use" priceSzl={100} perks={['100 credits', '~200 assistant questions', 'Or ~100 SMS messages']} delay={0} />
             <Pack
               name="Standard"
-              audience="For daily AI + reports"
+              audience="For daily questions + reports"
               priceSzl={450}
               originalSzl={500}
               creditsLabel="500 credits"
               effectiveSzl={0.9}
-              perks={['500 credits', '~1,000 AI questions']}
+              perks={['500 credits', '~1,000 assistant questions']}
+              tag="Popular · 10% off"
               highlighted
+              delay={90}
             />
             <Pack
               name="Bulk"
@@ -90,42 +99,17 @@ export function Pricing() {
               originalSzl={2000}
               creditsLabel="2,000 credits"
               effectiveSzl={0.8}
-              perks={['2,000 credits', '~4,000 AI questions']}
-              saveLabel="SAVE 20%"
+              perks={['2,000 credits', '~4,000 assistant questions']}
+              tag="Save 20%"
+              delay={180}
             />
           </div>
-          <p className="text-gray-500 text-sm text-center mt-6">
-            Need a custom amount? Top up in any multiple of <Price szl={10} /> from inside the app.
+          <p className="mt-8 font-mono text-[11px] uppercase tracking-eyebrow text-mute">
+            Setup free · Free training · WhatsApp support · No contract · Top up any multiple of <Price szl={10} /> in the app
           </p>
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-400">Setup is free • Free training • 24/7 support • Cancel anytime — no contract</p>
-          <p className="text-gray-500 text-sm mt-2">Prices shown in your local currency where supported.</p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function UsageCard({
-  emoji,
-  title,
-  cost,
-  body,
-}: {
-  emoji: string;
-  title: string;
-  cost: string;
-  body: string;
-}) {
-  return (
-    <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-5">
-      <div className="text-2xl mb-2">{emoji}</div>
-      <h4 className="font-bold mb-1">{title}</h4>
-      <p className="text-2xl font-bold text-purple-400">{cost}</p>
-      <p className="text-xs text-gray-500 mt-2">{body}</p>
-    </div>
+      </Page>
+    </Section>
   );
 }
 
@@ -137,8 +121,9 @@ function Pack({
   creditsLabel,
   effectiveSzl,
   perks,
+  tag,
   highlighted,
-  saveLabel,
+  delay,
 }: {
   name: string;
   audience: string;
@@ -147,65 +132,56 @@ function Pack({
   creditsLabel?: string;
   effectiveSzl?: number;
   perks: string[];
+  tag?: string;
   highlighted?: boolean;
-  saveLabel?: string;
+  delay: number;
 }) {
   return (
-    <div
-      className={`relative overflow-hidden rounded-2xl p-6 ${
-        highlighted
-          ? 'bg-gradient-to-b from-brand-900/50 to-gray-800/50 border-2 border-brand-600'
-          : 'bg-gray-800/50 border border-gray-700'
+    <Reveal
+      delay={delay}
+      className={`relative flex flex-col rounded-sharp border bg-cream p-7 ${
+        highlighted ? 'border-brand ring-1 ring-brand' : 'border-line'
       }`}
     >
-      {highlighted && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 px-3 py-0.5 rounded-full text-xs font-medium">
-          Popular · 10% off
-        </div>
-      )}
-      {saveLabel && (
-        <div className="absolute top-3 right-3">
-          <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">
-            {saveLabel}
-          </span>
-        </div>
-      )}
-      <h4 className={`text-lg font-bold mb-1 ${highlighted ? 'mt-2' : ''}`}>{name}</h4>
-      <p className="text-sm text-gray-400 mb-4">{audience}</p>
-      <div className="mb-4">
-        {originalSzl && (
-          <div className="text-sm text-gray-500 line-through">
-            <Price szl={originalSzl} />
-          </div>
-        )}
-        <Price szl={priceSzl} className="text-3xl font-bold text-white" />{' '}
-        {creditsLabel && <span className="text-green-400 text-sm">for {creditsLabel}</span>}
+      {tag ? (
+        <span
+          className={`absolute -top-3 left-6 rounded-sharp px-2 py-1 font-mono text-[10px] uppercase tracking-eyebrow ${
+            highlighted ? 'bg-brand text-ink' : 'bg-ink text-cream'
+          }`}
+        >
+          {tag}
+        </span>
+      ) : null}
+      <h4 className="font-display text-[20px] font-semibold">{name}</h4>
+      <p className="mt-1 text-[14px] text-mute">{audience}</p>
+      <div className="mt-5 flex flex-wrap items-baseline gap-x-2">
+        <Price szl={priceSzl} className="font-display text-[34px] font-bold leading-none tracking-tightest" />
+        {originalSzl ? <Price szl={originalSzl} className="font-mono text-[13px] text-mute line-through" /> : null}
       </div>
-      <ul className="space-y-2 text-sm mb-6">
+      {creditsLabel ? <p className="mt-1.5 font-mono text-[11px] uppercase tracking-eyebrow text-brick">for {creditsLabel}</p> : null}
+      <ul className="mt-5 space-y-2 text-[14px]">
         {perks.map((p) => (
-          <li key={p} className="flex items-center gap-2 text-gray-300">
-            <span className="text-brand-400">•</span> {p}
+          <li key={p} className="flex items-start gap-2.5">
+            <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+            {p}
           </li>
         ))}
-        {effectiveSzl !== undefined && (
-          <li className="flex items-center gap-2 text-gray-300">
-            <span className="text-brand-400">•</span> Effective <Price szl={effectiveSzl} /> per credit
+        {effectiveSzl !== undefined ? (
+          <li className="flex items-start gap-2.5">
+            <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+            <span>
+              Effective <Price szl={effectiveSzl} /> per credit
+            </span>
           </li>
-        )}
-        <li className="flex items-center gap-2 text-gray-400">
-          <span className="text-gray-500">•</span> Credits never expire
+        ) : null}
+        <li className="flex items-start gap-2.5 text-mute">
+          <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0" />
+          Credits never expire
         </li>
       </ul>
-      <a
-        href="https://app.yebomart.com"
-        className={`block w-full text-center py-2 rounded-lg text-sm font-medium transition ${
-          highlighted
-            ? 'bg-brand-600 hover:bg-brand-500'
-            : 'border border-green-600 text-green-400 hover:bg-green-600 hover:text-white'
-        }`}
-      >
-        Get Started
-      </a>
-    </div>
+      <Button href={APP_URL} variant={highlighted ? 'primary' : 'ghost'} className="mt-7">
+        Top up in the app
+      </Button>
+    </Reveal>
   );
 }

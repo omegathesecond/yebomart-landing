@@ -1,37 +1,333 @@
 @import 'tailwindcss';
 
+/* ============================================================================
+   YeboMart — Omevision house design system, Tailwind v4 flavour.
+   Warm paper ground, ink text, one bold colour (Yebo orange). Space Grotesk
+   for display + body, IBM Plex Mono for eyebrows and demo numerals.
+   Brand rules: ~/.claude/skills/yebo-logo. Never purple, never green-as-brand.
+   ========================================================================== */
 @theme {
-  --color-brand-50: #f0fdf4;
-  --color-brand-100: #dcfce7;
-  --color-brand-200: #bbf7d0;
-  --color-brand-300: #86efac;
-  --color-brand-400: #4ade80;
-  --color-brand-500: #22c55e;
-  --color-brand-600: #16a34a;
-  --color-brand-700: #15803d;
-  --color-brand-800: #166534;
-  --color-brand-900: #14532d;
+  --color-brand: #ff6b00;
+  --color-brand-hot: #ff8c33;
+  --color-brick: #9a3412;
+  --color-ink: #1a1814;
+  --color-ink-2: #221f1a;
+  --color-cream: #fdfbf7;
+  --color-sand: #f5f1ea;
+  --color-shade: #eae5dc;
+  --color-wash: #fff5ec;
+  --color-mute: #78716c;
+  --color-mist: #a8a29e;
+  --color-line: rgba(26, 24, 20, 0.12);
+  --color-line-strong: rgba(26, 24, 20, 0.28);
+  --color-ok: #15803d;
+  --color-warn: #ca8a04;
+  --color-bad: #dc2626;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-sharp: 2px;
+  --tracking-tightest: -0.03em;
+  --tracking-eyebrow: 0.14em;
+  --container-page: 1280px;
+
+  --shadow-card: 0 1px 2px rgba(26, 24, 20, 0.05), 0 24px 48px -24px rgba(26, 24, 20, 0.25);
+  --shadow-lift: 0 1px 2px rgba(26, 24, 20, 0.04), 0 10px 30px -12px rgba(26, 24, 20, 0.18);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-blink: blink 1.1s steps(2, start) infinite;
+  --animate-pulse-dot: pulse-dot 1.8s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.55; }
+  }
 }
 
-html, body {
-  background-color: rgb(3 7 18); /* gray-950 */
-  color: white;
+/* ── Base ─────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* fixed nav height */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
-/* Country picker chevron rotation when the modal is open. */
-.country-picker-btn[data-open='true'] .chevron {
-  transform: rotate(180deg);
+/* Paper grain so the cream never reads as a flat #fff. Inlined SVG, no request. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-.chevron {
-  transition: transform 0.2s;
+#root {
+  position: relative;
+  z-index: 1;
 }
 
-/* Smooth section-link scrolling. */
-html {
-  scroll-behavior: smooth;
+::selection {
+  background-color: rgba(255, 107, 0, 0.25);
+  color: var(--color-ink);
+}
+.on-ink ::selection {
+  background-color: rgba(255, 140, 51, 0.4);
+  color: var(--color-cream);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+.on-ink :focus-visible {
+  outline-color: var(--color-brand-hot);
+}
+
+@layer components {
+/* ── Editorial eyebrow: "01 — How it works" ───────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-mute);
+}
+.eyebrow .rule {
+  display: inline-block;
+  height: 1px;
+  width: 22px;
+  background: var(--color-brick);
+}
+.on-ink .eyebrow {
+  color: var(--color-mist);
+}
+.on-ink .eyebrow .rule {
+  background: var(--color-brand-hot);
+}
+
+/* Muted running text that flips on ink bands. */
+.lede {
+  color: var(--color-mute);
+}
+.on-ink .lede {
+  color: rgba(253, 251, 247, 0.72);
+}
+.eyebrow .num {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* ── Marquee: child must contain two identical halves ─────────────────── */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.marquee > * {
+  display: inline-flex;
+  animation: var(--animate-marquee);
+}
+
+/* Diagonal hairline stripes for accent panels on ink. */
+.stripes-cream {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 14px,
+    rgba(253, 251, 247, 0.08) 14px,
+    rgba(253, 251, 247, 0.08) 15px
+  );
+}
+.dots-ink {
+  background-image: radial-gradient(rgba(26, 24, 20, 0.16) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Hide scrollbars on horizontal figure scrollers without killing scroll. */
+.no-bar {
+  scrollbar-width: none;
+}
+.no-bar::-webkit-scrollbar {
+  display: none;
+}
+
+  /* On the orange band, eyebrows and ledes go ink instead of mute. */
+  .on-brand .eyebrow { color: rgba(26, 24, 20, 0.7); }
+  .on-brand .eyebrow .rule { background: var(--color-ink); }
+  .on-brand .lede { color: rgba(26, 24, 20, 0.78); }
+}
+
+/* ============================================================================
+   Motion system.
+   `html.js-motion` is added once JS runs (see ui/Reveal.tsx) and flips every
+   figure from "finished" to "waiting to draw". `.is-in` is added by an
+   IntersectionObserver when the element scrolls into view. Without JS the
+   finished state renders; with reduced-motion the finished state renders
+   immediately. Nothing can get stuck invisible.
+   ========================================================================== */
+
+/* Reveal: rise + fade once. Stagger with style="--d: 120ms". */
+.js-motion .rv {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.js-motion .is-in .rv,
+.js-motion .rv.is-in {
+  animation: rv-up 640ms cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms) forwards;
+}
+@keyframes rv-up {
+  to { opacity: 1; transform: none; }
+}
+
+/* Figure tokens: swap the whole palette for ink bands with .fig-ink. */
+.fig {
+  --fig-line: rgba(26, 24, 20, 0.42);
+  --fig-soft: rgba(26, 24, 20, 0.2);
+  --fig-text: #1a1814;
+  --fig-muted: #78716c;
+  --fig-accent: #9a3412;
+  --fig-hot: #ff6b00;
+  --fig-ok: #15803d;
+}
+.fig-ink,
+.on-ink .fig {
+  --fig-line: rgba(253, 251, 247, 0.42);
+  --fig-soft: rgba(253, 251, 247, 0.16);
+  --fig-text: #fdfbf7;
+  --fig-muted: #a8a29e;
+  --fig-accent: #ff8c33;
+  --fig-hot: #ff8c33;
+  --fig-ok: #4ade80;
+}
+.fig text { font-family: var(--font-sans); }
+.fig .m { font-family: var(--font-mono); }
+
+/* A wire draws itself in, once. Set --len to the path length. */
+.fig-wire {
+  stroke-dasharray: var(--len, 900);
+  stroke-dashoffset: 0;
+}
+.js-motion .fig-wire {
+  stroke-dashoffset: var(--len, 900);
+}
+.js-motion .is-in .fig-wire {
+  animation: fig-draw var(--dur, 650ms) cubic-bezier(0.4, 0, 0.2, 1) var(--d, 0ms) forwards;
+}
+@keyframes fig-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* A node lights in; a "hold" node also flips its stroke to the OK colour. */
+.js-motion .fig-node,
+.js-motion .fig-hold,
+.js-motion .fade-step {
+  opacity: 0;
+}
+.js-motion .is-in .fig-node,
+.js-motion .is-in .fade-step {
+  animation: fig-lit 620ms ease-out var(--d, 0ms) forwards;
+}
+.js-motion .is-in .fig-hold {
+  animation:
+    fig-lit 620ms ease-out var(--d, 0ms) forwards,
+    fig-hold 460ms ease-out calc(var(--d, 0ms) + 640ms) forwards;
+}
+@keyframes fig-lit {
+  to { opacity: 1; }
+}
+@keyframes fig-hold {
+  to { stroke: var(--fig-ok); }
+}
+
+/* A bar / meter fills left-to-right. */
+.fig-fill {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+.js-motion .fig-fill {
+  transform: scaleX(0);
+}
+.js-motion .is-in .fig-fill {
+  animation: fig-fill 1150ms cubic-bezier(0.4, 0, 0.2, 1) var(--d, 200ms) forwards;
+}
+@keyframes fig-fill {
+  to { transform: scaleX(1); }
+}
+
+/* A travelling dot along a wire (offset-path set inline). Hidden where the
+   browser can't move it, so it never sits blinking at the origin. */
+.fig-runner {
+  display: none;
+}
+@supports (offset-path: path('M0 0 L1 1')) {
+  .fig-runner {
+    display: block;
+  }
+}
+.js-motion .fig-runner {
+  opacity: 0;
+}
+.js-motion .is-in .fig-runner {
+  animation: fig-run 3.2s cubic-bezier(0.45, 0, 0.25, 1) var(--d, 1400ms) infinite;
+}
+@keyframes fig-run {
+  0% { offset-distance: 0%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .rv { opacity: 1; transform: none; }
+  .js-motion .fig-wire { stroke-dashoffset: 0; }
+  .js-motion .fig-node,
+  .js-motion .fig-hold,
+  .js-motion .fade-step { opacity: 1; }
+  .js-motion .fig-hold { stroke: var(--fig-ok); }
+  .js-motion .fig-fill { transform: none; }
+  .js-motion .fig-runner { display: none; }
+  .js-motion .is-in .rv,
+  .js-motion .is-in .fig-wire,
+  .js-motion .is-in .fig-node,
+  .js-motion .is-in .fig-hold,
+  .js-motion .is-in .fade-step,
+  .js-motion .is-in .fig-fill { animation: none; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -55,17 +55,53 @@ export const FEATURES: { icon: IconName; title: string; body: string }[] = [
   { icon: 'tax', title: 'VAT & tax', body: 'Set your rate once. Receipts and reports carry it.' },
 ];
 
-export const ASSISTANT_QA: { q: string; a: string }[] = [
-  { q: "What's not selling?", a: "Three items haven't moved in 30 days: Rice 10kg (2 sold), Sunlight 2kg (1), Candles ×6 (0). That's E1,240 sitting on the shelf. Discount the candles first." },
-  { q: 'What should I restock this week?', a: "Bread: you sell about 20 a day and have 15 left. Milk: 3 days left at this pace. Eggs are fine, you're overstocked by about 30%." },
-  { q: "How's the week going?", a: 'E18,420 so far, up 9% on last week. Tuesday was slow. Margin is holding at 22%, mostly from airtime and bread.' },
-  { q: 'Which product makes me the most?', a: 'By margin, cooked meals at 38%, then airtime by volume. Simba chips is your thinnest at 5%.' },
+export const ASSISTANT_QA: { tab: string; q: string; a: string; spoken?: boolean }[] = [
+  {
+    tab: 'Slow movers',
+    q: "What's not selling?",
+    a: "Three items haven't moved in 30 days: Rice 10kg (2 sold), Sunlight 2kg (1), Candles ×6 (0). That's E1,240 sitting on the shelf. Discount the candles first.",
+  },
+  {
+    tab: 'Restock',
+    q: 'What should I restock this week?',
+    a: "Bread: you sell about 20 a day and have 15 left. Milk: 3 days left at this pace. Eggs are fine, you're overstocked by about 30%.",
+    spoken: true,
+  },
+  {
+    tab: 'This week',
+    q: "How's the week going?",
+    a: 'E18,420 so far, up 9% on last week. Tuesday was slow. Margin is holding at 22%, mostly from airtime and bread.',
+  },
+  {
+    tab: 'Margins',
+    q: 'Which product makes me the most?',
+    a: 'By margin, cooked meals at 38%, then airtime by volume. Simba chips is your thinnest at 5%.',
+  },
 ];
 
-export const ASSISTANT_FACTS: { icon: IconName; text: string }[] = [
-  { icon: 'mic', text: 'Speak or type' },
-  { icon: 'spark', text: 'Name it yourself' },
-  { icon: 'cash', text: 'Half a credit per question' },
+export const ASSISTANT_PROOF: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'report',
+    title: 'It reads before it answers',
+    body: "Today's takings, the stock on hand, every margin, and everything that hasn't moved in a month.",
+  },
+  {
+    icon: 'mic',
+    title: 'Speak instead of typing',
+    body: 'Hands full behind the counter? Hold the mic and ask out loud.',
+  },
+  {
+    icon: 'check',
+    title: 'It advises, it never acts',
+    body: "It will not change a price or place an order behind your back. Nothing moves unless you move it.",
+  },
+];
+
+/** What it surfaces without being asked — the shop dashboard's insight feed. */
+export const ASSISTANT_INSIGHTS: { icon: IconName; tag: string; text: string }[] = [
+  { icon: 'clock', tag: 'Slow mover', text: "Candles ×6 haven't sold in 34 days. E240 sitting on the shelf." },
+  { icon: 'tax', tag: 'Thin margin', text: 'Simba chips is at 5%. Every other snack you stock is above 18%.' },
+  { icon: 'stock', tag: 'Running out', text: 'White bread: 3 left, and you sell about 20 a day.' },
 ];
 
 export const MESSAGES: { kind: string; time: string; text: string; why: string }[] = [

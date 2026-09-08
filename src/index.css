@@ -332,41 +332,48 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Long-form legal pages (Privacy, Terms). No typography plugin is installed,
- * so element spacing/sizing is defined here rather than via `prose` classes. */
-.legal-prose h2 {
-  font-size: 1.375rem;
-  font-weight: 700;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-.legal-prose h3 {
-  font-size: 1.075rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.legal-prose p,
-.legal-prose ul {
-  color: rgb(209 213 219); /* gray-300 */
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-.legal-prose ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-}
-.legal-prose li {
-  margin-bottom: 0.4rem;
-}
-.legal-prose a {
-  color: var(--color-brand-400);
-  text-decoration: underline;
-}
-.legal-prose a:hover {
-  color: var(--color-brand-300);
-}
-.legal-prose strong {
-  color: white;
-  font-weight: 600;
+/* Long-form legal pages (Privacy, Terms). No typography plugin, so element
+   spacing and colour are defined here on the house tokens. */
+@layer components {
+  .legal-prose h2 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-prose h3 {
+    font-family: var(--font-display);
+    font-size: 1.075rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-prose p,
+  .legal-prose ul {
+    color: #57524b;
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .legal-prose ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .legal-prose li {
+    margin-bottom: 0.4rem;
+  }
+  .legal-prose a {
+    color: var(--color-brick);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-prose a:hover {
+    color: var(--color-brand);
+  }
+  .legal-prose strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
 }

@@ -1,20 +1,12 @@
 import type { Lang } from './countries';
 
 export type TranslationKey =
-  | 'nav.why'
   | 'nav.features'
   | 'nav.pricing'
   | 'nav.hardware'
   | 'nav.how'
-  | 'nav.getStarted'
   | 'nav.openApp'
-  | 'hero.badge'
-  | 'hero.title1'
-  | 'hero.title2'
-  | 'hero.subtitle'
   | 'hero.cta'
-  | 'hero.callCta'
-  | 'hero.tagline'
   | 'hero.eyebrow'
   | 'hero.line1'
   | 'hero.line2'
@@ -34,21 +26,12 @@ type Bundle = Record<TranslationKey, string>;
 
 export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
   en: {
-    'nav.why': 'Why YeboMart',
     'nav.features': 'Features',
     'nav.pricing': 'Pricing',
     'nav.hardware': 'Hardware',
     'nav.how': 'How it works',
-    'nav.getStarted': 'Get Started',
     'nav.openApp': 'Open the app',
-    'hero.badge': 'Powered by AI',
-    'hero.title1': 'AI-Powered',
-    'hero.title2': 'Shop Management',
-    'hero.subtitle':
-      'Your AI assistant tracks sales, predicts stock needs, catches theft, and sends you daily insights. Run your shop smarter — not harder.',
     'hero.cta': 'Open the app',
-    'hero.callCta': 'Call +268 7842 2613',
-    'hero.tagline': 'Works on phone, tablet, or computer • Works offline • 24/7 support',
     'hero.eyebrow': 'Free POS & shop management',
     'hero.line1': 'Run your whole shop',
     'hero.line2': 'from your phone.',
@@ -66,21 +49,12 @@ export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
     'footer.madeIn': 'Made in',
   },
   fr: {
-    'nav.why': 'Pourquoi YeboMart',
     'nav.features': 'Fonctionnalités',
     'nav.pricing': 'Tarifs',
     'nav.hardware': 'Matériel',
     'nav.how': 'Comment ça marche',
-    'nav.getStarted': 'Commencer',
     'nav.openApp': "Ouvrir l'app",
-    'hero.badge': "Alimentée par l'IA",
-    'hero.title1': 'Gestion de Boutique',
-    'hero.title2': "Alimentée par l'IA",
-    'hero.subtitle':
-      "Votre assistant IA suit les ventes, prédit les besoins de stock, détecte les vols et vous envoie des informations quotidiennes. Gérez votre boutique plus intelligemment.",
     'hero.cta': "Ouvrir l'app",
-    'hero.callCta': 'Appeler +268 7842 2613',
-    'hero.tagline': 'Téléphone, tablette ou ordinateur • Hors ligne • Support 24/7',
     'hero.eyebrow': 'Caisse et gestion de boutique gratuites',
     'hero.line1': 'Gérez toute votre boutique',
     'hero.line2': 'depuis votre téléphone.',

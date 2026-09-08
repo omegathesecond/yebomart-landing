@@ -108,6 +108,7 @@ h1, h2, h3, h4 {
   outline-color: var(--color-brand-hot);
 }
 
+@layer components {
 /* ── Editorial eyebrow: "01 — How it works" ───────────────────────────── */
 .eyebrow {
   display: inline-flex;
@@ -179,6 +180,12 @@ h1, h2, h3, h4 {
   display: none;
 }
 
+  /* On the orange band, eyebrows and ledes go ink instead of mute. */
+  .on-brand .eyebrow { color: rgba(26, 24, 20, 0.7); }
+  .on-brand .eyebrow .rule { background: var(--color-ink); }
+  .on-brand .lede { color: rgba(26, 24, 20, 0.78); }
+}
+
 /* ============================================================================
    Motion system.
    `html.js-motion` is added once JS runs (see ui/Reveal.tsx) and flips every
@@ -233,7 +240,7 @@ h1, h2, h3, h4 {
   stroke-dashoffset: var(--len, 900);
 }
 .js-motion .is-in .fig-wire {
-  animation: fig-draw 650ms cubic-bezier(0.4, 0, 0.2, 1) var(--d, 0ms) forwards;
+  animation: fig-draw var(--dur, 650ms) cubic-bezier(0.4, 0, 0.2, 1) var(--d, 0ms) forwards;
 }
 @keyframes fig-draw {
   to { stroke-dashoffset: 0; }
@@ -276,7 +283,16 @@ h1, h2, h3, h4 {
   to { transform: scaleX(1); }
 }
 
-/* A travelling dot along a wire (offset-path set inline). */
+/* A travelling dot along a wire (offset-path set inline). Hidden where the
+   browser can't move it, so it never sits blinking at the origin. */
+.fig-runner {
+  display: none;
+}
+@supports (offset-path: path('M0 0 L1 1')) {
+  .fig-runner {
+    display: block;
+  }
+}
 .js-motion .fig-runner {
   opacity: 0;
 }

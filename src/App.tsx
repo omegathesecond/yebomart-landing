@@ -1,13 +1,15 @@
 import { LocaleContext, useLocaleState } from '@/hooks/useLocale';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/sections/Hero';
-import { Problems } from '@/components/sections/Problems';
-import { AIFeatures } from '@/components/sections/AIFeatures';
-import { Solutions } from '@/components/sections/Solutions';
-import { Setup } from '@/components/sections/Setup';
+import { ProofStrip } from '@/components/sections/ProofStrip';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Features } from '@/components/sections/Features';
+import { Assistant } from '@/components/sections/Assistant';
+import { Messages } from '@/components/sections/Messages';
 import { Pricing } from '@/components/sections/Pricing';
 import { Hardware } from '@/components/sections/Hardware';
-import { Contact } from '@/components/sections/Contact';
+import { Faq } from '@/components/sections/Faq';
+import { FinalCta } from '@/components/sections/FinalCta';
 import { Footer } from '@/components/sections/Footer';
 
 export function App() {
@@ -18,13 +20,15 @@ export function App() {
       <Nav />
       <main>
         <Hero />
-        <Problems />
-        <AIFeatures />
-        <Solutions />
-        <Setup />
+        <ProofStrip />
+        <HowItWorks />
+        <Features />
+        <Assistant />
+        <Messages />
         <Pricing />
         <Hardware />
-        <Contact />
+        <Faq />
+        <FinalCta />
       </main>
       <Footer />
     </LocaleContext.Provider>

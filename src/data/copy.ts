@@ -27,7 +27,7 @@ export const LOOP: { n: string; title: string; body: string }[] = [
   { n: '02', title: 'Stock', body: "Every item's count drops" },
   { n: '03', title: 'Cash-up', body: 'Counted cash vs. till total' },
   { n: '04', title: 'Report', body: 'Day summary lands on WhatsApp' },
-  { n: '05', title: 'Assistant', body: 'Reads it all, tells you what to do' },
+  { n: '05', title: 'Assistant', body: 'Reads it all, advises you' },
 ];
 
 export const STEPS: { n: string; title: string; body: string }[] = [
@@ -68,11 +68,31 @@ export const ASSISTANT_FACTS: { icon: IconName; text: string }[] = [
   { icon: 'cash', text: 'Half a credit per question' },
 ];
 
-export const MESSAGES: { kind: string; time: string; text: string }[] = [
-  { kind: 'Daily report', time: '18:00', text: `Today at ${SHOP}: E4,250 from 47 sales. Cash E3,890 · Card E360. Net profit E890. Top: Bread, Milk, Airtime, Coke 500ml, Eggs.` },
-  { kind: 'Low stock', time: '07:00', text: 'Low stock: White bread (3), Fresh milk (8), Coke 500ml (5).' },
-  { kind: 'SMS receipt', time: '14:32', text: `Receipt A1042 · E66.50 · ${SHOP} · Thank you.` },
-  { kind: 'Statement', time: '09:15', text: 'Statement for Nomsa D.: balance E320, due Friday.' },
+export const MESSAGES: { kind: string; time: string; text: string; why: string }[] = [
+  {
+    kind: 'Daily report',
+    time: '18:00',
+    text: `Today at ${SHOP}: E4,250 from 47 sales. Cash E3,890 · Card E360. Net profit E890. Top: Bread, Milk, Airtime, Coke 500ml, Eggs.`,
+    why: 'Total, cash vs card, profit and the top five, at closing time.',
+  },
+  {
+    kind: 'Low stock',
+    time: '07:00',
+    text: 'Low stock: White bread (3), Fresh milk (8), Coke 500ml (5).',
+    why: 'Only sends when something is at or below its reorder level.',
+  },
+  {
+    kind: 'SMS receipt',
+    time: '14:32',
+    text: `Receipt A1042 · E66.50 · ${SHOP} · Thank you.`,
+    why: 'One tap at the till. The customer has it before they leave.',
+  },
+  {
+    kind: 'Statement',
+    time: '09:15',
+    text: 'Statement for Nomsa D.: balance E320, due Friday.',
+    why: 'Send a credit customer their balance and due date from their card.',
+  },
 ];
 
 export const FAQ: { q: string; a: string }[] = [

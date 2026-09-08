@@ -1,78 +1,55 @@
+import type { CSSProperties } from 'react';
 import { useLocale } from '@/hooks/useLocale';
-import { Price } from '@/components/Price';
+import { APP_URL, WHATSAPP } from '@/data/copy';
+import { Page, Section } from '@/components/ui/Section';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Button } from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Reveal';
+import { Icon } from '@/components/ui/Icon';
+import { TillDemo } from './TillDemo';
+
+const d = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
 
 export function Hero() {
   const { t } = useLocale();
-
   return (
-    <section className="pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-700 rounded-full px-4 py-2 mb-6">
-            <span className="text-lg">🤖</span>
-            <span className="text-sm text-purple-300">{t('hero.badge')}</span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-            {t('hero.title1')}
+    <Section id="top" className="overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="dots-ink absolute inset-x-0 top-0 h-[560px] opacity-50 [mask-image:linear-gradient(to_bottom,black_30%,transparent)]"
+      />
+      <Page className="relative grid gap-14 pb-20 pt-28 lg:grid-cols-12 lg:items-center lg:gap-10 lg:pb-28 lg:pt-40">
+        <Reveal className="lg:col-span-7" self={false}>
+          <Eyebrow className="rv">{t('hero.eyebrow')}</Eyebrow>
+          <h1
+            className="rv mt-6 font-display text-[clamp(34px,5.2vw,64px)] font-bold leading-[1.02] tracking-tightest"
+            style={d(80)}
+          >
+            {t('hero.line1')}
             <br />
-            <span className="text-brand-400">{t('hero.title2')}</span>
+            <span className="text-brand">{t('hero.line2')}</span>
           </h1>
-
-          <p className="text-xl text-gray-400 mb-10">{t('hero.subtitle')}</p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://app.yebomart.com"
-              className="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 px-8 py-4 rounded-xl font-semibold text-lg transition"
-            >
+          <p className="lede rv mt-6 max-w-[54ch] text-[18px] leading-[1.6]" style={d(160)}>
+            {t('hero.lede')}
+          </p>
+          <div className="rv mt-8 flex flex-col gap-3 sm:flex-row" style={d(240)}>
+            <Button href={APP_URL} size="lg">
               {t('hero.cta')}
-            </a>
-            <a
-              href="tel:+26878422613"
-              className="w-full sm:w-auto border border-gray-700 hover:border-gray-600 px-8 py-4 rounded-xl font-semibold text-lg transition"
-            >
-              {t('hero.callCta')}
-            </a>
+              <Icon name="arrow" className="h-4 w-4" />
+            </Button>
+            <Button href={WHATSAPP} variant="ghost" size="lg" external>
+              <Icon name="whatsapp" className="h-4 w-4" />
+              {t('hero.whatsapp')}
+            </Button>
           </div>
-
-          <p className="text-gray-500 text-sm mt-6">{t('hero.tagline')}</p>
-        </div>
-
-        {/* AI Chat Preview */}
-        <div className="mt-12 max-w-2xl mx-auto">
-          <div className="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden">
-            <div className="bg-gray-800/50 px-4 py-3 flex items-center gap-3 border-b border-gray-700">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">🤖</div>
-              <div>
-                <div className="font-medium text-sm">Your AI Assistant</div>
-                <div className="text-xs text-gray-400">Always watching your business</div>
-              </div>
-            </div>
-            <div className="p-4 space-y-3">
-              <div className="flex gap-3">
-                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center shrink-0">🤖</div>
-                <div className="bg-gray-800 rounded-2xl rounded-tl-none p-3 max-w-md">
-                  <p className="text-sm">Good morning! Here's your shop update:</p>
-                  <p className="text-sm mt-2">
-                    📈 Yesterday you made{' '}
-                    <strong className="text-brand-400">
-                      <Price szl={4250} />
-                    </strong>{' '}
-                    — up 15% from last week
-                  </p>
-                  <p className="text-sm mt-1">
-                    ⚠️ <strong className="text-amber-400">Bread and Milk</strong> running low — I suggest ordering today
-                  </p>
-                  <p className="text-sm mt-1">
-                    🔍 I noticed <strong className="text-red-400">3 cash discrepancies</strong> on Tuesday. Want me to show you the details?
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <p className="rv mt-7 font-mono text-[11px] uppercase tracking-eyebrow text-mute" style={d(320)}>
+            {t('hero.facts')}
+          </p>
+        </Reveal>
+        <Reveal className="lg:col-span-5" delay={200}>
+          <TillDemo />
+        </Reveal>
+      </Page>
+    </Section>
   );
 }

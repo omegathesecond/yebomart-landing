@@ -1,203 +1,158 @@
 import { Price } from '@/components/Price';
+import { Page, Section } from '@/components/ui/Section';
+import { SectionHead } from '@/components/ui/SectionHead';
+import { Reveal } from '@/components/ui/Reveal';
+import { Button } from '@/components/ui/Button';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
-const TUCKSHOP_FEATURES = [
-  'Bluetooth Scanner (2D)',
-  'Charging dock',
-  'Setup assistance',
-  '30-min video training',
-  'Quick-start guide',
-];
-
-const RETAIL_FEATURES = [
-  'Premium Scanner',
-  'Receipt Printer (58mm)',
-  'Phone/Tablet Stand',
-  'Full setup & config',
-  '1-hour training',
-  '90-day priority support',
-];
-
-const ENTERPRISE_FEATURES = [
-  '2× Pro Scanners',
-  '2× Receipt Printers',
-  'Tablet + Stand',
-  'Cash Drawer',
-  'On-site installation',
-  'Half-day training',
-  '1-year support',
+const BENEFITS: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'scan', title: '3× faster checkout', body: 'Scan instead of searching. One beep and it is on the receipt.' },
+  { icon: 'check', title: 'Zero pricing errors', body: 'The scanner pulls the right price every time.' },
+  { icon: 'stock', title: 'Stock that stays true', body: 'Every scanned sale updates the count on its own.' },
+  { icon: 'printer', title: 'Print from the browser', body: 'Bluetooth 58mm and 80mm receipt printers pair straight from the app. No driver, no print dialog.' },
 ];
 
 export function Hardware() {
   return (
-    <section id="hardware" className="py-20 px-6 bg-gray-900/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-amber-900/50 border border-amber-700 rounded-full px-4 py-2 mb-6">
-            <span className="text-lg">📦</span>
-            <span className="text-sm text-amber-300">Hardware Bundles</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Speed Up With Barcode Scanners</h2>
-          <p className="text-xl text-gray-400">
-            Professional hardware packages for faster checkout. All prices include VAT.
-          </p>
-        </div>
+    <Section id="hardware" tone="cream">
+      <Page className="py-24 lg:py-32">
+        <SectionHead
+          index="06"
+          label="Hardware"
+          heading="Faster checkout, when you want it."
+          lede="Start with the phone you have. Add a scanner or a receipt printer when the queue says so. Prices include VAT and delivery within Eswatini."
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Free Camera */}
-          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-6">
-            <div className="text-4xl mb-4">📱</div>
-            <h3 className="text-xl font-bold mb-1">Camera Scan</h3>
-            <p className="text-sm text-gray-400 mb-4">Use your phone camera</p>
-            <div className="mb-4">
-              <span className="text-3xl font-bold text-brand-400">FREE</span>
-            </div>
-            <ul className="space-y-2 text-sm mb-6 text-gray-300">
-              <li className="flex items-center gap-2"><span className="text-brand-400">✓</span> Uses phone camera</li>
-              <li className="flex items-center gap-2"><span className="text-brand-400">✓</span> Works immediately</li>
-              <li className="flex items-center gap-2"><span className="text-brand-400">✓</span> EAN, UPC, QR codes</li>
-              <li className="flex items-center gap-2">
-                <span className="text-gray-500">—</span>
-                <span className="text-gray-500">Best for low volume</span>
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="flex flex-col rounded-sharp border border-line bg-cream p-7">
+            <Icon name="scan" className="h-7 w-7 text-brick" />
+            <h3 className="mt-5 font-display text-[20px] font-semibold">Camera scan</h3>
+            <p className="mt-1 text-[14px] text-mute">Use the phone you have</p>
+            <div className="mt-5 font-display text-[34px] font-bold leading-none tracking-tightest text-brand">Free</div>
+            <ul className="mt-5 space-y-2 text-[14px]">
+              {['Uses the phone camera', 'Works immediately', 'EAN, UPC and QR codes'].map((f) => (
+                <li key={f} className="flex items-start gap-2.5">
+                  <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  {f}
+                </li>
+              ))}
+              <li className="flex items-start gap-2.5 text-mute">
+                <span className="mt-0.5 inline-block h-4 w-4 shrink-0 text-center leading-4">–</span>
+                Best for low volume
               </li>
             </ul>
-            <p className="text-xs text-gray-500">Already included with every shop</p>
-          </div>
+            <p className="mt-auto pt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute">Included with every shop</p>
+          </Reveal>
 
-          {/* Tuckshop Essential */}
           <HardwarePack
-            emoji="🏪"
+            icon="store"
             name="Tuckshop Essential"
-            audience="Small shops, 5-50 products"
+            audience="Small shops, 5–50 products"
             priceSzl={649}
-            features={TUCKSHOP_FEATURES}
-            checkColor="brand"
-            buttonText="Order Now"
+            features={['Bluetooth scanner (2D)', 'Charging dock', 'Setup assistance', '30-min video training', 'Quick-start guide']}
             waText="Tuckshop%20Essential"
+            delay={90}
           />
-
-          {/* Retail Pro */}
           <HardwarePack
-            emoji="🛒"
+            icon="till"
             name="Retail Pro"
-            audience="Busy shops, 50-500 products"
+            audience="Busy shops, 50–500 products"
             priceSzl={3499}
             financeSzl={349}
-            features={RETAIL_FEATURES}
-            checkColor="amber"
-            buttonText="Order Now"
+            features={['Premium scanner', 'Receipt printer (58mm)', 'Phone or tablet stand', 'Full setup & config', '1-hour training', '90-day priority support']}
             waText="Retail%20Pro"
             highlighted
+            delay={180}
           />
-
-          {/* Enterprise */}
           <HardwarePack
-            emoji="🏬"
+            icon="supplier"
             name="Enterprise"
-            audience="Supermarkets & chains"
+            audience="Supermarkets and chains"
             priceSzl={10999}
             financeSzl={999}
-            features={ENTERPRISE_FEATURES}
-            checkColor="brand"
-            buttonText="Contact Sales"
+            features={['2× pro scanners', '2× receipt printers', 'Tablet + stand', 'Cash drawer', 'On-site installation', 'Half-day training', '1-year support']}
             waText="Enterprise%20hardware%20package"
+            buttonText="Contact sales"
+            delay={270}
           />
         </div>
 
-        {/* Scanner Benefits */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          <Benefit emoji="⚡" title="3× Faster Checkout" body="Scan instead of searching. One beep and it's done." />
-          <Benefit emoji="🎯" title="Zero Pricing Errors" body="Scanner pulls the correct price every time. No mistakes." />
-          <Benefit emoji="📊" title="Perfect Stock Tracking" body="Every scanned sale updates inventory automatically." />
-        </div>
-
-        <div className="mt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            All hardware packages include delivery within Eswatini • 6-month warranty • WhatsApp support
-          </p>
-        </div>
-      </div>
-    </section>
+        <ul className="mt-12 grid gap-px overflow-hidden rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          {BENEFITS.map((b, i) => (
+            <Reveal as="li" key={b.title} delay={i * 70} className="bg-cream p-6">
+              <Icon name={b.icon} className="h-6 w-6 text-brick" />
+              <h4 className="mt-4 font-display text-[16px] font-semibold">{b.title}</h4>
+              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-mute">{b.body}</p>
+            </Reveal>
+          ))}
+        </ul>
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute">6-month warranty · WhatsApp support · Delivery within Eswatini</p>
+      </Page>
+    </Section>
   );
 }
 
 function HardwarePack({
-  emoji,
+  icon,
   name,
   audience,
   priceSzl,
   financeSzl,
   features,
-  checkColor,
-  buttonText,
   waText,
+  buttonText = 'Order on WhatsApp',
   highlighted,
+  delay,
 }: {
-  emoji: string;
+  icon: IconName;
   name: string;
   audience: string;
   priceSzl: number;
   financeSzl?: number;
   features: string[];
-  checkColor: 'brand' | 'amber';
-  buttonText: string;
   waText: string;
+  buttonText?: string;
   highlighted?: boolean;
+  delay: number;
 }) {
-  const checkClass = checkColor === 'amber' ? 'text-amber-400' : 'text-brand-400';
-  const buttonClass = highlighted
-    ? 'bg-amber-600 hover:bg-amber-500'
-    : checkColor === 'amber'
-    ? 'bg-brand-600 hover:bg-brand-500'
-    : 'border border-gray-600 hover:border-gray-500';
-
   return (
-    <div
-      className={`relative rounded-2xl p-6 ${
-        highlighted
-          ? 'bg-gradient-to-b from-amber-900/30 to-gray-800/50 border-2 border-amber-600'
-          : 'bg-gray-800/50 border border-gray-700'
-      }`}
+    <Reveal
+      delay={delay}
+      className={`relative flex flex-col rounded-sharp border bg-cream p-7 ${highlighted ? 'border-brand ring-1 ring-brand' : 'border-line'}`}
     >
-      {highlighted && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-600 px-3 py-0.5 rounded-full text-xs font-medium">
-          Best Value
-        </div>
-      )}
-      <div className="text-4xl mb-4">{emoji}</div>
-      <h3 className="text-xl font-bold mb-1">{name}</h3>
-      <p className="text-sm text-gray-400 mb-4">{audience}</p>
-      <div className="mb-1">
-        <Price szl={priceSzl} className="text-3xl font-bold" />
-        <span className="text-gray-500 text-sm"> once-off</span>
+      {highlighted ? (
+        <span className="absolute -top-3 left-6 rounded-sharp bg-brand px-2 py-1 font-mono text-[10px] uppercase tracking-eyebrow text-ink">
+          Best value
+        </span>
+      ) : null}
+      <Icon name={icon} className="h-7 w-7 text-brick" />
+      <h3 className="mt-5 font-display text-[20px] font-semibold">{name}</h3>
+      <p className="mt-1 text-[14px] text-mute">{audience}</p>
+      <div className="mt-5 flex items-baseline gap-2">
+        <Price szl={priceSzl} className="font-display text-[34px] font-bold leading-none tracking-tightest" />
+        <span className="font-mono text-[11px] uppercase tracking-eyebrow text-mute">once-off</span>
       </div>
-      {financeSzl !== undefined && (
-        <p className={`text-xs mb-4 ${highlighted ? 'text-amber-400' : 'text-gray-400'}`}>
+      {financeSzl !== undefined ? (
+        <p className="mt-1.5 font-mono text-[11px] uppercase tracking-eyebrow text-brick">
           or <Price szl={financeSzl} />/month × 12
         </p>
-      )}
-      <ul className="space-y-2 text-sm mb-6 text-gray-300 mt-4">
+      ) : null}
+      <ul className="mt-5 space-y-2 text-[14px]">
         {features.map((f) => (
-          <li key={f} className="flex items-center gap-2">
-            <span className={checkClass}>✓</span> {f}
+          <li key={f} className="flex items-start gap-2.5">
+            <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+            {f}
           </li>
         ))}
       </ul>
-      <a
+      <Button
         href={`https://wa.me/26878422613?text=Hi%2C%20I%20want%20the%20${waText}%20package`}
-        className={`block w-full text-center py-2.5 rounded-lg text-sm font-medium transition ${buttonClass}`}
+        variant={highlighted ? 'primary' : 'ghost'}
+        external
+        className="mt-auto pt-3"
       >
         {buttonText}
-      </a>
-    </div>
-  );
-}
-
-function Benefit({ emoji, title, body }: { emoji: string; title: string; body: string }) {
-  return (
-    <div className="bg-gray-800/30 rounded-xl p-6 text-center">
-      <div className="text-3xl mb-3">{emoji}</div>
-      <h4 className="font-bold mb-2">{title}</h4>
-      <p className="text-sm text-gray-400">{body}</p>
-    </div>
+      </Button>
+    </Reveal>
   );
 }

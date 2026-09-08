@@ -8,7 +8,7 @@ const TONE: Record<Tone, string> = {
   cream: 'bg-cream text-ink',
   sand: 'bg-sand text-ink',
   ink: 'on-ink bg-ink text-cream',
-  brand: 'bg-brand text-ink',
+  brand: 'on-brand bg-brand text-ink',
 };
 
 export function Section({

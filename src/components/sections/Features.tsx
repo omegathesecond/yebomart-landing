@@ -6,10 +6,10 @@ import { Icon } from '@/components/ui/Icon';
 
 export function Features() {
   return (
-    <Section id="features" tone="cream">
+    <Section id="features" tone="sand">
       <Page className="py-24 lg:py-32">
         <SectionHead
-          index="02"
+          index="03"
           label="What you get"
           heading="The till, the stock book, the cash-up and the staff log. One app."
           lede="One database under all of it, so a sale rung up on the till is already in the stock count, the cash-up, tonight's report and the audit log. No re-typing, no second book."

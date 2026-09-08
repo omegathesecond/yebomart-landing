@@ -7,11 +7,11 @@ import { AssistantDemo } from './AssistantDemo';
 
 export function Assistant() {
   return (
-    <Section tone="sand" className="overflow-hidden">
+    <Section id="assistant" tone="cream" className="overflow-hidden">
       <Page className="grid gap-12 py-24 lg:grid-cols-12 lg:items-center lg:py-32">
         <div className="lg:col-span-5">
           <SectionHead
-            index="03"
+            index="02"
             label="New · Your assistant"
             heading="Ask your shop a question."
             lede="Your assistant reads today's sales, the stock on hand and your margins, then answers in plain words: what's not selling, what to restock, how the week is going. It advises. You decide."

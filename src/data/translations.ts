@@ -5,6 +5,7 @@ export type TranslationKey =
   | 'nav.pricing'
   | 'nav.hardware'
   | 'nav.how'
+  | 'nav.assistant'
   | 'nav.openApp'
   | 'hero.cta'
   | 'hero.eyebrow'
@@ -32,6 +33,7 @@ export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
     'nav.pricing': 'Pricing',
     'nav.hardware': 'Hardware',
     'nav.how': 'How it works',
+    'nav.assistant': 'Assistant',
     'nav.openApp': 'Open the app',
     'hero.cta': 'Set up your shop',
     'hero.eyebrow': 'For shop owners who can\'t stand at the till all day',
@@ -57,6 +59,7 @@ export const TRANSLATIONS: Record<'en' | 'fr', Bundle> = {
     'nav.pricing': 'Tarifs',
     'nav.hardware': 'Matériel',
     'nav.how': 'Comment ça marche',
+    'nav.assistant': 'Assistant',
     'nav.openApp': "Ouvrir l'app",
     'hero.cta': 'Créer ma boutique',
     'hero.eyebrow': 'Pour les commerçants qui ne peuvent pas rester à la caisse toute la journée',

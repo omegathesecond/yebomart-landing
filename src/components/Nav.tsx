@@ -9,6 +9,7 @@ import { Icon } from './ui/Icon';
 
 const LINKS: { href: string; key: TranslationKey }[] = [
   { href: '#how', key: 'nav.how' },
+  { href: '#assistant', key: 'nav.assistant' },
   { href: '#features', key: 'nav.features' },
   { href: '#pricing', key: 'nav.pricing' },
   { href: '#hardware', key: 'nav.hardware' },

@@ -5,8 +5,8 @@ import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/sections/Hero';
 import { ProofStrip } from '@/components/sections/ProofStrip';
 import { HowItWorks } from '@/components/sections/HowItWorks';
-import { Features } from '@/components/sections/Features';
 import { Assistant } from '@/components/sections/Assistant';
+import { Features } from '@/components/sections/Features';
 import { Messages } from '@/components/sections/Messages';
 import { Pricing } from '@/components/sections/Pricing';
 import { Hardware } from '@/components/sections/Hardware';
@@ -24,8 +24,8 @@ function Home() {
         <Hero />
         <ProofStrip />
         <HowItWorks />
-        <Features />
         <Assistant />
+        <Features />
         <Messages />
         <Pricing />
         <Hardware />

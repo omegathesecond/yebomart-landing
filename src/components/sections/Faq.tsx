@@ -20,7 +20,7 @@ export function Faq() {
     <Section tone="sand">
       <Page className="grid gap-10 py-24 lg:grid-cols-12 lg:py-32">
         <div className="lg:col-span-4">
-          <SectionHead index="07" label="Questions" heading="Straight answers." lede="If yours isn't here, WhatsApp us. A person replies." />
+          <SectionHead index="07" label="Questions" heading="Straight answers, before you commit anything." lede="If yours isn't here, WhatsApp us. A person replies." />
         </div>
         <Reveal className="lg:col-span-8" self={false}>
           <div className="divide-y divide-line border-y border-line">

@@ -12,9 +12,9 @@ export function Assistant() {
         <div className="lg:col-span-5">
           <SectionHead
             index="03"
-            label="Your assistant"
+            label="New · Your assistant"
             heading="Ask your shop a question."
-            lede="Your assistant reads your sales, stock and margins every time you ask, and answers in plain language. It advises. You decide."
+            lede="Your assistant reads today's sales, the stock on hand and your margins, then answers in plain words: what's not selling, what to restock, how the week is going. It advises. You decide."
           />
           <ul className="mt-8 space-y-3">
             {ASSISTANT_FACTS.map((f, i) => (

@@ -37,9 +37,9 @@ export function Pricing() {
 
         <Reveal className="mt-14 grid gap-8 rounded-sharp border border-line bg-cream p-7 lg:grid-cols-[minmax(0,300px)_1fr] lg:p-10">
           <div>
-            <Eyebrow>Free, forever</Eyebrow>
-            <h3 className="mt-3 font-display text-[26px] font-bold leading-tight tracking-tightest">Everything a shop runs on.</h3>
-            <p className="lede mt-3 text-[15px] leading-[1.6]">No subscription, no tiers, no trial that ends.</p>
+            <Eyebrow>No monthly fee</Eyebrow>
+            <h3 className="mt-3 font-display text-[26px] font-bold leading-tight tracking-tightest">Everything a shop runs on, free.</h3>
+            <p className="lede mt-3 text-[15px] leading-[1.6]">No subscription, no tiers, no trial that ends, no card to enter.</p>
           </div>
           <ul className="grid gap-x-6 gap-y-2.5 text-[14.5px] sm:grid-cols-2 lg:grid-cols-3">
             {FREE_FEATURES.map((f) => (

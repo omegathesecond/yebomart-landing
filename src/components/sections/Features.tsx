@@ -10,9 +10,9 @@ export function Features() {
       <Page className="py-24 lg:py-32">
         <SectionHead
           index="02"
-          label="Everything a shop needs"
-          heading="The whole back office, in the same app as the till."
-          lede="Every screen below is free. They share one database, so a sale on the till is already in stock, in reports, and in the audit log."
+          label="What you get"
+          heading="The till, the stock book, the cash-up and the staff log. One app."
+          lede="One database under all of it, so a sale rung up on the till is already in the stock count, the cash-up, tonight's report and the audit log. No re-typing, no second book."
         />
         <ul className="mt-14 grid gap-px overflow-hidden rounded-sharp border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
           {FEATURES.map((f, i) => (

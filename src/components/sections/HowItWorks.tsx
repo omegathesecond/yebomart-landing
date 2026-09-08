@@ -15,7 +15,7 @@ export function HowItWorks() {
           index="01"
           label="How it works"
           heading="One sale sets everything else in motion."
-          lede="You ring up a sale. YeboMart does the rest: stock drops, the till total updates, the day's report writes itself, and your assistant reads it all."
+          lede="A cashier rings up a sale on their PIN. YeboMart does the rest: the stock count drops, the till total updates, tonight's report writes itself, and your assistant reads all of it."
         />
 
         <div className="mt-14">

@@ -16,10 +16,10 @@ export const PHONE_LABEL = '+268 7842 2613';
 export const APP_URL = 'https://app.yebomart.com';
 
 export const PROOF: { value: string; label: string; body: string }[] = [
-  { value: 'E0/mo', label: 'Free core', body: 'The till, stock, staff and reports are free. Forever.' },
-  { value: 'Offline', label: 'Keeps selling', body: 'Sales save on the phone and sync when the signal returns. Never counted twice.' },
-  { value: '22', label: 'Countries', body: 'Prices in your currency, from Eswatini to Kenya to Nigeria.' },
-  { value: '0', label: 'Extra hardware', body: 'Your phone camera is the barcode scanner.' },
+  { value: '“The cash doesn’t match.”', label: 'Cash-up', body: 'Open the till with a float, close it with the count. The variance is on screen before the drawer is locked, and every sale carries the cashier’s name.' },
+  { value: '“I can’t leave the shop.”', label: 'Your phone', body: 'Watch sales as they happen from anywhere. At closing time the day’s numbers land on your WhatsApp.' },
+  { value: '“Out of bread again.”', label: 'Stock', body: 'Counts drop with every sale. You get a warning before you run out, and a reorder list built from what actually sells.' },
+  { value: '“The signal’s gone.”', label: 'Offline', body: 'Sales keep saving on the phone and sync when the network returns. Never counted twice.' },
 ];
 
 export const LOOP: { n: string; title: string; body: string }[] = [
@@ -43,16 +43,16 @@ export const UNDER_HOOD: { icon: IconName; title: string; body: string }[] = [
 ];
 
 export const FEATURES: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'till', title: 'POS & mobile till', body: 'A full-screen till built for one thumb. Scan, tap, charge.' },
-  { icon: 'stock', title: 'Stock & reorder', body: "Live counts, movements, receive stock, and a reorder list built from what's actually selling." },
-  { icon: 'cash', title: 'Cash-up & Z-report', body: 'Float in, cash counted out, variance and Z-report in one tap.' },
-  { icon: 'staff', title: 'Staff & PINs', body: 'Cashiers and managers with their own PINs and per-person sales reports.' },
-  { icon: 'returns', title: 'Returns & exchanges', body: 'Refund or swap an item. Stock and takings correct themselves.' },
-  { icon: 'supplier', title: 'Suppliers & purchase orders', body: 'Raise a PO, receive against it, record payments, see what you owe.' },
-  { icon: 'credit', title: 'Customer credit book', body: 'Who owes what, and a statement you can send by WhatsApp.' },
-  { icon: 'expense', title: 'Expenses', body: 'Rent, airtime, transport. So profit means profit.' },
-  { icon: 'audit', title: 'Audit log', body: 'Who did what, when. Voids, edits, adjustments.' },
-  { icon: 'tax', title: 'VAT & tax', body: 'Set your rate once. Receipts and reports respect it.' },
+  { icon: 'cash', title: 'Cash-up & Z-report', body: 'Float in, cash counted out. The variance and the Z-report are on screen before you lock the drawer.' },
+  { icon: 'staff', title: 'Staff PINs', body: 'Every cashier has a PIN. Every sale, void and refund carries their name, with a sales report per person.' },
+  { icon: 'stock', title: 'Stock & reorder', body: 'Live counts, movements and receiving. A reorder list builds itself from what sells, and a WhatsApp warns you when something runs low.' },
+  { icon: 'credit', title: 'Customer credit book', body: 'Who owes what, since when. Send a statement by WhatsApp in one tap instead of chasing.' },
+  { icon: 'till', title: 'POS & mobile till', body: 'A full-screen till for one thumb. Scan with the camera, tap, take cash or card, print or SMS the receipt.' },
+  { icon: 'returns', title: 'Returns & exchanges', body: 'Refund or swap in seconds. Stock and takings correct themselves.' },
+  { icon: 'supplier', title: 'Suppliers & purchase orders', body: 'Raise a PO, receive against it, record what you paid and see what you still owe.' },
+  { icon: 'expense', title: 'Expenses', body: 'Rent, airtime, transport. So profit means profit, not just sales.' },
+  { icon: 'audit', title: 'Audit log', body: 'Who changed a price, voided a sale or adjusted a count. And when.' },
+  { icon: 'tax', title: 'VAT & tax', body: 'Set your rate once. Receipts and reports carry it.' },
 ];
 
 export const ASSISTANT_QA: { q: string; a: string }[] = [
@@ -97,9 +97,10 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
 
 export const FAQ: { q: string; a: string }[] = [
   { q: 'Does it work without internet?', a: 'Yes. Sales save on the phone and sync the moment the signal returns. Each sale carries its own ID, so the server refuses duplicates and nothing is counted twice.' },
-  { q: 'What does it cost?', a: 'The till, stock, staff, suppliers, customers and reports are free. You only pay for things that cost us money: 1 credit is E1. An assistant question is half a credit, an SMS is 1, a WhatsApp message is 2. Credits never expire.' },
+  { q: 'How does it stop money going missing?', a: 'Every cashier rings up on their own PIN, so every sale, void and refund has a name on it. At closing you count the drawer and the variance shows immediately. The audit log keeps every price change and stock adjustment.' },
+  { q: 'What does it cost?', a: 'There is no monthly fee. The till, stock, staff, suppliers, credit book and reports are free. You only pay for things that cost us money: 1 credit is E1. An assistant question is half a credit, an SMS is 1, a WhatsApp message is 2. Credits never expire.' },
   { q: 'Do I need a computer or a special till?', a: 'No. Any phone or tablet with a browser is the till. Your camera scans barcodes. If you want speed, add a Bluetooth scanner or a receipt printer later.' },
   { q: 'Can I run more than one shop?', a: 'Today each YeboID owner runs one shop. Multi-shop is being built. If you need it now, tell us on WhatsApp and we will put you on the list.' },
-  { q: 'How do my staff log in?', a: 'You sign in with YeboID on your phone number. Each cashier or manager gets a PIN on the shop\'s device, so every sale and every void has a name on it.' },
-  { q: 'Which languages?', a: 'The app runs in English and French. Reports and receipts use your currency and your VAT rate.' },
+  { q: 'How do my staff log in?', a: 'You sign in with YeboID on your phone number. Each cashier or manager gets a PIN on the shop’s device, so every sale and every void has a name on it.' },
+  { q: 'Which languages?', a: 'The app runs in English and French, with prices in your currency across 22 African countries.' },
 ];

@@ -15,7 +15,7 @@ export function Messages() {
             index="04"
             label="Messages"
             heading="The numbers come to you."
-            lede="At closing time the day's report lands on your WhatsApp: sales, cash against card, profit, top five. Low-stock warnings in the morning. Receipts to customers by SMS. Statements to the people who owe you. WhatsApp first, SMS when WhatsApp can't deliver."
+            lede="At closing time the day's report lands on your WhatsApp: sales, cash against card, profit, top five. Low-stock warnings in the morning. Receipts and statements to your customers. It all goes by WhatsApp, which costs you less and arrives where people actually read it."
           />
           <dl className="mt-9 grid gap-x-8 gap-y-6 sm:grid-cols-2">
             {MESSAGES.map((m, i) => (

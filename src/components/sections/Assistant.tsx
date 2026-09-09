@@ -32,7 +32,7 @@ export function Assistant() {
               ))}
             </ul>
             <p className="mt-8 font-mono text-[11px] uppercase tracking-eyebrow text-mute">
-              Half a credit a question · Nothing to switch on
+              One credit a question · Nothing to switch on
             </p>
           </div>
           <Reveal className="min-w-0 lg:col-span-7" delay={150}>

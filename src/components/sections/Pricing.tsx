@@ -21,10 +21,10 @@ const FREE_FEATURES = [
 ];
 
 const USAGE: { icon: IconName; title: string; cost: string; body: string }[] = [
-  { icon: 'spark', title: 'Assistant (Flash)', cost: '0.5 credits', body: "Per question to your shop's assistant." },
-  { icon: 'chat', title: 'Assistant (Pro)', cost: '1 credit', body: 'Heavier reasoning for harder questions.' },
-  { icon: 'sms', title: 'SMS / WhatsApp', cost: '1–2 credits', body: '1 per SMS, 2 per WhatsApp. Reports, receipts, alerts.' },
+  { icon: 'spark', title: 'Assistant question', cost: '1 credit', body: 'Anything you ask, typed or spoken. Background insights are half.' },
+  { icon: 'chat', title: 'WhatsApp', cost: '3 credits', body: 'Daily report, low-stock alert, receipt or statement to a customer.' },
   { icon: 'mail', title: 'Email', cost: '1 credit', body: 'Per emailed report.' },
+  { icon: 'sms', title: 'SMS', cost: '20 credits', body: 'Only if you ask for it. A text costs us eight times a WhatsApp, and we pass that through rather than hide it.' },
 ];
 
 export function Pricing() {

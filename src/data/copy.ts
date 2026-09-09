@@ -118,10 +118,10 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
     why: 'Only sends when something is at or below its reorder level.',
   },
   {
-    kind: 'SMS receipt',
+    kind: 'Receipt',
     time: '14:32',
     text: `Receipt A1042 · E66.50 · ${SHOP} · Thank you.`,
-    why: 'One tap at the till. The customer has it before they leave.',
+    why: 'One tap at the till. The customer has it before they leave the counter.',
   },
   {
     kind: 'Statement',
@@ -134,7 +134,7 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
 export const FAQ: { q: string; a: string }[] = [
   { q: 'Does it work without internet?', a: 'Yes. Sales save on the phone and sync the moment the signal returns. Each sale carries its own ID, so the server refuses duplicates and nothing is counted twice.' },
   { q: 'How does it stop money going missing?', a: 'Every cashier rings up on their own PIN, so every sale, void and refund has a name on it. At closing you count the drawer and the variance shows immediately. The audit log keeps every price change and stock adjustment.' },
-  { q: 'What does it cost?', a: 'There is no monthly fee. The till, stock, staff, suppliers, credit book and reports are free. You only pay for things that cost us money: 1 credit is E1. An assistant question is half a credit, an SMS is 1, a WhatsApp message is 2. Credits never expire.' },
+  { q: 'What does it cost?', a: 'There is no monthly fee. The till, stock, staff, suppliers, credit book and reports are free. You only pay for things that cost us money: 1 credit is E1. An assistant question is 1 credit, a WhatsApp message is 3, an email is 1. SMS is 20, because one text genuinely costs us about eight times a WhatsApp and we would rather show you that than bury it. Credits never expire.' },
   { q: 'Do I need a computer or a special till?', a: 'No. Any phone or tablet with a browser is the till. Your camera scans barcodes. If you want speed, add a Bluetooth scanner or a receipt printer later.' },
   { q: 'Can I run more than one shop?', a: 'Today each YeboID owner runs one shop. Multi-shop is being built. If you need it now, tell us on WhatsApp and we will put you on the list.' },
   { q: 'How do my staff log in?', a: 'You sign in with YeboID on your phone number. Each cashier or manager gets a PIN on the shop’s device, so every sale and every void has a name on it.' },

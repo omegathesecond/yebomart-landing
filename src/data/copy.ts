@@ -15,6 +15,59 @@ export const PHONE_HREF = 'tel:+26878422613';
 export const PHONE_LABEL = '+268 7842 2613';
 export const APP_URL = 'https://app.yebomart.com';
 
+/**
+ * The three plans. These MIRROR `yebomart-api/src/config/plans.ts`, which is
+ * the authority — the API raises the invoice, so its price is the one a shop
+ * actually pays. Change both together.
+ */
+export const TIERS: {
+  code: 'TILL' | 'SHOP' | 'BUSY';
+  name: string;
+  priceSzl: number;
+  tagline: string;
+  features: string[];
+  highlighted?: boolean;
+}[] = [
+  {
+    code: 'TILL',
+    name: 'Till',
+    priceSzl: 0,
+    tagline: 'Everything in the app, free forever.',
+    features: [
+      'POS, stock, staff PINs and cash-up',
+      'Suppliers, purchase orders and the credit book',
+      'Returns, expenses, reports and the audit log',
+      'Works offline, on any phone',
+      '20 assistant questions a month',
+    ],
+  },
+  {
+    code: 'SHOP',
+    name: 'Shop',
+    priceSzl: 199,
+    tagline: "The day's numbers on your WhatsApp, every evening.",
+    features: [
+      'Everything in Till',
+      'Daily WhatsApp report at closing time',
+      'Low-stock alerts before you run out',
+      'Unlimited assistant questions',
+      '30 WhatsApp messages to your customers',
+    ],
+    highlighted: true,
+  },
+  {
+    code: 'BUSY',
+    name: 'Busy',
+    priceSzl: 499,
+    tagline: 'For shops with a queue and staff on shift.',
+    features: [
+      'Everything in Shop',
+      '150 WhatsApp messages to your customers',
+      'Priority WhatsApp support',
+    ],
+  },
+];
+
 export const PROOF: { value: string; label: string; body: string }[] = [
   { value: '“The cash doesn’t match.”', label: 'Cash-up', body: 'Open the till with a float, close it with the count. The variance is on screen before the drawer is locked, and every sale carries the cashier’s name.' },
   { value: '“I can’t leave the shop.”', label: 'Your phone', body: 'Watch sales as they happen from anywhere. At closing time the day’s numbers land on your WhatsApp.' },
@@ -134,7 +187,8 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
 export const FAQ: { q: string; a: string }[] = [
   { q: 'Does it work without internet?', a: 'Yes. Sales save on the phone and sync the moment the signal returns. Each sale carries its own ID, so the server refuses duplicates and nothing is counted twice.' },
   { q: 'How does it stop money going missing?', a: 'Every cashier rings up on their own PIN, so every sale, void and refund has a name on it. At closing you count the drawer and the variance shows immediately. The audit log keeps every price change and stock adjustment.' },
-  { q: 'What does it cost?', a: 'There is no monthly fee. The till, stock, staff, suppliers, credit book and reports are free. You only pay for things that cost us money: 1 credit is E1. An assistant question is 1 credit, a WhatsApp message is 3, an email is 1. SMS is 20, because one text genuinely costs us about eight times a WhatsApp and we would rather show you that than bury it. Credits never expire.' },
+  { q: 'What does it cost?', a: 'The till, stock, staff, suppliers, credit book and reports are free forever on Till. Shop is E199 a month and adds the daily WhatsApp report, low-stock alerts and unlimited assistant questions; Busy is E499 for higher volume. Anything past your plan runs on credits, where 1 credit is E1: an assistant question is 1, a WhatsApp is 3, an email is 1, and an SMS is 20 because one text really does cost us about eight times a WhatsApp. Credits never expire.' },
+  { q: 'How do I pay for a plan?', a: 'We email you an invoice each month with a payment link, so you can pay by card, mobile money or whatever suits you. Your plan starts the moment it is paid. There is no card to store and nothing renews behind your back.' },
   { q: 'Do I need a computer or a special till?', a: 'No. Any phone or tablet with a browser is the till. Your camera scans barcodes. If you want speed, add a Bluetooth scanner or a receipt printer later.' },
   { q: 'Can I run more than one shop?', a: 'Today each YeboID owner runs one shop. Multi-shop is being built. If you need it now, tell us on WhatsApp and we will put you on the list.' },
   { q: 'How do my staff log in?', a: 'You sign in with YeboID on your phone number. Each cashier or manager gets a PIN on the shop’s device, so every sale and every void has a name on it.' },

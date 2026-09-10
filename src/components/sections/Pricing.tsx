@@ -1,6 +1,6 @@
 import { Price } from '@/components/Price';
 import { useLocale } from '@/hooks/useLocale';
-import { APP_URL } from '@/data/copy';
+import { APP_URL, TIERS } from '@/data/copy';
 import { Page, Section } from '@/components/ui/Section';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -8,17 +8,6 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
 import { Icon, type IconName } from '@/components/ui/Icon';
 
-const FREE_FEATURES = [
-  'Unlimited products & categories',
-  'Unlimited sales & transactions',
-  'Stock management & movements',
-  'Unlimited staff accounts',
-  'Daily, weekly, monthly reports',
-  'Barcode scanning (phone camera)',
-  'Returns, refunds & suppliers',
-  'Customer credit book',
-  'Offline-first, installable app',
-];
 
 const USAGE: { icon: IconName; title: string; cost: string; body: string }[] = [
   { icon: 'spark', title: 'Assistant question', cost: '1 credit', body: 'Anything you ask, typed or spoken. Background insights are half.' },
@@ -35,27 +24,64 @@ export function Pricing() {
       <Page className="py-24 lg:py-32">
         <SectionHead index="05" label="Pricing" heading={t('pricing.title')} lede={t('pricing.subtitle')} />
 
-        <Reveal className="mt-14 grid gap-8 rounded-sharp border border-line bg-cream p-7 lg:grid-cols-[minmax(0,300px)_1fr] lg:p-10">
-          <div>
-            <Eyebrow>No monthly fee</Eyebrow>
-            <h3 className="mt-3 font-display text-[26px] font-bold leading-tight tracking-tightest">Everything a shop runs on, free.</h3>
-            <p className="lede mt-3 text-[15px] leading-[1.6]">No subscription, no tiers, no trial that ends, no card to enter.</p>
-          </div>
-          <ul className="grid gap-x-6 gap-y-2.5 text-[14.5px] sm:grid-cols-2 lg:grid-cols-3">
-            {FREE_FEATURES.map((f) => (
-              <li key={f} className="flex items-start gap-2.5">
-                <Icon name="check" className="mt-1 h-4 w-4 shrink-0 text-brand" />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        {/* The plans, first: this is what most shops actually buy. */}
+        <div className="mt-14 grid gap-4 lg:grid-cols-3">
+          {TIERS.map((tier, i) => (
+            <Reveal
+              key={tier.code}
+              delay={i * 90}
+              className={`relative flex flex-col rounded-sharp border bg-cream p-7 ${
+                tier.highlighted ? 'border-brand ring-1 ring-brand' : 'border-line'
+              }`}
+            >
+              {tier.highlighted ? (
+                <span className="absolute -top-3 left-6 rounded-sharp bg-brand px-2 py-1 font-mono text-[10px] uppercase tracking-eyebrow text-ink">
+                  Most shops
+                </span>
+              ) : null}
+              <h3 className="font-display text-[22px] font-semibold">{tier.name}</h3>
+              <p className="mt-1 text-[14px] leading-[1.5] text-mute">{tier.tagline}</p>
+              <div className="mt-5 flex items-baseline gap-1.5">
+                {tier.priceSzl === 0 ? (
+                  <span className="font-display text-[38px] font-bold leading-none tracking-tightest">Free</span>
+                ) : (
+                  <>
+                    <Price szl={tier.priceSzl} className="font-display text-[38px] font-bold leading-none tracking-tightest" />
+                    <span className="font-mono text-[11px] uppercase tracking-eyebrow text-mute">/month</span>
+                  </>
+                )}
+              </div>
+              <ul className="mt-6 space-y-2.5 text-[14.5px]">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                href={APP_URL}
+                variant={tier.highlighted ? 'primary' : 'ghost'}
+                className="mt-7"
+              >
+                {tier.priceSzl === 0 ? 'Start free' : `Get ${tier.name}`}
+              </Button>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute">
+          Billed by invoice · Pay by card or mobile money · Cancel any time · No card stored
+        </p>
 
         <div className="mt-16">
           <Reveal>
-            <Eyebrow>You only pay for these</Eyebrow>
-            <p className="lede mt-3 max-w-[60ch] text-[15px] leading-[1.6]">
-              These are the only actions that cost YeboMart real money, so we pass the cost through as credits. 1 credit ={' '}
+            <Eyebrow>Beyond your plan</Eyebrow>
+            <h3 className="mt-3 font-display text-[26px] font-bold leading-tight tracking-tightest">
+              Nothing stops working when an allowance runs out.
+            </h3>
+            <p className="lede mt-3 max-w-[62ch] text-[15px] leading-[1.6]">
+              Anything past your plan runs on credits, and so does everything on the free Till plan. These are the only
+              actions that cost YeboMart real money, so we pass that cost through rather than bury it. 1 credit ={' '}
               <Price szl={1} className="text-ink" />.
             </p>
           </Reveal>

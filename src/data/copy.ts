@@ -15,59 +15,6 @@ export const PHONE_HREF = 'tel:+26878422613';
 export const PHONE_LABEL = '+268 7842 2613';
 export const APP_URL = 'https://app.yebomart.com';
 
-/**
- * The three plans. These MIRROR `yebomart-api/src/config/plans.ts`, which is
- * the authority — the API raises the invoice, so its price is the one a shop
- * actually pays. Change both together.
- */
-export const TIERS: {
-  code: 'TILL' | 'SHOP' | 'BUSY';
-  name: string;
-  priceSzl: number;
-  tagline: string;
-  features: string[];
-  highlighted?: boolean;
-}[] = [
-  {
-    code: 'TILL',
-    name: 'Till',
-    priceSzl: 0,
-    tagline: 'Everything in the app, free forever.',
-    features: [
-      'POS, stock, staff PINs and cash-up',
-      'Suppliers, purchase orders and the credit book',
-      'Returns, expenses, reports and the audit log',
-      'Works offline, on any phone',
-      '20 assistant questions a month',
-    ],
-  },
-  {
-    code: 'SHOP',
-    name: 'Shop',
-    priceSzl: 199,
-    tagline: "The day's numbers on your WhatsApp, every evening.",
-    features: [
-      'Everything in Till',
-      'Daily WhatsApp report at closing time',
-      'Low-stock alerts before you run out',
-      'Unlimited assistant questions',
-      '30 WhatsApp messages to your customers',
-    ],
-    highlighted: true,
-  },
-  {
-    code: 'BUSY',
-    name: 'Busy',
-    priceSzl: 499,
-    tagline: 'For shops with a queue and staff on shift.',
-    features: [
-      'Everything in Shop',
-      '150 WhatsApp messages to your customers',
-      'Priority WhatsApp support',
-    ],
-  },
-];
-
 export const PROOF: { value: string; label: string; body: string }[] = [
   { value: '“The cash doesn’t match.”', label: 'Cash-up', body: 'Open the till with a float, close it with the count. The variance is on screen before the drawer is locked, and every sale carries the cashier’s name.' },
   { value: '“I can’t leave the shop.”', label: 'Your phone', body: 'Watch sales as they happen from anywhere. At closing time the day’s numbers land on your WhatsApp.' },

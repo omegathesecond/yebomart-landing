@@ -1,6 +1,7 @@
 import { Price } from '@/components/Price';
 import { useLocale } from '@/hooks/useLocale';
-import { APP_URL, TIERS } from '@/data/copy';
+import { APP_URL, WHATSAPP } from '@/data/copy';
+import { usePlans } from '@/hooks/usePlans';
 import { Page, Section } from '@/components/ui/Section';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -18,57 +19,89 @@ const USAGE: { icon: IconName; title: string; cost: string; body: string }[] = [
 
 export function Pricing() {
   const { t } = useLocale();
+  const { plans, loading: plansLoading, error: plansError, retry: retryPlans } = usePlans();
 
   return (
     <Section id="pricing" tone="sand">
       <Page className="py-24 lg:py-32">
         <SectionHead index="05" label="Pricing" heading={t('pricing.title')} lede={t('pricing.subtitle')} />
 
-        {/* The plans, first: this is what most shops actually buy. */}
-        <div className="mt-14 grid gap-4 lg:grid-cols-3">
-          {TIERS.map((tier, i) => (
-            <Reveal
-              key={tier.code}
-              delay={i * 90}
-              className={`relative flex flex-col rounded-sharp border bg-cream p-7 ${
-                tier.highlighted ? 'border-brand ring-1 ring-brand' : 'border-line'
-              }`}
-            >
-              {tier.highlighted ? (
-                <span className="absolute -top-3 left-6 rounded-sharp bg-brand px-2 py-1 font-mono text-[10px] uppercase tracking-eyebrow text-ink">
-                  Most shops
-                </span>
-              ) : null}
-              <h3 className="font-display text-[22px] font-semibold">{tier.name}</h3>
-              <p className="mt-1 text-[14px] leading-[1.5] text-mute">{tier.tagline}</p>
-              <div className="mt-5 flex items-baseline gap-1.5">
-                {tier.priceSzl === 0 ? (
-                  <span className="font-display text-[38px] font-bold leading-none tracking-tightest">Free</span>
-                ) : (
-                  <>
-                    <Price szl={tier.priceSzl} className="font-display text-[38px] font-bold leading-none tracking-tightest" />
-                    <span className="font-mono text-[11px] uppercase tracking-eyebrow text-mute">/month</span>
-                  </>
-                )}
-              </div>
-              <ul className="mt-6 space-y-2.5 text-[14.5px]">
-                {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                href={APP_URL}
-                variant={tier.highlighted ? 'primary' : 'ghost'}
-                className="mt-7"
+        {/* The plans, first: this is what most shops actually buy. Read live
+            from the API that bills them, so the page cannot quote a price we
+            no longer charge. */}
+        {plansLoading ? (
+          <div className="mt-14 grid gap-4 lg:grid-cols-3" aria-busy="true" aria-label="Loading plans">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-[420px] animate-pulse rounded-sharp border border-line bg-sand/60" />
+            ))}
+          </div>
+        ) : plansError || !plans ? (
+          <div className="mt-14 rounded-sharp border border-line bg-cream p-8 text-center">
+            <Icon name="offline" className="mx-auto h-7 w-7 text-brick" />
+            <h3 className="mt-4 font-display text-[20px] font-semibold">We can't show prices right now.</h3>
+            <p className="lede mx-auto mt-2 max-w-[46ch] text-[15px] leading-[1.6]">
+              Rather than risk quoting you a price we might not honour, here is nothing at all. Try again in a moment,
+              or ask us on WhatsApp and a person will tell you.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <button
+                onClick={retryPlans}
+                className="inline-flex items-center justify-center gap-2 rounded-sharp bg-brand px-5 py-3 font-display text-[15px] font-medium text-ink transition-colors duration-200 hover:bg-ink hover:text-cream"
               >
-                {tier.priceSzl === 0 ? 'Start free' : `Get ${tier.name}`}
+                Try again
+              </button>
+              <Button href={WHATSAPP} variant="ghost" external>
+                <Icon name="whatsapp" className="h-4 w-4" />
+                Ask on WhatsApp
               </Button>
-            </Reveal>
-          ))}
-        </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-14 grid gap-4 lg:grid-cols-3">
+            {plans.map((tier, i) => {
+              const highlighted = tier.code === 'SHOP';
+              const free = tier.price_szl === 0;
+              return (
+                <Reveal
+                  key={tier.code}
+                  delay={i * 90}
+                  className={`relative flex flex-col rounded-sharp border bg-cream p-7 ${
+                    highlighted ? 'border-brand ring-1 ring-brand' : 'border-line'
+                  }`}
+                >
+                  {highlighted ? (
+                    <span className="absolute -top-3 left-6 rounded-sharp bg-brand px-2 py-1 font-mono text-[10px] uppercase tracking-eyebrow text-ink">
+                      Most shops
+                    </span>
+                  ) : null}
+                  <h3 className="font-display text-[22px] font-semibold">{tier.name}</h3>
+                  <p className="mt-1 text-[14px] leading-[1.5] text-mute">{tier.tagline}</p>
+                  <div className="mt-5 flex items-baseline gap-1.5">
+                    {free ? (
+                      <span className="font-display text-[38px] font-bold leading-none tracking-tightest">Free</span>
+                    ) : (
+                      <>
+                        <Price szl={tier.price_szl} className="font-display text-[38px] font-bold leading-none tracking-tightest" />
+                        <span className="font-mono text-[11px] uppercase tracking-eyebrow text-mute">/month</span>
+                      </>
+                    )}
+                  </div>
+                  <ul className="mt-6 space-y-2.5 text-[14.5px]">
+                    {tier.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button href={APP_URL} variant={highlighted ? 'primary' : 'ghost'} className="mt-7">
+                    {free ? 'Start free' : `Get ${tier.name}`}
+                  </Button>
+                </Reveal>
+              );
+            })}
+          </div>
+        )}
         <p className="mt-6 font-mono text-[11px] uppercase tracking-eyebrow text-mute">
           Billed by invoice · Pay by card or mobile money · Cancel any time · No card stored
         </p>

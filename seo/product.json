@@ -1,0 +1,351 @@
+{
+  "id": "yebomart",
+  "name": "YeboMart",
+  "canonical_host": "yebomart.com",
+  "audience": "Shop owners, managers and cashiers.",
+  "cta": {
+    "label": "Open your shop",
+    "url": "https://app.yebomart.com"
+  },
+  "sources": [
+    {
+      "path": "companies/yebomart/landing/src/data/copy.ts",
+      "lines": [
+        16,
+        19,
+        28,
+        36,
+        41,
+        46,
+        47,
+        48,
+        50
+      ],
+      "supports": [
+        "POS & mobile",
+        "Stock & reorder",
+        "Cash-up",
+        "Staff PINs",
+        "APP_URL"
+      ],
+      "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
+      "reviewed_current_lines": [
+        16,
+        19,
+        28,
+        36,
+        41,
+        46,
+        47,
+        48,
+        50
+      ]
+    },
+    {
+      "path": "companies/yebomart/api/src/services/sale.service.ts",
+      "lines": [
+        56
+      ],
+      "supports": [
+        "export"
+      ]
+    },
+    {
+      "path": "companies/yebomart/api/src/services/stock.service.ts",
+      "lines": [
+        38
+      ],
+      "supports": [
+        "export"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "slug": "point-of-sale",
+      "title": "Mobile point of sale | YeboMart",
+      "description": "Use YeboMart\u2019s mobile till to sell items and keep sales, stock and receipts together.",
+      "headline": "Ring up the sale. Let the stock count follow.",
+      "intro": "Scan a product or tap it on the till. Check the basket, take the payment and give the customer a receipt.\n\nThe sale sits alongside your shop\u2019s stock and daily figures, so you do not have to copy the same transaction into another stock book.",
+      "paragraphs": [
+        "Scan a product or tap it on the till. Check the basket, take the payment and give the customer a receipt.",
+        "The sale sits alongside your shop\u2019s stock and daily figures, so you do not have to copy the same transaction into another stock book."
+      ],
+      "audience": "Shop owners, managers and cashiers.",
+      "benefits": [
+        {
+          "title": "Sell from the till",
+          "body": "Find the items, check quantities and see the total before finishing the sale."
+        },
+        {
+          "title": "Know who served the customer",
+          "body": "Use the cashier\u2019s access so the sale and any later changes have a staff name attached."
+        },
+        {
+          "title": "Keep the receipt handy",
+          "body": "Find the sale again when a customer asks a question or the owner needs to check it."
+        }
+      ],
+      "steps": [
+        "Choose or scan the items.",
+        "Check the basket and total.",
+        "Take the payment.",
+        "Finish the sale and give the receipt."
+      ],
+      "limitations": "Payment methods and receipt options depend on the shop\u2019s setup.",
+      "example": "A cashier sells several items, checks the total once and completes the sale. The shop can follow that same sale in its stock and takings.",
+      "cta": {
+        "label": "Open your shop",
+        "url": "https://app.yebomart.com"
+      },
+      "sources": [
+        {
+          "path": "companies/yebomart/landing/src/data/copy.ts",
+          "lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ],
+          "supports": [
+            "POS & mobile",
+            "Stock & reorder",
+            "Cash-up",
+            "Staff PINs",
+            "APP_URL"
+          ],
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
+          "reviewed_current_lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/sale.service.ts",
+          "lines": [
+            56
+          ],
+          "supports": [
+            "export"
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/stock.service.ts",
+          "lines": [
+            38
+          ],
+          "supports": [
+            "export"
+          ]
+        }
+      ],
+      "availability": "Available features depend on your account and setup.",
+      "path": "/features/point-of-sale",
+      "word_count": 188
+    },
+    {
+      "slug": "inventory-management",
+      "title": "Stock management | YeboMart",
+      "description": "Follow stock quantities, sales and new deliveries in YeboMart.",
+      "headline": "See what is left before the shelf is empty.",
+      "intro": "Know what is in the shop, what sold and what just arrived. YeboMart keeps stock work beside the till, so the count is connected to the day\u2019s sales.\n\nWhen a delivery arrives, enter what you actually received. Check low-stock and reorder information before deciding what to buy next.",
+      "paragraphs": [
+        "Know what is in the shop, what sold and what just arrived. YeboMart keeps stock work beside the till, so the count is connected to the day\u2019s sales.",
+        "When a delivery arrives, enter what you actually received. Check low-stock and reorder information before deciding what to buy next."
+      ],
+      "audience": "Shop owners, managers and cashiers.",
+      "benefits": [
+        {
+          "title": "Follow the count",
+          "body": "See the stock on hand and the changes behind it, rather than relying only on the last physical count."
+        },
+        {
+          "title": "Receive a delivery",
+          "body": "Check the products and quantities as they arrive. Enter the amount supplied, even if it differs from the order."
+        },
+        {
+          "title": "Plan the next order",
+          "body": "Use the shop\u2019s stock and sales information to see what needs attention before making another purchase."
+        }
+      ],
+      "steps": [
+        "Set up the products.",
+        "Enter stock received.",
+        "Follow sales and stock changes.",
+        "Check what needs restocking."
+      ],
+      "limitations": "Stock figures depend on accurate receiving and adjustments. Check the shelf when a quantity looks wrong.",
+      "example": "If fewer cartons arrive than expected, enter the amount received. The shop\u2019s next stock decision should use that figure, not the original order quantity.",
+      "cta": {
+        "label": "See your stock",
+        "url": "https://app.yebomart.com"
+      },
+      "sources": [
+        {
+          "path": "companies/yebomart/landing/src/data/copy.ts",
+          "lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ],
+          "supports": [
+            "POS & mobile",
+            "Stock & reorder",
+            "Cash-up",
+            "Staff PINs",
+            "APP_URL"
+          ],
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
+          "reviewed_current_lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/sale.service.ts",
+          "lines": [
+            56
+          ],
+          "supports": [
+            "export"
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/stock.service.ts",
+          "lines": [
+            38
+          ],
+          "supports": [
+            "export"
+          ]
+        }
+      ],
+      "availability": "Available features depend on your account and setup.",
+      "path": "/features/inventory-management",
+      "word_count": 190
+    },
+    {
+      "slug": "cash-up",
+      "title": "Cash-up and cashier reports | YeboMart",
+      "description": "Compare opening float, cash sales and the closing count in YeboMart.",
+      "headline": "Count the drawer. See the difference.",
+      "intro": "Start the till with the money in the drawer. At closing, count the cash and compare it with what YeboMart expects.\n\nIf the numbers differ, look through the day\u2019s sales and changes. Staff names and the audit log help you find the entries worth checking.",
+      "paragraphs": [
+        "Start the till with the money in the drawer. At closing, count the cash and compare it with what YeboMart expects.",
+        "If the numbers differ, look through the day\u2019s sales and changes. Staff names and the audit log help you find the entries worth checking."
+      ],
+      "audience": "Shop owners, managers and cashiers.",
+      "benefits": [
+        {
+          "title": "Start with the float",
+          "body": "Enter the actual opening cash so the closing comparison has the right starting point."
+        },
+        {
+          "title": "Keep staff names on the work",
+          "body": "Cashiers use their own access for sales, voids and refunds."
+        },
+        {
+          "title": "Check the difference",
+          "body": "See the variance when you close. Look at the relevant transactions before deciding what caused it."
+        }
+      ],
+      "steps": [
+        "Open the till with its float.",
+        "Record the day\u2019s sales.",
+        "Count the closing cash.",
+        "Check the difference and its entries."
+      ],
+      "limitations": "A difference in the drawer needs investigation. It does not prove theft or who caused it.",
+      "example": "At closing, the manager counts the drawer and sees a difference. They can check sales and refunds before deciding what needs correcting.",
+      "cta": {
+        "label": "Close your till",
+        "url": "https://app.yebomart.com"
+      },
+      "sources": [
+        {
+          "path": "companies/yebomart/landing/src/data/copy.ts",
+          "lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ],
+          "supports": [
+            "POS & mobile",
+            "Stock & reorder",
+            "Cash-up",
+            "Staff PINs",
+            "APP_URL"
+          ],
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
+          "reviewed_current_lines": [
+            16,
+            19,
+            28,
+            36,
+            41,
+            46,
+            47,
+            48,
+            50
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/sale.service.ts",
+          "lines": [
+            56
+          ],
+          "supports": [
+            "export"
+          ]
+        },
+        {
+          "path": "companies/yebomart/api/src/services/stock.service.ts",
+          "lines": [
+            38
+          ],
+          "supports": [
+            "export"
+          ]
+        }
+      ],
+      "availability": "Available features depend on your account and setup.",
+      "path": "/features/cash-up",
+      "word_count": 179
+    }
+  ],
+  "availability": "Available features depend on your account and setup.",
+  "theme": {
+    "accent": "#167b5a"
+  }
+}

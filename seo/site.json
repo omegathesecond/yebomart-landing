@@ -1,0 +1,11 @@
+{
+  "host": "yebomart.com",
+  "render": "yebomart",
+  "public": [
+    "/",
+    "/privacy",
+    "/terms"
+  ],
+  "client": [],
+  "accent": "#167b5a"
+}

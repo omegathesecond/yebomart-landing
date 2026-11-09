@@ -47,19 +47,19 @@ function ScrollToTop() {
   return null;
 }
 
-export function App() {
+export function App({ router: Router = BrowserRouter }: { router?: React.ComponentType<{ children?: React.ReactNode }> } = {}) {
   const locale = useLocaleState();
 
   return (
     <LocaleContext.Provider value={locale}>
-      <BrowserRouter>
+      <Router>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </LocaleContext.Provider>
   );
 }

@@ -5,8 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "tsc -b && vite build && vite build --ssr seo/entry.tsx --outDir dist-seo && npm run seo:build",
+    "preview": "vite preview",
+    "build:before-seo": "tsc -b && vite build",
+    "seo:build": "node node_modules/@omevision/static-seo/site.mjs",
+    "postbuild": "node analytics/build.mjs",
+    "seo:prepare": "node node_modules/@omevision/static-seo/site.mjs --prepare",
+    "prebuild": "npm run seo:prepare"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -21,6 +26,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "@omevision/static-seo": "file:vendor/omevision-static-seo-0.3.0.tgz"
   }
 }

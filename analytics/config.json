@@ -1,0 +1,16 @@
+{
+  "measurementId": "G-VZVW6RTZ4R",
+  "product": "yebomart",
+  "surface": "landing",
+  "hosts": [
+    "yebomart-landing.pages.dev",
+    "www.yebomart.com",
+    "yebomart.com"
+  ],
+  "routes": [
+    "/",
+    "/privacy",
+    "/terms"
+  ],
+  "output": "dist"
+}

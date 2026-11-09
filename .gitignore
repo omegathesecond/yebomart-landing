@@ -16,3 +16,8 @@ dist-ssr
 .env.local
 .env.*.local
 *.tsbuildinfo
+
+seo/public-product.json
+dist-seo/
+
+.wrangler/

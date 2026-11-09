@@ -2,7 +2,7 @@
   "id": "yebomart",
   "name": "YeboMart",
   "canonical_host": "yebomart.com",
-  "audience": "Shop owners and retail teams managing the till, stock and daily close.",
+  "audience": "Shop owners, managers and cashiers.",
   "cta": {
     "label": "Open your shop",
     "url": "https://app.yebomart.com"
@@ -28,7 +28,7 @@
         "Staff PINs",
         "APP_URL"
       ],
-      "reviewed_current_path": "/Users/lasliegeorgesjr/Documents/ChatGPT/YeboPay/seo-release-20261109/repos/yebomart/src/data/copy.ts",
+      "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
       "reviewed_current_lines": [
         16,
         19,
@@ -63,37 +63,37 @@
   "features": [
     {
       "slug": "point-of-sale",
-      "title": "Mobile point of sale for shops | YeboMart",
-      "description": "Ring up shop sales with a mobile till and keep the transaction linked to stock and business records.",
-      "headline": "Keep the sale connected to the rest of your shop.",
-      "intro": "At the counter, the next action should be obvious: select the items, check the total and record the sale. YeboMart gives shop staff a mobile point-of-sale workflow built around that routine.\n\nThe till sits alongside the shop\u2019s stock and operating records. Use one sale record for the transaction instead of rewriting the same sale into a separate stock book and end-of-day tally.",
+      "title": "Mobile point of sale | YeboMart",
+      "description": "Use YeboMart\u2019s mobile till to sell items and keep sales, stock and receipts together.",
+      "headline": "Ring up the sale. Let the stock count follow.",
+      "intro": "Scan a product or tap it on the till. Check the basket, take the payment and give the customer a receipt.\n\nThe sale sits alongside your shop\u2019s stock and daily figures, so you do not have to copy the same transaction into another stock book.",
       "paragraphs": [
-        "At the counter, the next action should be obvious: select the items, check the total and record the sale. YeboMart gives shop staff a mobile point-of-sale workflow built around that routine.",
-        "The till sits alongside the shop\u2019s stock and operating records. Use one sale record for the transaction instead of rewriting the same sale into a separate stock book and end-of-day tally."
+        "Scan a product or tap it on the till. Check the basket, take the payment and give the customer a receipt.",
+        "The sale sits alongside your shop\u2019s stock and daily figures, so you do not have to copy the same transaction into another stock book."
       ],
-      "audience": "Shop owners and retail teams managing the till, stock and daily close.",
+      "audience": "Shop owners, managers and cashiers.",
       "benefits": [
         {
-          "title": "A practical till",
-          "body": "Find the product by scanning or selecting it, then review the basket. Check the quantity and price before completing the transaction."
+          "title": "Sell from the till",
+          "body": "Find the items, check quantities and see the total before finishing the sale."
         },
         {
-          "title": "A sale with a staff record",
-          "body": "Use the configured cashier access so the business can identify the person responsible for the transaction and later adjustments."
+          "title": "Know who served the customer",
+          "body": "Use the cashier\u2019s access so the sale and any later changes have a staff name attached."
         },
         {
-          "title": "The receipt and next step",
-          "body": "Complete the sale through the available payment and receipt workflow. Keep the record available when the customer or owner has a question."
+          "title": "Keep the receipt handy",
+          "body": "Find the sale again when a customer asks a question or the owner needs to check it."
         }
       ],
       "steps": [
-        "Set up the shop\u2019s products.",
-        "Open the till with the appropriate access.",
-        "Select items and check the basket.",
-        "Record the sale and issue its receipt."
+        "Choose or scan the items.",
+        "Check the basket and total.",
+        "Take the payment.",
+        "Finish the sale and give the receipt."
       ],
-      "limitations": "Available payment methods, receipt options and offline behaviour depend on the configured device and services. Do not treat an unsynchronised record as confirmed server processing.",
-      "example": "A cashier selling several everyday items can check the basket once, record the transaction and let the connected stock and sales records reflect that sale.",
+      "limitations": "Payment methods and receipt options depend on the shop\u2019s setup.",
+      "example": "A cashier sells several items, checks the total once and completes the sale. The shop can follow that same sale in its stock and takings.",
       "cta": {
         "label": "Open your shop",
         "url": "https://app.yebomart.com"
@@ -119,7 +119,7 @@
             "Staff PINs",
             "APP_URL"
           ],
-          "reviewed_current_path": "/Users/lasliegeorgesjr/Documents/ChatGPT/YeboPay/seo-release-20261109/repos/yebomart/src/data/copy.ts",
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
           "reviewed_current_lines": [
             16,
             19,
@@ -151,45 +151,45 @@
           ]
         }
       ],
-      "availability": "implemented; production availability must be checked by release owner",
+      "availability": "Available features depend on your account and setup.",
       "path": "/features/point-of-sale",
-      "word_count": 249
+      "word_count": 188
     },
     {
       "slug": "inventory-management",
-      "title": "Inventory and stock receiving | YeboMart",
-      "description": "Keep stock quantities, receiving and movements alongside shop sales in YeboMart.",
-      "headline": "Know what changed in the stock count.",
-      "intro": "An empty shelf is easier to investigate when the stock count has a history. YeboMart connects inventory with the transactions and receiving work that change it.\n\nUse the stock record to review what is on hand, what arrived and what moved. Keep product setup and physical counts accurate so the information is useful when deciding what needs attention or another order.",
+      "title": "Stock management | YeboMart",
+      "description": "Follow stock quantities, sales and new deliveries in YeboMart.",
+      "headline": "See what is left before the shelf is empty.",
+      "intro": "Know what is in the shop, what sold and what just arrived. YeboMart keeps stock work beside the till, so the count is connected to the day\u2019s sales.\n\nWhen a delivery arrives, enter what you actually received. Check low-stock and reorder information before deciding what to buy next.",
       "paragraphs": [
-        "An empty shelf is easier to investigate when the stock count has a history. YeboMart connects inventory with the transactions and receiving work that change it.",
-        "Use the stock record to review what is on hand, what arrived and what moved. Keep product setup and physical counts accurate so the information is useful when deciding what needs attention or another order."
+        "Know what is in the shop, what sold and what just arrived. YeboMart keeps stock work beside the till, so the count is connected to the day\u2019s sales.",
+        "When a delivery arrives, enter what you actually received. Check low-stock and reorder information before deciding what to buy next."
       ],
-      "audience": "Shop owners and retail teams managing the till, stock and daily close.",
+      "audience": "Shop owners, managers and cashiers.",
       "benefits": [
         {
-          "title": "Follow movements",
-          "body": "Review the changes behind a quantity rather than treating the latest number as the whole story. Sales and stock work should remain connected."
+          "title": "Follow the count",
+          "body": "See the stock on hand and the changes behind it, rather than relying only on the last physical count."
         },
         {
-          "title": "Record incoming goods",
-          "body": "Receive stock through the intended workflow when a delivery arrives. Check the products and quantities against what was actually supplied."
+          "title": "Receive a delivery",
+          "body": "Check the products and quantities as they arrive. Enter the amount supplied, even if it differs from the order."
         },
         {
           "title": "Plan the next order",
-          "body": "Use the available low-stock and reorder information to decide what to investigate. Check supplier and stock details before taking further action."
+          "body": "Use the shop\u2019s stock and sales information to see what needs attention before making another purchase."
         }
       ],
       "steps": [
-        "Set up product records.",
-        "Record stock received.",
-        "Follow sales and other movements.",
-        "Review quantities and replenishment needs."
+        "Set up the products.",
+        "Enter stock received.",
+        "Follow sales and stock changes.",
+        "Check what needs restocking."
       ],
-      "limitations": "Inventory depends on complete receiving and adjustment records. Reorder information supports a purchasing decision; it is not proof that a supplier order was placed.",
-      "example": "When a delivery arrives, record the quantity actually received rather than the quantity expected. Review the resulting count before returning the product to regular sale.",
+      "limitations": "Stock figures depend on accurate receiving and adjustments. Check the shelf when a quantity looks wrong.",
+      "example": "If fewer cartons arrive than expected, enter the amount received. The shop\u2019s next stock decision should use that figure, not the original order quantity.",
       "cta": {
-        "label": "Open your shop",
+        "label": "See your stock",
         "url": "https://app.yebomart.com"
       },
       "sources": [
@@ -213,7 +213,7 @@
             "Staff PINs",
             "APP_URL"
           ],
-          "reviewed_current_path": "/Users/lasliegeorgesjr/Documents/ChatGPT/YeboPay/seo-release-20261109/repos/yebomart/src/data/copy.ts",
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
           "reviewed_current_lines": [
             16,
             19,
@@ -245,45 +245,45 @@
           ]
         }
       ],
-      "availability": "implemented; production availability must be checked by release owner",
+      "availability": "Available features depend on your account and setup.",
       "path": "/features/inventory-management",
-      "word_count": 224
+      "word_count": 190
     },
     {
       "slug": "cash-up",
-      "title": "Cash-up and cashier accountability | YeboMart",
-      "description": "Review opening float, recorded takings and counted cash when closing a YeboMart cash session.",
-      "headline": "Close the till with a count you can compare.",
-      "intro": "A busy day does not explain the difference between the drawer and the expected cash. YeboMart provides a cash-up workflow that connects the opening float, recorded activity and closing count.\n\nUse staff access and the audit record to follow who made a sale or adjustment. A variance is a starting point for checking the day\u2019s records, not a conclusion about why the figures differ.",
+      "title": "Cash-up and cashier reports | YeboMart",
+      "description": "Compare opening float, cash sales and the closing count in YeboMart.",
+      "headline": "Count the drawer. See the difference.",
+      "intro": "Start the till with the money in the drawer. At closing, count the cash and compare it with what YeboMart expects.\n\nIf the numbers differ, look through the day\u2019s sales and changes. Staff names and the audit log help you find the entries worth checking.",
       "paragraphs": [
-        "A busy day does not explain the difference between the drawer and the expected cash. YeboMart provides a cash-up workflow that connects the opening float, recorded activity and closing count.",
-        "Use staff access and the audit record to follow who made a sale or adjustment. A variance is a starting point for checking the day\u2019s records, not a conclusion about why the figures differ."
+        "Start the till with the money in the drawer. At closing, count the cash and compare it with what YeboMart expects.",
+        "If the numbers differ, look through the day\u2019s sales and changes. Staff names and the audit log help you find the entries worth checking."
       ],
-      "audience": "Shop owners and retail teams managing the till, stock and daily close.",
+      "audience": "Shop owners, managers and cashiers.",
       "benefits": [
         {
-          "title": "Open with the actual float",
-          "body": "Record the money put into the till at the start. A reliable opening amount gives the closing comparison a defined starting point."
+          "title": "Start with the float",
+          "body": "Enter the actual opening cash so the closing comparison has the right starting point."
         },
         {
-          "title": "Keep staff activity attributable",
-          "body": "Use the cashier\u2019s configured access for sales, voids and refunds. Review the records when an amount needs explaining."
+          "title": "Keep staff names on the work",
+          "body": "Cashiers use their own access for sales, voids and refunds."
         },
         {
-          "title": "Compare before closing",
-          "body": "Count the cash and inspect the difference from the expected amount. Follow the available report and audit detail before deciding what needs correction."
+          "title": "Check the difference",
+          "body": "See the variance when you close. Look at the relevant transactions before deciding what caused it."
         }
       ],
       "steps": [
-        "Open the cash session.",
-        "Record sales under the right staff access.",
+        "Open the till with its float.",
+        "Record the day\u2019s sales.",
         "Count the closing cash.",
-        "Review variance and the day\u2019s record."
+        "Check the difference and its entries."
       ],
-      "limitations": "Cash-up reports depend on accurate entries. A variance does not itself establish theft, loss or a particular person\u2019s responsibility.",
-      "example": "At close, the manager counts the drawer and compares it with the recorded cash position. Any difference can then be checked against the relevant transactions and adjustments.",
+      "limitations": "A difference in the drawer needs investigation. It does not prove theft or who caused it.",
+      "example": "At closing, the manager counts the drawer and sees a difference. They can check sales and refunds before deciding what needs correcting.",
       "cta": {
-        "label": "Open your shop",
+        "label": "Close your till",
         "url": "https://app.yebomart.com"
       },
       "sources": [
@@ -307,7 +307,7 @@
             "Staff PINs",
             "APP_URL"
           ],
-          "reviewed_current_path": "/Users/lasliegeorgesjr/Documents/ChatGPT/YeboPay/seo-release-20261109/repos/yebomart/src/data/copy.ts",
+          "reviewed_current_path": "reviewed-checkouts/yebomart/src/data/copy.ts",
           "reviewed_current_lines": [
             16,
             19,
@@ -339,12 +339,12 @@
           ]
         }
       ],
-      "availability": "implemented; production availability must be checked by release owner",
+      "availability": "Available features depend on your account and setup.",
       "path": "/features/cash-up",
-      "word_count": 235
+      "word_count": 179
     }
   ],
-  "availability": "implemented; production availability must be checked by release owner",
+  "availability": "Available features depend on your account and setup.",
   "theme": {
     "accent": "#167b5a"
   }

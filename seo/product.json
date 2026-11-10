@@ -182,7 +182,23 @@
       ],
       "availability": "Available features depend on your account and setup.",
       "path": "/features/point-of-sale",
-      "word_count": 162
+      "word_count": 162,
+      "video": {
+        "catalogId": "ma_ed25efaa5ed947e4854068d109bdc28b",
+        "id": "yebomart-howto-v2",
+        "title": "An easy way to run your shop.",
+        "url": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.mp4",
+        "poster": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.jpg",
+        "duration": 30.733333,
+        "width": 1920,
+        "height": 1080,
+        "transcript": "Are you running a shop? YeboMart puts your till and stock together. Tap or scan the items, check the total and finish the sale. An easy POS for your shop.\n\nSmart stock tracking helps you see what is left. Enter new goods as they arrive. Switch on WhatsApp updates to know what is running low.\n\nAt closing, count and enter the cash. Check any difference against the day\u2019s sales. Open YeboMart for an easy way to run your shop.",
+        "captions": "/_marketing/guides/yebomart-howto-v2.vtt",
+        "uploadedAt": "2026-11-10T12:33:29.019Z",
+        "captionsDefault": true,
+        "startAt": 0.0,
+        "endAt": 10.5
+      }
     },
     {
       "slug": "inventory-management",
@@ -206,7 +222,7 @@
         },
         {
           "title": "WhatsApp what is running low",
-          "body": "Turn on daily low-stock updates in shop settings. Messages use your available plan or credit allowance."
+          "body": "Turn on daily low-stock updates in shop settings. Messages use your available plan allowance."
         }
       ],
       "steps": [
@@ -305,7 +321,23 @@
       ],
       "availability": "Available features depend on your account and setup.",
       "path": "/features/inventory-management",
-      "word_count": 176
+      "word_count": 176,
+      "video": {
+        "catalogId": "ma_ed25efaa5ed947e4854068d109bdc28b",
+        "id": "yebomart-howto-v2",
+        "title": "An easy way to run your shop.",
+        "url": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.mp4",
+        "poster": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.jpg",
+        "duration": 30.733333,
+        "width": 1920,
+        "height": 1080,
+        "transcript": "Are you running a shop? YeboMart puts your till and stock together. Tap or scan the items, check the total and finish the sale. An easy POS for your shop.\n\nSmart stock tracking helps you see what is left. Enter new goods as they arrive. Switch on WhatsApp updates to know what is running low.\n\nAt closing, count and enter the cash. Check any difference against the day\u2019s sales. Open YeboMart for an easy way to run your shop.",
+        "captions": "/_marketing/guides/yebomart-howto-v2.vtt",
+        "uploadedAt": "2026-11-10T12:33:29.019Z",
+        "captionsDefault": true,
+        "startAt": 10.5,
+        "endAt": 19.166666666666668
+      }
     },
     {
       "slug": "cash-up",
@@ -399,7 +431,23 @@
       ],
       "availability": "Available features depend on your account and setup.",
       "path": "/features/cash-up",
-      "word_count": 164
+      "word_count": 164,
+      "video": {
+        "catalogId": "ma_ed25efaa5ed947e4854068d109bdc28b",
+        "id": "yebomart-howto-v2",
+        "title": "An easy way to run your shop.",
+        "url": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.mp4",
+        "poster": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.jpg",
+        "duration": 30.733333,
+        "width": 1920,
+        "height": 1080,
+        "transcript": "Are you running a shop? YeboMart puts your till and stock together. Tap or scan the items, check the total and finish the sale. An easy POS for your shop.\n\nSmart stock tracking helps you see what is left. Enter new goods as they arrive. Switch on WhatsApp updates to know what is running low.\n\nAt closing, count and enter the cash. Check any difference against the day\u2019s sales. Open YeboMart for an easy way to run your shop.",
+        "captions": "/_marketing/guides/yebomart-howto-v2.vtt",
+        "uploadedAt": "2026-11-10T12:33:29.019Z",
+        "captionsDefault": true,
+        "startAt": 19.166666666666668,
+        "endAt": 30.733333333333334
+      }
     }
   ],
   "availability": "Available features depend on your account and setup.",
@@ -418,5 +466,19 @@
       "label": "Open your shop",
       "url": "https://app.yebomart.com"
     }
+  },
+  "video": {
+    "catalogId": "ma_ed25efaa5ed947e4854068d109bdc28b",
+    "id": "yebomart-howto-v2",
+    "title": "An easy way to run your shop.",
+    "url": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.mp4",
+    "poster": "https://api.omevision.com/api/media/marketing-videos/yebomart/yebomart-howto-v2-af34256be436/yebomart-howto-v2.jpg",
+    "duration": 30.733333,
+    "width": 1920,
+    "height": 1080,
+    "transcript": "Are you running a shop? YeboMart puts your till and stock together. Tap or scan the items, check the total and finish the sale. An easy POS for your shop.\n\nSmart stock tracking helps you see what is left. Enter new goods as they arrive. Switch on WhatsApp updates to know what is running low.\n\nAt closing, count and enter the cash. Check any difference against the day\u2019s sales. Open YeboMart for an easy way to run your shop.",
+    "captions": "/_marketing/guides/yebomart-howto-v2.vtt",
+    "uploadedAt": "2026-11-10T12:33:29.019Z",
+    "captionsDefault": true
   }
 }

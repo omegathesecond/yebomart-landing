@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/Button';
 import { Icon, type IconName } from '@/components/ui/Icon';
 
 const BENEFITS: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'scan', title: '3× faster checkout', body: 'Scan instead of searching. One beep and it is on the receipt.' },
-  { icon: 'check', title: 'Zero pricing errors', body: 'The scanner pulls the right price every time.' },
+  { icon: 'scan', title: 'Scan items at the till', body: 'Scan the barcode to add the item to the sale.' },
+  { icon: 'check', title: 'See the saved price', body: 'Check the price in the basket before finishing the sale.' },
   { icon: 'stock', title: 'Stock that stays true', body: 'Every scanned sale updates the count on its own.' },
-  { icon: 'printer', title: 'Print from the browser', body: 'Bluetooth 58mm and 80mm receipt printers pair straight from the app. No driver, no print dialog.' },
+  { icon: 'printer', title: 'Print your receipts', body: 'Use a supported receipt printer. Check compatibility when ordering.' },
 ];
 
 export function Hardware() {

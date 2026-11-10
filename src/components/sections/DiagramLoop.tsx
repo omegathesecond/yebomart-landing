@@ -93,8 +93,7 @@ export function DiagramLoop() {
         </div>
       </Reveal>
       <figcaption className="mt-4 max-w-[70ch] font-mono text-[11px] leading-relaxed text-mist">
-        Fig. 01 — Every station reads the same database, so a sale on the till is already in stock, in the cash-up, in
-        tonight's report, and in what your assistant knows.
+        A sale updates the till and stock together. Use the records when you check the cash and daily figures.
       </figcaption>
     </figure>
   );

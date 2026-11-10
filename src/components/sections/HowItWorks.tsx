@@ -15,7 +15,7 @@ export function HowItWorks() {
           index="01"
           label="How it works"
           heading="One sale sets everything else in motion."
-          lede="A cashier rings up a sale on their PIN. YeboMart does the rest: the stock count drops, the till total updates, tonight's report writes itself, and your assistant reads all of it."
+          lede="Make a sale, see what is left in stock and compare the cash total when you close."
         />
 
         <div className="mt-14">
@@ -26,7 +26,7 @@ export function HowItWorks() {
           <Reveal>
             <Eyebrow>Start in three steps</Eyebrow>
             <h3 className="mt-4 font-display text-[clamp(24px,3vw,34px)] font-bold leading-[1.1] tracking-tightest">
-              Five minutes from sign-in to your first receipt.
+              Start with your first sale and receipt.
             </h3>
             <p className="lede mt-4 text-[15.5px] leading-[1.6]">
               Nothing to install. Open app.yebomart.com in the browser on the phone you already have.

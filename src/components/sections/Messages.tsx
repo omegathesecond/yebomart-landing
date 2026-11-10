@@ -13,9 +13,9 @@ export function Messages() {
         <div className="order-1 lg:order-2 lg:col-span-7">
           <SectionHead
             index="04"
-            label="Messages"
-            heading="The numbers come to you."
-            lede="At closing time the day's report lands on your WhatsApp: sales, cash against card, profit, top five. Low-stock warnings in the morning. Receipts and statements to your customers. It all goes by WhatsApp, which costs you less and arrives where people actually read it."
+            label="WhatsApp updates"
+            heading="Know what is running low."
+            lede="Turn on daily low-stock updates in your shop settings. YeboMart can send the items that need restocking when your plan allowance covers the message. Daily shop reports are optional too."
           />
           <dl className="mt-9 grid gap-x-8 gap-y-6 sm:grid-cols-2">
             {MESSAGES.map((m, i) => (

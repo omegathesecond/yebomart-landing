@@ -16,42 +16,42 @@ export const PHONE_LABEL = '+268 7842 2613';
 export const APP_URL = 'https://app.yebomart.com';
 
 export const PROOF: { value: string; label: string; body: string }[] = [
-  { value: '“The cash doesn’t match.”', label: 'Cash-up', body: 'Open the till with a float, close it with the count. The variance is on screen before the drawer is locked, and every sale carries the cashier’s name.' },
-  { value: '“I can’t leave the shop.”', label: 'Your phone', body: 'Watch sales as they happen from anywhere. At closing time the day’s numbers land on your WhatsApp.' },
-  { value: '“Out of bread again.”', label: 'Stock', body: 'Counts drop with every sale. You get a warning before you run out, and a reorder list built from what actually sells.' },
-  { value: '“The signal’s gone.”', label: 'Offline', body: 'Sales keep saving on the phone and sync when the network returns. Never counted twice.' },
+  { value: '“Are you running a shop?”', label: 'Easy till', body: 'Tap or scan the items, check the total and finish the sale. Your sales and stock stay together.' },
+  { value: '“What is running low?”', label: 'Smart stock tracking', body: 'See what is left as goods sell. Add new stock when it arrives so the next count starts from what you actually have.' },
+  { value: '“Keep me updated.”', label: 'Optional WhatsApp updates', body: 'Switch on daily low-stock updates to see which items need attention. Messages use your available plan allowance.' },
+  { value: '“Does the cash match?”', label: 'Cash at closing', body: 'Count the money in the drawer and compare it with the day’s sales. Check any difference before you close.' },
 ];
 
 export const LOOP: { n: string; title: string; body: string }[] = [
   { n: '01', title: 'Till', body: 'Cashier rings up the sale' },
-  { n: '02', title: 'Stock', body: "Every item's count drops" },
-  { n: '03', title: 'Cash-up', body: 'Counted cash vs. till total' },
-  { n: '04', title: 'Report', body: 'Day summary lands on WhatsApp' },
-  { n: '05', title: 'Assistant', body: 'Reads it all, advises you' },
+  { n: '02', title: 'Stock', body: 'Follow what is left after sales' },
+  { n: '03', title: 'Cash at closing', body: 'Count the drawer and check the difference' },
+  { n: '04', title: 'WhatsApp', body: 'Turn on shop updates when your allowance covers them' },
+  { n: '05', title: 'Assistant', body: 'Ask a question about your shop' },
 ];
 
 export const STEPS: { n: string; title: string; body: string }[] = [
-  { n: '01', title: 'Sign in with YeboID', body: 'Your phone number, a one-time code and a PIN. No password, no email.' },
-  { n: '02', title: 'Name your shop, scan your stock in', body: 'Pick your country and shop type, then point the camera at each barcode. Cost and selling price go in once.' },
-  { n: '03', title: 'Ring your first sale', body: 'Tap items or scan, take cash or card, print or SMS a receipt. Staff PINs and suppliers can come later.' },
+  { n: '01', title: 'Sign in and name your shop', body: 'Use your YeboID and follow the sign-in steps. Choose the shop details shown in the app.' },
+  { n: '02', title: 'Add your products and stock', body: 'Scan a barcode or enter the product. Check the cost, selling price and amount you have.' },
+  { n: '03', title: 'Make your first sale', body: 'Tap or scan the items, check the total and record the payment. Finish the sale and give the receipt.' },
 ];
 
 export const UNDER_HOOD: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'sync', title: 'Offline outbox', body: "Each sale gets a local ID. When the phone reconnects the queue replays, and the server refuses duplicates, so a flaky signal can't double-sell." },
-  { icon: 'pin', title: 'Staff PINs', body: 'The owner signs in with YeboID. Every cashier gets a PIN on the shop\'s phone, so every sale has a name on it.' },
-  { icon: 'cash', title: 'Cash sessions', body: 'Open the till with a float, close it with the counted cash. The variance shows the moment you close.' },
+  { icon: 'sync', title: 'Keep selling without a signal', body: 'Sales save on the device and sync when it reconnects. Check the sync status before relying on the online totals.' },
+  { icon: 'pin', title: 'Staff PINs', body: 'Give each cashier their own PIN so you can see who made a sale, void or refund.' },
+  { icon: 'cash', title: 'Count the cash at closing', body: 'Enter the opening cash, then count the drawer at closing. Compare it with what the till expects.' },
 ];
 
 export const FEATURES: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'cash', title: 'Cash-up & Z-report', body: 'Float in, cash counted out. The variance and the Z-report are on screen before you lock the drawer.' },
+  { icon: 'cash', title: 'Cash at closing', body: 'Count the drawer and compare it with the expected cash. Check the day’s sales if the figures differ.' },
   { icon: 'staff', title: 'Staff PINs', body: 'Every cashier has a PIN. Every sale, void and refund carries their name, with a sales report per person.' },
-  { icon: 'stock', title: 'Stock & reorder', body: 'Live counts, movements and receiving. A reorder list builds itself from what sells, and a WhatsApp warns you when something runs low.' },
+  { icon: 'stock', title: 'Smart stock tracking', body: 'Follow stock counts and new deliveries. Switch on daily WhatsApp low-stock updates when your plan allowance covers them.' },
   { icon: 'credit', title: 'Customer credit book', body: 'Who owes what, since when. Send a statement by WhatsApp in one tap instead of chasing.' },
-  { icon: 'till', title: 'POS & mobile till', body: 'A full-screen till for one thumb. Scan with the camera, tap, take cash or card, print or SMS the receipt.' },
-  { icon: 'returns', title: 'Returns & exchanges', body: 'Refund or swap in seconds. Stock and takings correct themselves.' },
-  { icon: 'supplier', title: 'Suppliers & purchase orders', body: 'Raise a PO, receive against it, record what you paid and see what you still owe.' },
-  { icon: 'expense', title: 'Expenses', body: 'Rent, airtime, transport. So profit means profit, not just sales.' },
-  { icon: 'audit', title: 'Audit log', body: 'Who changed a price, voided a sale or adjusted a count. And when.' },
+  { icon: 'till', title: 'Easy POS', body: 'Tap or scan items, check the basket and finish the sale. Keep the receipt with the shop’s sales.' },
+  { icon: 'returns', title: 'Returns and exchanges', body: 'Record the return or exchange so the sale and stock stay connected.' },
+  { icon: 'supplier', title: 'Suppliers and orders', body: 'Create an order, enter the goods received and keep track of what you paid or still owe.' },
+  { icon: 'expense', title: 'Shop expenses', body: 'Add rent, airtime and transport so your figures include the money spent running the shop.' },
+  { icon: 'audit', title: 'See who changed what', body: 'Check who changed a price, voided a sale or adjusted a stock count, and when.' },
   { icon: 'tax', title: 'VAT & tax', body: 'Set your rate once. Receipts and reports carry it.' },
 ];
 
@@ -109,19 +109,19 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
     kind: 'Daily report',
     time: '18:00',
     text: `Today at ${SHOP}: E4,250 from 47 sales. Cash E3,890 · Card E360. Net profit E890. Top: Bread, Milk, Airtime, Coke 500ml, Eggs.`,
-    why: 'Total, cash vs card, profit and the top five, at closing time.',
+    why: 'An optional daily shop summary. Turn it on when your plan allowance covers it.',
   },
   {
     kind: 'Low stock',
     time: '07:00',
     text: 'Low stock: White bread (3), Fresh milk (8), Coke 500ml (5).',
-    why: 'Only sends when something is at or below its reorder level.',
+    why: 'Optional daily WhatsApp updates show items at or below their low-stock level. Messages need available allowance.',
   },
   {
     kind: 'Receipt',
     time: '14:32',
     text: `Receipt A1042 · E66.50 · ${SHOP} · Thank you.`,
-    why: 'One tap at the till. The customer has it before they leave the counter.',
+    why: 'Choose to share a receipt from the sale. Check the sending result.',
   },
   {
     kind: 'Statement',
@@ -132,10 +132,11 @@ export const MESSAGES: { kind: string; time: string; text: string; why: string }
 ];
 
 export const FAQ: { q: string; a: string }[] = [
-  { q: 'Does it work without internet?', a: 'Yes. Sales save on the phone and sync the moment the signal returns. Each sale carries its own ID, so the server refuses duplicates and nothing is counted twice.' },
-  { q: 'How does it stop money going missing?', a: 'Every cashier rings up on their own PIN, so every sale, void and refund has a name on it. At closing you count the drawer and the variance shows immediately. The audit log keeps every price change and stock adjustment.' },
-  { q: 'What does it cost?', a: 'The till, stock, staff, suppliers, credit book and reports are free forever on Till. Shop is E199 a month and adds the daily WhatsApp report, low-stock alerts and unlimited assistant questions; Busy is E499 for higher volume. Anything past your plan runs on credits, where 1 credit is E1: an assistant question is 1, a WhatsApp is 3, an email is 1, and an SMS is 20 because one text really does cost us about eight times a WhatsApp. Credits never expire.' },
-  { q: 'How do I pay for a plan?', a: 'We email you an invoice each month with a payment link, so you can pay by card, mobile money or whatever suits you. Your plan starts the moment it is paid. There is no card to store and nothing renews behind your back.' },
+  { q: 'Can WhatsApp tell me what is running low?', a: 'Yes. Switch on low-stock updates in your shop settings and check the receiving phone number. The daily check can send items at or below their low-stock level when your plan or credit allowance covers the message.' },
+  { q: 'Can I sell without internet?', a: 'Sales save on the device and sync when it reconnects. Check the sync status before relying on the online totals.' },
+  { q: 'How do I check the cash?', a: 'Enter the opening cash. At closing, count the drawer and compare it with what the till expects. Each cashier uses their own PIN, so you can check the sales and changes behind a difference.' },
+  { q: 'What does it cost?', a: 'Check the current plans and prices before choosing. WhatsApp updates and assistant use depend on your plan or credit allowance. The app shows the options for your shop.' },
+  { q: 'How do I pay for a plan?', a: 'Choose a plan in the app and follow the invoice and payment steps shown. Check the payment result and the plan shown for your shop.' },
   { q: 'Do I need a computer or a special till?', a: 'No. Any phone or tablet with a browser is the till. Your camera scans barcodes. If you want speed, add a Bluetooth scanner or a receipt printer later.' },
   { q: 'Can I run more than one shop?', a: 'Today each YeboID owner runs one shop. Multi-shop is being built. If you need it now, tell us on WhatsApp and we will put you on the list.' },
   { q: 'How do my staff log in?', a: 'You sign in with YeboID on your phone number. Each cashier or manager gets a PIN on the shop’s device, so every sale and every void has a name on it.' },
